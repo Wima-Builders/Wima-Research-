@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wima Builders Ecosystem — Documents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',system-ui,sans-serif;background:#F7F4EE;color:#1A1A1A;min-height:100vh;}
+.top{background:#1A1A1A;border-bottom:3px solid #E8A020;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#E8A020;letter-spacing:.05em;}
+.brand-sub{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.3);margin-top:2px;}
+.hero{background:#1A1A1A;padding:52px 48px 44px;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#E8A020,#F4B830,transparent);}
+.hero-label{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.3);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.hero-label::before{content:'';width:28px;height:1px;background:#E8A020;}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);line-height:.95;letter-spacing:.02em;color:white;margin-bottom:14px;}
+h1 em{color:#E8A020;font-style:normal;}
+.hero-desc{font-size:14px;font-weight:300;color:rgba(255,255,255,.45);max-width:480px;line-height:1.7;}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.08);margin-top:32px;}
+.stat{padding:14px 18px;border-right:1px solid rgba(255,255,255,.08);}
+.stat:last-child{border-right:none;}
+.sn{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#E8A020;display:block;line-height:1;}
+.sl{font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.28);margin-top:3px;display:block;}
+.docs{padding:40px 48px;}
+.docs-label{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#718096;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.docs-label::after{content:'';flex:1;height:1px;background:#D8D4C4;}
+.doc-card{display:grid;grid-template-columns:6px 1fr auto;margin-bottom:10px;background:white;border:1px solid #D8D4C4;text-decoration:none;color:#1A1A1A;transition:all .15s;overflow:hidden;}
+.doc-card:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.08);border-color:#E8A020;}
+.doc-accent{width:6px;}
+.doc-body{padding:18px 22px;}
+.doc-title{font-size:16px;font-weight:600;color:#1A1A1A;margin-bottom:4px;}
+.doc-desc{font-size:13px;color:#718096;line-height:1.55;margin-bottom:10px;}
+.doc-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.dtag{font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.08em;padding:2px 8px;border-radius:3px;}
+.doc-arrow{display:flex;align-items:center;padding:0 22px;color:#D8D4C4;font-size:20px;transition:all .15s;}
+.doc-card:hover .doc-arrow{color:#E8A020;}
+.doc-version{font-family:'JetBrains Mono',monospace;font-size:9px;color:#A0AEC0;margin-top:6px;}
+.footer{background:#1A1A1A;color:rgba(255,255,255,.25);padding:16px 48px;font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center;border-top:3px solid #E8A020;}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:16px;color:#E8A020;text-transform:none;letter-spacing:.04em;}
+@media(max-width:640px){
+  .top,.hero,.docs{padding-left:20px;padding-right:20px;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .stat{border-bottom:1px solid rgba(255,255,255,.08);}
+  .footer{padding:12px 20px;flex-direction:column;gap:6px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div>
+    <div class="brand">Wima Builders</div>
+    <div class="brand-sub">Ecosystem Intelligence Hub</div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-label">Strategy Documents · June 2026</div>
+  <h1>WIMA<br><em>DEAL HUB.</em></h1>
+  <p class="hero-desc">Complete strategy intelligence for Ghana's construction commerce platform. Four product categories. Three audiences. One WhatsApp pipeline. All documents are free to access — no login required.</p>
+  <div class="stats">
+    <div class="stat"><span class="sn">4</span><span class="sl">Product categories launching</span></div>
+    <div class="stat"><span class="sn">46+</span><span class="sl">Verified suppliers mapped</span></div>
+    <div class="stat"><span class="sn">22</span><span class="sl">Banks & finance partners</span></div>
+    <div class="stat"><span class="sn">GHC 0</span><span class="sl">Hosting cost — GitHub Pages</span></div>
+  </div>
+</div>
+
+<div class="docs">
+  <div class="docs-label">Strategy Documents</div>
+
+  <a class="doc-card" href="wima-master-hub.html">
+    <div class="doc-accent" style="background:#1A4A80;"></div>
+    <div class="doc-body">
+      <div class="doc-title">Wima Builders Ecosystem — Master Intelligence Hub</div>
+      <div class="doc-desc">The complete living reference: ecosystem modules, aquarium division, master craftsmen programme, 46+ verified suppliers, 22 banks and financial products, 4-tier funding strategy, Motito intelligence, 90-day launch plan, social media section, and an offline worksheet that auto-saves in the browser.</div>
+      <div class="doc-tags">
+        <span class="dtag" style="background:#E6F1FB;color:#1A4A80;">12 Sections</span>
+        <span class="dtag" style="background:#EAF3DE;color:#1A6840;">46+ Suppliers</span>
+        <span class="dtag" style="background:#F0ECF9;color:#5A2890;">Offline Worksheet</span>
+        <span class="dtag" style="background:#FBF0D8;color:#7A4A00;">GHC 1,500 Campaign</span>
+      </div>
+      <div class="doc-version">v2.3 · June 2026 · Sections A–L</div>
+    </div>
+    <div class="doc-arrow">→</div>
+  </a>
+
+  <a class="doc-card" href="wima-campaign-brief.html">
+    <div class="doc-accent" style="background:#E8A020;"></div>
+    <div class="doc-body">
+      <div class="doc-title">Social Media Campaign Brief — 4 Categories · GHC 1,500</div>
+      <div class="doc-desc">Complete pre- and post-launch campaign plan for all four Wima Deal Hub categories: Acoustic Ceiling Systems, Drywall & Partition Systems, Exterior Cladding & Cement Board, and Insulation Systems. Includes ad copy, WhatsApp auto-reply scripts, audience targeting, 4-week budget breakdown, creative direction, and step-by-step GitHub Pages hosting guide.</div>
+      <div class="doc-tags">
+        <span class="dtag" style="background:#FBF0D8;color:#7A4A00;">4 Categories</span>
+        <span class="dtag" style="background:#E6F1FB;color:#1A4A80;">GHC 1,500 Budget</span>
+        <span class="dtag" style="background:#EAF3DE;color:#1A6840;">4-Week Plan</span>
+        <span class="dtag" style="background:#F0ECF9;color:#5A2890;">GitHub Guide</span>
+      </div>
+      <div class="doc-version">v1.0 · June 2026 · Updated with all launch categories</div>
+    </div>
+    <div class="doc-arrow">→</div>
+  </a>
+
+  <div class="docs-label" style="margin-top:32px;">Quick Reference</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+    <div style="background:white;border:1px solid #D8D4C4;border-left:4px solid #1A4A80;padding:14px 16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#718096;margin-bottom:6px;">Priority #1 contact</div>
+      <a href="tel:+233302214314" style="font-size:14px;font-weight:600;color:#1A1A1A;text-decoration:none;display:block;margin-bottom:2px;">SG Ghana Happy Home Loan</a>
+      <div style="font-size:12px;color:#718096;margin-bottom:6px;">0% interest · Up to GHS 50,000</div>
+      <a href="tel:+233302214314" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#1A4A80;text-decoration:none;">📞 +233-302-214314</a>
+    </div>
+    <div style="background:white;border:1px solid #D8D4C4;border-left:4px solid #1A6840;padding:14px 16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#718096;margin-bottom:6px;">Priority #2 contact</div>
+      <a href="tel:+233551400099" style="font-size:14px;font-weight:600;color:#1A1A1A;text-decoration:none;display:block;margin-bottom:2px;">Kabinart Ghana</a>
+      <div style="font-size:12px;color:#718096;margin-bottom:6px;">Joseph Mattouk · After dry wall launch</div>
+      <a href="tel:+233551400099" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#1A6840;text-decoration:none;">📞 0551 400 099</a>
+    </div>
+    <div style="background:white;border:1px solid #D8D4C4;border-left:4px solid #E8A020;padding:14px 16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#718096;margin-bottom:6px;">Apply immediately</div>
+      <a href="https://tefconnect.com" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:#1A1A1A;text-decoration:none;display:block;margin-bottom:2px;">TEF 2026 Application</a>
+      <div style="font-size:12px;color:#718096;margin-bottom:6px;">$5,000 seed · No equity given</div>
+      <a href="https://tefconnect.com" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#E8A020;text-decoration:none;">↗ tefconnect.com</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <span class="footer-brand">Wima Builders</span>
+  <span>Ecosystem Intelligence Hub · v2.3 · June 2026 · Hosted free on GitHub Pages</span>
+</div>
+
+</body>
+</html>
