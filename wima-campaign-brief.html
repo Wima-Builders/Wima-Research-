@@ -3,741 +3,2128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wima Deal Hub — Marketing Intelligence Brief 2026</title>
+<title>Wima Deal Hub — Full Campaign Brief 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#111827;--paper:#F7F5F0;--warm:#EDEBE4;--rule:#D6D2C4;
-  --amber:#E8A020;--amber2:#F4C040;--amber-pale:#FBF0D8;
-  --slate:#4B5563;--slate2:#9CA3AF;
-  --navy:#0F2A4A;--teal:#0A6E62;--coral:#C0392B;--green:#16603A;
-  --violet:#4C1D95;--blue:#1E3A8A;--craft:#7A3E0A;
-  --cat1:#1E3A8A;--cat2:#16603A;--cat3:#7A3E0A;--cat4:#4C1D95;
-  --sans:'Inter',system-ui,sans-serif;
-  --display:'Bebas Neue',Impact,sans-serif;
-  --mono:'JetBrains Mono','Courier New',monospace;
+/* ════════════════════════════
+   DESIGN TOKENS
+════════════════════════════ */
+:root {
+  /* Light palette — warm architectural whites */
+  --bg:       #FAFAF7;
+  --surface:  #F5F2EB;
+  --panel:    #EDEAE0;
+  --rule:     #D8D4C8;
+  --muted-bg: #F0EDE6;
+
+  /* Ink */
+  --ink:      #1C1917;
+  --ink2:     #3C3830;
+  --slate:    #334155;
+  --muted:    #78716C;
+  --faint:    #A8A29E;
+
+  /* Amber accent — deeper, more serious */
+  --amber:    #D4860A;
+  --amber2:   #B8720A;
+  --amber-lt: #FEF3E0;
+  --amber-md: #FDE9B8;
+
+  /* Category colours — used as data accents only */
+  --c1: #1E40AF;   /* Acoustic — deep blue */
+  --c2: #166534;   /* Drywall — deep green */
+  --c3: #92400E;   /* Cladding — deep amber-brown */
+  --c4: #5B21B6;   /* Insulation — deep violet */
+
+  /* Semantic */
+  --go:   #14532D;
+  --warn: #92400E;
+  --stop: #7F1D1D;
+  --go-bg:  #DCFCE7;
+  --warn-bg:#FEF3C7;
+  --stop-bg:#FEE2E2;
+
+  /* Type */
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
+  --mono:  'IBM Plex Mono', 'Courier New', monospace;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;}
 
-/* ── NAV ── */
-.nav{position:sticky;top:0;z-index:300;background:var(--ink);border-bottom:3px solid var(--amber);height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
-.nav-brand{font-family:var(--display);font-size:20px;color:var(--amber);letter-spacing:.05em;}
-.nav-links{display:flex;gap:2px;align-items:center;}
-.nav-links a{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);padding:5px 10px;text-decoration:none;border-radius:4px;transition:all .12s;white-space:nowrap;}
-.nav-links a:hover,.nav-links a.active{color:var(--amber2);background:rgba(232,160,32,.12);}
-.nav-dl{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;background:var(--amber);color:var(--ink);padding:6px 14px;border-radius:4px;text-decoration:none;font-weight:700;transition:all .12s;margin-left:8px;}
-.nav-dl:hover{background:var(--amber2);transform:translateY(-1px);}
-
-/* ── HERO ── */
-.hero{background:var(--navy);color:white;padding:64px 56px 52px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:48px 48px;}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--amber2),rgba(244,192,64,.2));}
-.hero-tag{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.3);margin-bottom:20px;display:flex;align-items:center;gap:14px;position:relative;}
-.hero-tag::before{content:'';width:32px;height:1px;background:var(--amber);}
-.hero-title{font-family:var(--display);font-size:clamp(52px,8vw,96px);line-height:.9;letter-spacing:.02em;margin-bottom:16px;position:relative;}
-.hero-title .hl{color:var(--amber);}
-.hero-sub{font-size:15px;font-weight:300;font-style:italic;color:rgba(255,255,255,.45);max-width:560px;line-height:1.75;margin-bottom:12px;position:relative;}
-.hero-sub strong{font-style:normal;color:rgba(255,255,255,.7);font-weight:500;}
-.hero-meta{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.1em;position:relative;margin-bottom:36px;}
-.hero-kpi{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid rgba(255,255,255,.08);position:relative;}
-.hk{padding:16px 18px;border-right:1px solid rgba(255,255,255,.08);}
-.hk:last-child{border-right:none;}
-.hk-n{font-family:var(--display);font-size:28px;color:var(--amber);display:block;line-height:1;margin-bottom:4px;}
-.hk-l{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.28);}
-
-/* ── SECTION WRAPPER ── */
-.page{max-width:960px;margin:0 auto;}
-.sec{padding:56px 56px 44px;border-bottom:1px solid var(--rule);}
-.sec:last-of-type{border-bottom:none;}
-.sec-eye{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--slate2);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
-.sec-eye::after{content:'';flex:1;height:1px;background:var(--rule);}
-h2{font-family:var(--display);font-size:38px;letter-spacing:.03em;color:var(--ink);line-height:1.05;margin-bottom:6px;}
-.sec-sub{font-size:14px;color:var(--slate);margin-bottom:28px;line-height:1.7;max-width:640px;font-style:italic;}
-
-/* ── FROM THE DESK ── */
-.desk-box{background:var(--navy);color:white;padding:24px 28px;margin-bottom:28px;border-left:4px solid var(--amber);position:relative;}
-.desk-box::after{content:'"';font-family:var(--display);font-size:120px;color:rgba(232,160,32,.08);position:absolute;right:20px;top:-10px;line-height:1;}
-.desk-lbl{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.16em;color:var(--amber);margin-bottom:12px;}
-.desk-txt{font-size:15px;line-height:1.75;color:rgba(255,255,255,.82);font-style:italic;}
-.desk-txt strong{font-style:normal;color:var(--amber2);}
-.desk-sig{margin-top:16px;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:12px;}
-.desk-sig::before{content:'—';color:var(--amber);}
-
-/* ── TABLES ── */
-table.t{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:24px;}
-.t th{background:var(--ink);color:white;padding:9px 14px;font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;text-align:left;font-weight:400;}
-.t td{padding:10px 14px;border-bottom:1px solid var(--warm);vertical-align:top;}
-.t tr:nth-child(even) td{background:var(--warm);}
-.t tr:hover td{background:var(--amber-pale);}
-.t-total td{background:var(--navy)!important;color:white;font-family:var(--mono);font-weight:700;}
-.t-sub td{background:#F0F0E8!important;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--slate);padding:6px 14px;}
-
-/* ── STAT GRID ── */
-.sgrid{display:grid;gap:0;border:1px solid var(--rule);margin-bottom:24px;}
-.sgrid-3{grid-template-columns:repeat(3,1fr);}
-.sgrid-4{grid-template-columns:repeat(4,1fr);}
-.sgrid-5{grid-template-columns:repeat(5,1fr);}
-.sg{padding:14px 16px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
-.sg:nth-child(3n){border-right:none;}
-.sgrid-4 .sg:nth-child(4n){border-right:none;}
-.sgrid-5 .sg:nth-child(5n){border-right:none;}
-.sg-n{font-family:var(--display);font-size:26px;line-height:1;display:block;margin-bottom:4px;}
-.sg-l{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.09em;color:var(--slate2);}
-
-/* ── INFO BOXES ── */
-.ibox{padding:14px 18px;margin-bottom:16px;border-left:4px solid;font-size:13px;line-height:1.65;}
-.ibox.amber{background:var(--amber-pale);border-color:var(--amber);color:#4A3000;}
-.ibox.teal{background:#E0F5F0;border-color:var(--teal);color:#003830;}
-.ibox.coral{background:#FDECEA;border-color:var(--coral);color:#5A0A00;}
-.ibox.blue{background:#EBF3FD;border-color:var(--blue);color:#0A2840;}
-.ibox.ink{background:var(--navy);border-color:var(--amber);color:rgba(255,255,255,.75);}
-.ibox strong{font-weight:600;}
-.ibox-lbl{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;display:block;margin-bottom:5px;opacity:.65;}
-
-/* ── CATEGORY CARDS ── */
-.catcard{background:white;border:1px solid var(--rule);margin-bottom:14px;overflow:hidden;display:grid;grid-template-columns:6px 1fr;}
-.catcard-stripe{}
-.catcard-body{padding:22px 26px 20px;}
-.catcard-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;gap:12px;flex-wrap:wrap;}
-.catcard-num{font-family:var(--display);font-size:52px;line-height:.9;opacity:.06;position:absolute;right:22px;top:14px;}
-.catcard-label{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:3px;}
-.catcard-name{font-family:var(--display);font-size:24px;letter-spacing:.03em;line-height:1.1;}
-.catcard-badge{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:3px;display:inline-block;margin-top:4px;}
-.spec-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
-.spec{background:var(--paper);padding:9px 12px;}
-.spec-l{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.09em;color:var(--slate2);display:block;margin-bottom:3px;}
-.spec-v{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--ink);}
-.ad-block{background:var(--paper);border:1px solid var(--rule);padding:14px 16px;margin-bottom:10px;}
-.ad-block-lbl{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--slate2);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
-.ad-block-lbl::after{content:'';flex:1;height:1px;background:var(--rule);}
-.copy-box{background:white;border:1px solid var(--rule);padding:10px 13px;font-size:13px;color:var(--ink);line-height:1.65;margin-bottom:7px;}
-.copy-box::before{content:attr(data-l);font-family:var(--mono);font-size:7px;text-transform:uppercase;letter-spacing:.12em;color:var(--slate2);display:block;margin-bottom:4px;}
-.ptags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
-.pt{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.07em;padding:3px 9px;border-radius:3px;}
-.pt-fb{background:#E8F0FD;color:#1E3A8A;}
-.pt-wa{background:#DCFCE7;color:#065F46;}
-.pt-tt{background:#F0F0F0;color:#374151;}
-.pt-gg{background:#FEF2F2;color:#7F1D1D;}
-.pt-ig{background:#FCE7F3;color:#831843;}
-
-/* ── G2 GRID ── */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
-
-/* ── CARDS ── */
-.card{background:white;border:1px solid var(--rule);padding:14px 16px;}
-.card-t{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.card-b{font-size:12.5px;color:var(--slate);line-height:1.6;}
-.card.al{border-left:4px solid var(--amber);}
-.card.tl{border-left:4px solid var(--teal);}
-.card.co{border-left:4px solid var(--coral);}
-.card.bl{border-left:4px solid var(--blue);}
-.card.gn{border-left:4px solid var(--green);}
-.card.vi{border-left:4px solid var(--violet);}
-
-/* ── WEEK TIMELINE ── */
-.wk-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);margin-bottom:24px;}
-.wk{padding:18px 20px;border-right:1px solid var(--rule);}
-.wk:last-child{border-right:none;}
-.wk-lbl{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--slate2);display:block;margin-bottom:6px;}
-.wk-title{font-family:var(--display);font-size:20px;letter-spacing:.03em;color:var(--ink);margin-bottom:4px;}
-.wk-budget{font-family:var(--display);font-size:26px;margin-bottom:6px;}
-.wk-desc{font-size:12px;color:var(--slate);line-height:1.55;}
-.wk-bar{height:3px;border-radius:2px;margin-top:12px;}
-
-/* ── DO / DON'T ── */
-.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
-.dd{padding:12px 15px;border-left:3px solid;font-size:13px;line-height:1.6;}
-.dd.do{background:#EAF3DE;border-color:var(--green);}
-.dd.dont{background:#FDECEA;border-color:var(--coral);}
-.dd strong{font-weight:600;}
-.dd-h{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:4px;}
-
-/* ── STEP LIST ── */
-.step{display:grid;grid-template-columns:44px 1fr;gap:0;margin-bottom:10px;}
-.step-n{background:var(--ink);color:var(--amber);font-family:var(--display);font-size:26px;display:flex;align-items:center;justify-content:center;letter-spacing:.03em;flex-shrink:0;}
-.step-c{background:white;border:1px solid var(--rule);border-left:none;padding:14px 18px;}
-.step-t{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.step-d{font-size:13px;color:var(--slate);line-height:1.65;}
-.step-d a{color:var(--blue);text-decoration:none;font-weight:500;}
-.step-d a:hover{text-decoration:underline;}
-.step-d code{font-family:var(--mono);font-size:11px;background:var(--paper);border:1px solid var(--rule);padding:1px 6px;border-radius:3px;}
-.code-block{font-family:var(--mono);font-size:11.5px;background:var(--ink);color:#E8C96C;padding:14px 18px;margin:8px 0;border-radius:4px;line-height:1.75;overflow-x:auto;white-space:pre;}
-.code-block .cm{color:#5A8A5A;}
-.tip{background:var(--amber-pale);border-left:3px solid var(--amber);padding:9px 13px;font-size:12.5px;color:#4A3000;line-height:1.6;margin-top:8px;}
-.tip strong{color:#2A1800;}
-
-/* ── CHECKLIST ── */
-.cl-wrap{background:var(--ink);padding:22px 26px;margin-bottom:24px;}
-.cl-title{font-family:var(--display);font-size:22px;color:var(--amber);margin-bottom:16px;letter-spacing:.03em;}
-.cl-item{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.72);align-items:flex-start;line-height:1.55;}
-.cl-item:last-child{border-bottom:none;}
-.cl-n{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--amber);border:1px solid rgba(232,160,32,.35);padding:2px 7px;flex-shrink:0;margin-top:1px;}
-
-/* ── DOWNLOAD SECTION ── */
-.dl-section{background:var(--ink);padding:40px 56px;text-align:center;position:relative;overflow:hidden;}
-.dl-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 50% 50%,rgba(232,160,32,.06) 0%,transparent 70%);}
-.dl-title{font-family:var(--display);font-size:36px;color:var(--amber);margin-bottom:8px;letter-spacing:.04em;position:relative;}
-.dl-sub{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:32px;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto;position:relative;}
-.dl-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;max-width:680px;margin:0 auto;position:relative;}
-.dl-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:20px 16px;text-align:center;transition:all .2s;}
-.dl-card:hover{background:rgba(232,160,32,.08);border-color:rgba(232,160,32,.3);transform:translateY(-2px);}
-.dl-icon{font-size:28px;margin-bottom:8px;display:block;}
-.dl-name{font-family:var(--sans);font-size:13px;font-weight:600;color:white;margin-bottom:4px;}
-.dl-desc{font-size:11px;color:rgba(255,255,255,.4);line-height:1.5;margin-bottom:14px;}
-.dl-btn{display:inline-block;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;padding:8px 18px;background:var(--amber);color:var(--ink);text-decoration:none;font-weight:700;border-radius:4px;transition:all .12s;}
-.dl-btn:hover{background:var(--amber2);}
-.dl-note{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.2);margin-top:20px;position:relative;}
-
-/* ── LNKS ── */
-.lnk{font-family:var(--mono);font-size:10px;padding:3px 10px;background:var(--warm);border:1px solid var(--rule);color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:all .12s;border-radius:3px;}
-.lnk:hover{background:var(--ink);color:var(--amber);border-color:var(--ink);}
-.lnk.ex::after{content:'↗';font-size:8px;}
-.lrow{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px;}
-
-/* ── BADGES ── */
-.badge{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;padding:2px 9px;border-radius:3px;display:inline-block;}
-.badge-go{background:#DCFCE7;color:#065F46;}
-.badge-wait{background:#F0F0E8;color:var(--slate);}
-.badge-free{background:var(--amber-pale);color:#7A4A00;}
-.badge-paid{background:#EBF3FD;color:#1E3A8A;}
-
-/* ── FOOTER ── */
-.footer{background:var(--ink);color:rgba(255,255,255,.25);padding:20px 56px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:3px solid var(--amber);}
-.footer-brand{font-family:var(--display);font-size:18px;color:var(--amber);text-transform:none;letter-spacing:.04em;}
-
-/* ── PULL QUOTE ── */
-.pq{border-left:4px solid var(--amber);padding:14px 20px;margin:20px 0;background:white;}
-.pq-text{font-size:15px;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:8px;}
-.pq-src{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--slate2);}
-
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  .nav{padding:0 20px;}.nav-links{display:none;}
-  .hero{padding:44px 24px 36px;}.sec{padding:36px 24px 28px;}
-  .hero-kpi,.sgrid-4,.sgrid-5,.sgrid-3,.g2,.g3,.g4,.spec-row,.wk-grid,.dd-grid,.dl-grid{grid-template-columns:1fr;}
-  .hk,.sg,.wk{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);}
-  .catcard{grid-template-columns:5px 1fr;}
-  .footer{padding:16px 24px;flex-direction:column;}
-  .dl-section{padding:36px 24px;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
 }
-@media print{
-  .nav,.dl-section{display:none;}
-  .hero{padding:28px 32px;background:var(--ink)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .sec{padding:28px 32px;}
+
+/* ════════════════════════════
+   NAVIGATION
+════════════════════════════ */
+.nav {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  backdrop-filter: blur(8px);
+}
+.nav-brand {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+.nav-links { display: flex; gap: 4px; }
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  padding: 5px 11px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all .12s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--amber); background: var(--amber-lt); }
+.nav-links a.active { color: var(--amber2); background: var(--amber-lt); }
+.nav-dl {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: var(--amber);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-left: 8px;
+  transition: all .12s;
+}
+.nav-dl:hover { background: var(--amber2); }
+
+/* ════════════════════════════
+   HERO
+════════════════════════════ */
+.hero {
+  padding: 72px 60px 60px;
+  border-bottom: 2px solid var(--ink);
+  position: relative;
+  background: var(--bg);
+}
+.hero-row {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 60px;
+  align-items: end;
+}
+.hero-stamp {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--faint);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-stamp::before {
+  content: '';
+  width: 28px; height: 2px;
+  background: var(--amber);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--amber);
+}
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.75;
+  max-width: 540px;
+  margin-bottom: 32px;
+}
+/* Signature element: the campaign signal bar */
+.signal-bar {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+.signal-seg {
+  height: 6px;
+  border-radius: 3px;
+  flex: 1;
+}
+.signal-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.sl-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+.sl-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+/* Hero right — the document card */
+.doc-card {
+  background: var(--ink);
+  color: white;
+  padding: 28px 26px;
+  border-top: 3px solid var(--amber);
+}
+.dc-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: rgba(255,255,255,.3);
+  margin-bottom: 20px;
+}
+.dc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  font-size: 12px;
+}
+.dc-row:last-child { border-bottom: none; }
+.dc-key {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: rgba(255,255,255,.35);
+}
+.dc-val {
+  font-weight: 500;
+  color: rgba(255,255,255,.85);
+  text-align: right;
+  max-width: 60%;
+}
+.dc-val.amber { color: var(--amber); font-family: var(--mono); }
+
+/* ════════════════════════════
+   PAGE LAYOUT
+════════════════════════════ */
+.page { max-width: 960px; }
+.sec {
+  padding: 60px 60px 48px;
+  border-bottom: 1px solid var(--rule);
+}
+.sec:last-of-type { border-bottom: none; }
+
+/* Section headers */
+.sec-eye {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--faint);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec-eye .tag {
+  background: var(--amber);
+  color: white;
+  padding: 1px 8px;
+  font-size: 8px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+h2 {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -.01em;
+}
+h2 em { font-style: italic; color: var(--amber); }
+.sec-intro {
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.75;
+  max-width: 640px;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+h3 {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+/* ════════════════════════════
+   TABLES — primary data tool
+════════════════════════════ */
+.tbl-wrap {
+  margin-bottom: 28px;
+  overflow-x: auto;
+}
+.tbl-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--amber);
+  border-bottom: 2px solid var(--amber);
+  padding-bottom: 6px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tbl-title span {
+  color: var(--faint);
+  font-size: 8px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead th {
+  background: var(--ink);
+  color: rgba(255,255,255,.7);
+  padding: 9px 14px;
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  text-align: left;
+  font-weight: 500;
+  white-space: nowrap;
+}
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--panel);
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td { background: var(--surface); }
+tr:hover td { background: var(--amber-lt); }
+td strong { color: var(--ink2); font-weight: 600; }
+td small { font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
+.tr-group td {
+  background: var(--panel) !important;
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--amber);
+  padding: 6px 14px;
+}
+.tr-total td {
+  background: var(--ink) !important;
+  color: white;
+  font-family: var(--mono);
+  font-weight: 600;
+}
+
+/* ════════════════════════════
+   STAT GRIDS
+════════════════════════════ */
+.sgrid {
+  display: grid;
+  border: 1px solid var(--rule);
+  margin-bottom: 24px;
+}
+.sg4 { grid-template-columns: repeat(4,1fr); }
+.sg3 { grid-template-columns: repeat(3,1fr); }
+.sg5 { grid-template-columns: repeat(5,1fr); }
+.sg {
+  padding: 16px 18px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.sg4 .sg:nth-child(4n), .sg3 .sg:nth-child(3n), .sg5 .sg:nth-child(5n) { border-right: none; }
+.sg-n {
+  font-family: var(--mono);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+  display: block;
+  margin-bottom: 4px;
+}
+.sg-l {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.sg-src {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--faint);
+  margin-top: 4px;
+  display: block;
+}
+
+/* ════════════════════════════
+   CARDS
+════════════════════════════ */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 20px; }
+.card {
+  background: white;
+  border: 1px solid var(--rule);
+  padding: 16px 18px;
+}
+.card-t {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.card-b { font-size: 13px; color: var(--slate); line-height: 1.6; }
+.card.al { border-left: 4px solid var(--amber); }
+.card.c1 { border-left: 4px solid var(--c1); }
+.card.c2 { border-left: 4px solid var(--c2); }
+.card.c3 { border-left: 4px solid var(--c3); }
+.card.c4 { border-left: 4px solid var(--c4); }
+.card.go { border-left: 4px solid #16A34A; }
+.card.stop { border-left: 4px solid #DC2626; }
+
+/* ════════════════════════════
+   INFO BOXES
+════════════════════════════ */
+.ibox {
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-left: 3px solid;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.ibox.amber { background: var(--amber-lt); border-color: var(--amber); color: #5A3A00; }
+.ibox.blue  { background: #EFF6FF; border-color: #2563EB; color: #1E3A8A; }
+.ibox.green { background: #F0FDF4; border-color: #16A34A; color: #14532D; }
+.ibox.red   { background: #FEF2F2; border-color: #DC2626; color: #7F1D1D; }
+.ibox.ink   { background: var(--ink); border-color: var(--amber); color: rgba(255,255,255,.82); }
+.ibox strong { font-weight: 600; }
+.ibox-lbl {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  display: block;
+  margin-bottom: 6px;
+  opacity: .65;
+}
+
+/* ════════════════════════════
+   OBJECTIVE CARDS
+════════════════════════════ */
+.obj-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--rule); margin-bottom: 28px; }
+.obj {
+  background: var(--bg);
+  padding: 20px 22px;
+}
+.obj-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+.obj-type {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--amber);
+  margin-bottom: 5px;
+  display: block;
+}
+.obj-title {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.obj-body { font-size: 12.5px; color: var(--slate); line-height: 1.6; }
+.obj-metric {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--panel);
+  padding: 5px 10px;
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--ink2);
+}
+
+/* ════════════════════════════
+   AUDIENCE PROFILES
+════════════════════════════ */
+.aud-card {
+  background: white;
+  border: 1px solid var(--rule);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.aud-head {
+  display: grid;
+  grid-template-columns: 6px 1fr;
+}
+.aud-stripe { }
+.aud-head-body {
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--panel);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.aud-name {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.aud-tag {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+.aud-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border-top: none;
+}
+.aud-cell {
+  padding: 12px 16px;
+  border-right: 1px solid var(--panel);
+  font-size: 12.5px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+.aud-cell:last-child { border-right: none; }
+.aud-cell-lbl {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--faint);
+  margin-bottom: 4px;
+  display: block;
+}
+.badge {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  white-space: nowrap;
+}
+.b-go  { background: var(--go-bg); color: var(--go); }
+.b-warn{ background: var(--warn-bg); color: var(--warn); }
+.b-stop{ background: var(--stop-bg); color: var(--stop); }
+.b-ink { background: var(--ink); color: var(--amber); }
+.b-c1  { background: #EFF6FF; color: var(--c1); }
+.b-c2  { background: #F0FDF4; color: var(--c2); }
+.b-c3  { background: #FEF3C7; color: var(--c3); }
+.b-c4  { background: #F5F3FF; color: var(--c4); }
+
+/* ════════════════════════════
+   MESSAGING FRAMEWORK
+════════════════════════════ */
+.msg-pillar {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-top: 3px solid;
+  padding: 18px 20px;
+}
+.mp-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+.mp-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.mp-body { font-size: 13px; color: var(--slate); line-height: 1.65; margin-bottom: 10px; }
+.mp-proof {
+  background: white;
+  border: 1px solid var(--rule);
+  padding: 8px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink2);
+  line-height: 1.55;
+}
+.mp-proof::before {
+  content: 'Proof line: ';
+  color: var(--amber);
+  font-weight: 600;
+}
+.mp-hook {
+  background: var(--panel);
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--ink2);
+  margin-top: 6px;
+  font-style: italic;
+}
+.mp-hook::before {
+  content: 'Ad hook: ';
+  font-style: normal;
+  font-weight: 600;
+  color: var(--amber);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+
+/* ════════════════════════════
+   CHANNEL MATRIX
+════════════════════════════ */
+.ch-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.ch-card {
+  background: white;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.ch-head {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--panel);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ch-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.ch-name { font-size: 14px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 1px; }
+.ch-role { font-family: var(--mono); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.ch-pri {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.ch-body { padding: 12px 15px; }
+.ch-metric-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.ch-m {
+  background: var(--surface);
+  padding: 7px 10px;
+}
+.ch-m-l {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--faint);
+  display: block;
+  margin-bottom: 3px;
+}
+.ch-m-v {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.ch-m-v.good { color: #16A34A; }
+.ch-m-v.warn { color: var(--warn); }
+.ch-m-v.bad  { color: #DC2626; }
+.ch-use {
+  font-size: 12px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+/* ════════════════════════════
+   SIGNATURE: CAMPAIGN GANTT
+   The single memorable element
+════════════════════════════ */
+.gantt-wrap {
+  background: white;
+  border: 1px solid var(--rule);
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.gantt-header {
+  display: grid;
+  grid-template-columns: 180px repeat(28,1fr);
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.gantt-h-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.35);
+  padding: 8px 12px;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+.gantt-h-day {
+  font-family: var(--mono);
+  font-size: 7px;
+  color: rgba(255,255,255,.2);
+  padding: 8px 3px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,.06);
+}
+.gantt-week-marker {
+  background: rgba(212,134,10,.12);
+  border-right: 2px solid rgba(212,134,10,.3);
+}
+.gantt-row {
+  display: grid;
+  grid-template-columns: 180px repeat(28,1fr);
+  border-bottom: 1px solid var(--panel);
+  min-height: 36px;
+  align-items: center;
+}
+.gantt-row:last-child { border-bottom: none; }
+.gantt-label {
+  padding: 8px 12px;
+  border-right: 1px solid var(--rule);
+  font-size: 12px;
+  color: var(--ink2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gantt-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.gantt-cell {
+  height: 36px;
+  border-right: 1px solid var(--panel);
+  position: relative;
+}
+.gantt-wk-hdr {
+  background: var(--panel);
+  border-bottom: 1px solid var(--rule);
+}
+.gantt-wk-col {
+  background: rgba(0,0,0,.015);
+  border-right: 2px solid var(--rule);
+}
+.gantt-bar {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  left: 0; right: 0;
+  height: 14px;
+  border-radius: 3px;
+  opacity: .85;
+}
+.gantt-bar.dim { opacity: .25; }
+.gantt-wk-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--amber);
+  padding: 5px 12px;
+  grid-column: 1 / -1;
+  background: var(--panel);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ════════════════════════════
+   WEEK SECTIONS
+════════════════════════════ */
+.week-block {
+  background: white;
+  border: 1px solid var(--rule);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.week-hdr {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--panel);
+  background: var(--surface);
+}
+.week-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--ink);
+  color: var(--amber);
+  padding: 4px 12px;
+  border-radius: 3px;
+}
+.week-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.week-budget {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--amber);
+}
+/* The per-week signal bar */
+.week-signal {
+  display: flex;
+  gap: 0;
+  height: 4px;
+}
+.ws-seg { flex: 1; }
+.week-body { padding: 18px 20px; }
+.week-day-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0;
+  margin-bottom: 0;
+}
+.wd-day {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--amber);
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid var(--panel);
+  border-right: 1px solid var(--panel);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 11px;
+}
+.wd-content {
+  padding: 9px 0 9px 16px;
+  border-bottom: 1px solid var(--panel);
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+.wd-content:last-child,
+.wd-day:last-of-type { border-bottom: none; }
+.wd-platform {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  padding: 1px 7px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: 4px;
+}
+.p-fb { background: #EFF6FF; color: #1D4ED8; }
+.p-ig { background: #FDF2F8; color: #9D174D; }
+.p-wa { background: #F0FDF4; color: #15803D; }
+.p-tt { background: #F8F8F8; color: #374151; }
+.p-gg { background: #FEF2F2; color: #B91C1C; }
+.p-gbp{ background: #FFFBEB; color: #92400E; }
+.p-or { background: var(--amber-lt); color: var(--amber2); }
+.wd-cost {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--amber2);
+  margin-top: 4px;
+  display: block;
+}
+.wd-free {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: #16A34A;
+  background: #F0FDF4;
+  padding: 1px 7px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-top: 4px;
+}
+.week-insight {
+  background: var(--amber-lt);
+  border-left: 3px solid var(--amber);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #5A3A00;
+  line-height: 1.65;
+  margin-top: 14px;
+}
+.week-insight strong { font-weight: 600; }
+
+/* ════════════════════════════
+   METRICS / KPI SECTION
+════════════════════════════ */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.kpi {
+  background: white;
+  border: 1px solid var(--rule);
+  border-top: 3px solid;
+  padding: 18px 20px;
+}
+.kpi-n {
+  font-family: var(--mono);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+}
+.kpi-l {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 8px;
+}
+.kpi-note { font-size: 12px; color: var(--slate); line-height: 1.55; }
+
+/* ════════════════════════════
+   SCORECARD TABLE
+════════════════════════════ */
+.score-row td:first-child { font-weight: 600; color: var(--ink2); }
+.score-row td:nth-child(2) { font-family: var(--mono); font-size: 12px; color: var(--amber); }
+.score-pass td { background: #F0FDF4 !important; }
+.score-warn td { background: #FFFBEB !important; }
+.score-fail td { background: #FEF2F2 !important; }
+
+/* ════════════════════════════
+   DOWNLOAD SECTION
+════════════════════════════ */
+.dl-wrap {
+  background: var(--ink);
+  padding: 48px 60px;
+  text-align: center;
+}
+.dl-title {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 700;
+  font-style: italic;
+  color: white;
+  margin-bottom: 10px;
+}
+.dl-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,.45);
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+.dl-cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.dl-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 22px 18px;
+  transition: all .15s;
+}
+.dl-card:hover {
+  background: rgba(212,134,10,.1);
+  border-color: rgba(212,134,10,.35);
+  transform: translateY(-2px);
+}
+.dl-icon { font-size: 26px; display: block; margin-bottom: 10px; }
+.dl-name { font-size: 14px; font-weight: 600; color: white; margin-bottom: 4px; }
+.dl-desc { font-size: 12px; color: rgba(255,255,255,.4); line-height: 1.55; margin-bottom: 16px; }
+.dl-btn {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  padding: 8px 16px;
+  background: var(--amber);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all .12s;
+}
+.dl-btn:hover { background: var(--amber2); }
+.dl-note {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: rgba(255,255,255,.2);
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
+.footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.25);
+  padding: 18px 60px;
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--amber);
+  text-transform: none;
+  letter-spacing: 0;
+  font-style: italic;
+}
+
+/* ════════════════════════════
+   UTILITIES
+════════════════════════════ */
+.lnk {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 10px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 3px;
+  transition: all .12s;
+}
+.lnk:hover { background: var(--ink); color: var(--amber); border-color: var(--ink); }
+.lnk.ex::after { content: '↗'; font-size: 8px; }
+.lrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.divider { border: none; border-top: 1px solid var(--rule); margin: 28px 0; }
+
+/* ════════════════════════════
+   RESPONSIVE
+════════════════════════════ */
+@media (max-width: 768px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 44px 24px 36px; }
+  .hero-row { grid-template-columns: 1fr; }
+  .sec { padding: 40px 24px 32px; }
+  .sg4, .sg3, .sg5, .g2, .g3, .g4, .obj-grid, .ch-grid, .kpi-grid, .dl-cards { grid-template-columns: 1fr; }
+  .aud-body { grid-template-columns: 1fr; }
+  .aud-cell { border-right: none; border-bottom: 1px solid var(--panel); }
+  .gantt-wrap { display: none; }
+  .footer { padding: 16px 24px; flex-direction: column; }
+  .dl-wrap { padding: 40px 24px; }
+}
+@media print {
+  .nav, .dl-wrap { display: none; }
+  .sec { padding: 32px 40px; }
+  .hero { padding: 32px 40px; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ════ NAV ════ -->
 <nav class="nav">
-  <div class="nav-brand">Wima Deal Hub — Marketing Brief 2026</div>
+  <div class="nav-brand">Wima Deal Hub — Full Campaign Brief</div>
   <div class="nav-links">
-    <a href="#intelligence">Intelligence</a>
-    <a href="#zerocost">Zero-Cost</a>
-    <a href="#categories">4 Categories</a>
-    <a href="#budget">Budget</a>
-    <a href="#timeline">Timeline</a>
-    <a href="#github">GitHub</a>
+    <a href="#objectives">Objectives</a>
+    <a href="#audiences">Audiences</a>
+    <a href="#messaging">Messaging</a>
+    <a href="#channels">Channels</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#metrics">Metrics</a>
     <a href="#downloads" class="nav-dl">⬇ Download</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ════ HERO ════ -->
 <div class="hero">
-  <div class="hero-tag">Marketing Intelligence Brief · Wima Deal Hub · June 2026 · Confidential</div>
-  <h1 class="hero-title">LAUNCH<br>FAST.<br><span class="hl">SPEND SMART.</span></h1>
-  <p class="hero-sub">The complete marketing playbook for Wima Deal Hub's four-category launch — <strong>social media research, zero-cost tactics, paid campaign architecture, and a step-by-step GitHub hosting guide.</strong> Written by the Wima Marketing Team.</p>
-  <div class="hero-meta">Prepared by: Wima Marketing Director &amp; Team · Research Base: Ghana Digital 2026 · DataReportal · WebSysGH · Vaizle · Superads · Foundfront Agency · LuminatePR</div>
-  <div class="hero-kpi">
-    <div class="hk"><span class="hk-n">10.8M</span><span class="hk-l">Ghana Facebook users 2026</span></div>
-    <div class="hk"><span class="hk-n">83.6%</span><span class="hk-l">WhatsApp penetration Ghana</span></div>
-    <div class="hk"><span class="hk-n">$0.24</span><span class="hk-l">Africa avg CPC — world's lowest</span></div>
-    <div class="hk"><span class="hk-n">95%</span><span class="hk-l">Social media via mobile Ghana</span></div>
-    <div class="hk"><span class="hk-n">GHC 0</span><span class="hk-l">Cost of zero-budget tactics below</span></div>
+  <div class="hero-row">
+    <div>
+      <div class="hero-stamp">Wima Deal Hub · Full Campaign Brief · June 2026 · Confidential</div>
+      <h1>A structured plan<br>to launch <em>four categories</em><br>and win Ghana's<br>construction market.</h1>
+      <p class="hero-sub">Objectives, audience profiles, messaging framework, channel strategy, a 28-day week-by-week content calendar with dependencies, and a success scorecard — all in one document. Built by the Wima Marketing Team.</p>
+
+      <!-- SIGNATURE: the campaign signal bar -->
+      <div class="signal-bar" style="margin-bottom:10px;">
+        <div class="signal-seg" style="background:var(--c1);flex:4;"></div>
+        <div class="signal-seg" style="background:var(--c2);flex:4;"></div>
+        <div class="signal-seg" style="background:var(--c3);flex:4;opacity:.5;"></div>
+        <div class="signal-seg" style="background:var(--c4);flex:4;opacity:.5;"></div>
+      </div>
+      <div class="signal-bar" style="margin-bottom:16px;">
+        <div class="signal-seg" style="background:var(--c1);flex:2;opacity:.3;"></div>
+        <div class="signal-seg" style="background:var(--c1);flex:2;"></div>
+        <div class="signal-seg" style="background:var(--c2);flex:2;"></div>
+        <div class="signal-seg" style="background:var(--c3);flex:2;"></div>
+        <div class="signal-seg" style="background:var(--c4);flex:2;opacity:.4;"></div>
+        <div class="signal-seg" style="background:var(--c4);flex:2;"></div>
+      </div>
+      <div class="signal-legend">
+        <div class="sl-item"><div class="sl-dot" style="background:var(--c1);"></div>Acoustic Ceiling</div>
+        <div class="sl-item"><div class="sl-dot" style="background:var(--c2);"></div>Drywall &amp; Partitions</div>
+        <div class="sl-item"><div class="sl-dot" style="background:var(--c3);"></div>Exterior Cladding</div>
+        <div class="sl-item"><div class="sl-dot" style="background:var(--c4);"></div>Insulation Systems</div>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="dc-label">Document Metadata</div>
+      <div class="dc-row"><span class="dc-key">Client</span><span class="dc-val">Wima Deal Hub</span></div>
+      <div class="dc-row"><span class="dc-key">Campaign</span><span class="dc-val">4-Category Product Launch</span></div>
+      <div class="dc-row"><span class="dc-key">Duration</span><span class="dc-val">4 weeks · 28 days</span></div>
+      <div class="dc-row"><span class="dc-key">Total Budget</span><span class="dc-val amber">GHC 1,500</span></div>
+      <div class="dc-row"><span class="dc-key">Primary Market</span><span class="dc-val">Greater Accra + Kumasi</span></div>
+      <div class="dc-row"><span class="dc-key">Secondary Market</span><span class="dc-val">Ghanaian Diaspora UK/USA</span></div>
+      <div class="dc-row"><span class="dc-key">Primary Channel</span><span class="dc-val">Meta + WhatsApp</span></div>
+      <div class="dc-row"><span class="dc-key">Lead Target</span><span class="dc-val amber">15–30 WhatsApp leads</span></div>
+      <div class="dc-row"><span class="dc-key">Revenue Target</span><span class="dc-val amber">GHC 10,000+ pipeline</span></div>
+      <div class="dc-row"><span class="dc-key">Prepared by</span><span class="dc-val">Wima Marketing Director</span></div>
+      <div class="dc-row"><span class="dc-key">Version</span><span class="dc-val">1.0 · June 2026</span></div>
+    </div>
   </div>
 </div>
 
 <div class="page">
 
-<!-- ══════════════════════════════════════════
-     SECTION 1 — FROM THE MARKETING DIRECTOR
-══════════════════════════════════════════ -->
-<div class="sec" id="intro">
-  <div class="sec-eye">From the Marketing Director</div>
-  <h2>OUR POSITION<br>ON THIS LAUNCH.</h2>
-  <p class="sec-sub">Before the budget discussion, the strategic context that shapes every recommendation below.</p>
+<!-- ════ SECTION 1: OBJECTIVES ════ -->
+<div class="sec" id="objectives">
+  <div class="sec-eye">Section 01 <span class="tag">Strategic Foundation</span></div>
+  <h2>Campaign <em>Objectives.</em></h2>
+  <p class="sec-intro">Three objectives, sequenced in order of priority. Awareness feeds leads. Leads feed conversions. Every tactical decision in this brief serves one of these three jobs — if it does not, it is cut.</p>
 
-  <div class="desk-box">
-    <div class="desk-lbl">From the Marketing Director — Wima Deal Hub</div>
-    <p class="desk-txt">We have reviewed the Ghana digital landscape exhaustively. Our team has worked on construction and home improvement campaigns in Ghana, Nigeria, Côte d'Ivoire, and the UK diaspora market. Here is the unvarnished truth about Wima's position: <strong>you are launching into one of the most cost-efficient paid social media markets in the world</strong>, with a product that has strong visual transformation content, a clear price point, and a WhatsApp infrastructure that most competitors in Ghana have not yet mastered.<br><br>
-    The biggest mistake construction businesses make at launch is waiting for the perfect campaign before going live. The second biggest mistake is spending money before the free channels are fully exhausted. <strong>Ghana's digital market rewards speed and consistency over perfection and polish.</strong> A real before/after video filmed on a GHS 2,500 smartphone, posted in the right Facebook groups at 7pm on a weekday evening, will outperform a GHS 5,000 agency-designed campaign that launches two weeks later. We have seen this pattern repeat across every market we have worked in.<br><br>
-    Our mandate from Gershon is clear: launch Wima Deal Hub as quickly as possible, with focus on social media and zero-cost marketing. This brief is the execution manual for that mandate. Every recommendation in it has been researched, tested in comparable African markets, and calibrated to Wima's GHC 1,500 first-month budget.</p>
-    <div class="desk-sig">Wima Marketing Director &amp; Team · June 2026</div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     SECTION 2 — MARKET INTELLIGENCE
-══════════════════════════════════════════ -->
-<div class="sec" id="intelligence">
-  <div class="sec-eye">Section 01 — Market Intelligence</div>
-  <h2>GHANA'S DIGITAL<br>LANDSCAPE IN 2026.</h2>
-  <p class="sec-sub">The research foundation every campaign decision is built on. Numbers sourced from DataReportal, WebSysGH, Foundfront Agency, and LuminatePR — all published between January 2025 and June 2026.</p>
-
-  <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;">Platform landscape — users and reach</h3>
-  <table class="t">
-    <thead><tr><th>Platform</th><th>Ghana Users (2026)</th><th>% Penetration</th><th>Primary Ghana Demographic</th><th>Paid Ad Available</th><th>Wima Priority</th></tr></thead>
-    <tbody>
-      <tr><td><strong>WhatsApp</strong></td><td>83.6% of internet users</td><td>~22M users</td><td>All ages · All income levels</td><td>Click-to-WhatsApp via Meta</td><td><span class="badge badge-go">★ #1 Priority</span></td></tr>
-      <tr><td><strong>Facebook</strong></td><td>10.8 million</td><td>30.6% of population</td><td>Ages 25–54 · Urban · Income earners</td><td>Full Meta Ads suite</td><td><span class="badge badge-go">★ #1 Priority</span></td></tr>
-      <tr><td><strong>YouTube</strong></td><td>32.7% of internet users</td><td>~8.6M users</td><td>Ages 18–45 · Education &amp; entertainment</td><td>Google Ads pre-roll</td><td><span class="badge badge-wait">Phase 3</span></td></tr>
-      <tr><td><strong>TikTok</strong></td><td>7.4 million</td><td>20.9% of population</td><td>Ages 16–35 · Urban youth</td><td>TikTok Ads Manager</td><td><span class="badge badge-wait">Phase 2</span></td></tr>
-      <tr><td><strong>Instagram</strong></td><td>+12.2% growth Oct 2024–2025</td><td>Rising fast</td><td>Ages 20–40 · Aspirational · Visual</td><td>Meta Ads (same as Facebook)</td><td><span class="badge badge-go">★ #1 Priority</span></td></tr>
-      <tr><td><strong>LinkedIn</strong></td><td>+17.2% growth 2024–2025</td><td>Professional layer</td><td>Corporate · Developers · Architects</td><td>LinkedIn Ads (expensive)</td><td><span class="badge badge-wait">Month 4+</span></td></tr>
-      <tr><td><strong>Google Search</strong></td><td>24M+ internet users search daily</td><td>46% searches have local intent</td><td>High-intent buyers · All ages</td><td>Google Ads</td><td><span class="badge badge-wait">Phase 3</span></td></tr>
-    </tbody>
-  </table>
-
-  <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;">Cost benchmarks — what Wima actually pays</h3>
-  <table class="t">
-    <thead><tr><th>Metric</th><th>Ghana / Africa</th><th>UK (Diaspora)</th><th>USA (Diaspora)</th><th>Wima Implication</th></tr></thead>
-    <tbody>
-      <tr><td><strong>CPM</strong> (Cost per 1,000 impressions)</td><td style="color:var(--green);font-weight:600;">$0.30–$1.50</td><td style="color:var(--coral);">$10.85</td><td style="color:var(--coral);">$14–$20</td><td>Reach 1,000 Accra homeowners for GHC 4.50–22.50</td></tr>
-      <tr><td><strong>CPC</strong> (Cost per click)</td><td style="color:var(--green);font-weight:600;">$0.20–$0.50</td><td style="color:var(--coral);">$1.50–$3.50</td><td style="color:var(--coral);">$1.67–$4.00</td><td>Africa average: $0.24 — world's lowest</td></tr>
-      <tr><td><strong>CPL</strong> (Cost per lead / WhatsApp message)</td><td style="color:var(--green);font-weight:600;">GHC 15–60</td><td style="color:var(--coral);">GHC 180–350</td><td style="color:var(--coral);">GHC 250–500</td><td>Ghana leads are 10–20× cheaper than diaspora</td></tr>
-      <tr><td><strong>CTR</strong> benchmark (click-through rate)</td><td>Above 1.49% = outperforming</td><td>Above 1.49%</td><td>Above 1.49%</td><td>Below 0.72% = fix the creative immediately</td></tr>
-      <tr><td><strong>ROAS</strong> (Return on ad spend)</td><td>Global Facebook avg: 2.79</td><td>2.79 avg</td><td>2.79 avg</td><td>Wima target: 5–20× given high project margins</td></tr>
-      <tr><td><strong>Instagram Reels CPC vs Feed</strong></td><td style="color:var(--green);font-weight:600;">26% lower</td><td>26% lower</td><td>26% lower</td><td>Always use Reels format over Feed for video</td></tr>
-    </tbody>
-  </table>
-
-  <div class="pq">
-    <div class="pq-text">"Ghana now has 8.59 million social media user identities. Instagram's advertising reach increased by 12.2% between October 2024 and October 2025. LinkedIn grew 17.2%. WhatsApp reaches 83.6% of internet users. Mobile devices drive 95% of social media engagement. A startup in Accra can reach customers in Kumasi instantly — with a budget no larger than a bag of cement."</div>
-    <div class="pq-src">Source: WebSysGH — How Marketing Agencies in Ghana Are Helping Small Businesses Scale · January 2026</div>
+  <div class="obj-grid">
+    <div class="obj">
+      <span class="obj-icon">📡</span>
+      <span class="obj-type">Objective 01 — Awareness</span>
+      <div class="obj-title">Make Wima Deal Hub known to 50,000+ Accra homeowners before launch day</div>
+      <div class="obj-body">Position Wima as Ghana's most trusted source for acoustic ceiling, drywall, exterior cladding, and insulation systems. Build brand recognition before asking for a sale. The awareness campaign in Week 2 seeds the retargeting pool that Week 3 converts.</div>
+      <div class="obj-metric">KPI: 50,000 video views · Week 2</div>
+    </div>
+    <div class="obj">
+      <span class="obj-icon">💬</span>
+      <span class="obj-type">Objective 02 — Lead Generation</span>
+      <div class="obj-title">Generate 15–30 qualified WhatsApp leads at under GHC 75 cost per lead</div>
+      <div class="obj-body">Drive qualified construction buyers — homeowners, contractors, developers, and diaspora clients — into Wima's WhatsApp pipeline where the BOQ process begins. A qualified lead is defined as: names a product category, states a Ghana location, and responds to the auto-reply.</div>
+      <div class="obj-metric">KPI: 15–30 WhatsApp leads · Weeks 3–4</div>
+    </div>
+    <div class="obj">
+      <span class="obj-icon">🏗️</span>
+      <span class="obj-type">Objective 03 — Conversion</span>
+      <div class="obj-title">Convert 1–3 qualified leads into confirmed projects generating GHC 10,000+ pipeline</div>
+      <div class="obj-body">Close the first paying projects within the 28-day window. Even one GHC 5,000 dry wall installation project produces a 3.3× return on the entire GHC 1,500 campaign budget at 6% procurement margin. The conversion happens inside WhatsApp — the campaign drives the door, the BOQ closes the deal.</div>
+      <div class="obj-metric">KPI: 1–3 projects won · Week 4</div>
+    </div>
   </div>
 
-  <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;">The Ghana advantage — why Wima's timing is right</h3>
-  <div class="sgrid sgrid-4">
-    <div class="sg"><span class="sg-n" style="color:var(--teal);">74.6%</span><span class="sg-l">Ghana internet penetration — 26.3M users</span></div>
-    <div class="sg"><span class="sg-n" style="color:var(--green);">$0.24</span><span class="sg-l">Africa average Facebook CPC — world's lowest</span></div>
-    <div class="sg"><span class="sg-n" style="color:var(--amber);">68%</span><span class="sg-l">Ghana internet users access via mobile (World Bank)</span></div>
-    <div class="sg"><span class="sg-n" style="color:var(--blue);">86%</span><span class="sg-l">Google Business Profile views from category searches</span></div>
-    <div class="sg"><span class="sg-n" style="color:var(--coral);">25%</span><span class="sg-l">Engagement boost from short-form video content</span></div>
-    <div class="sg"><span class="sg-n" style="color:var(--violet);">12%</span><span class="sg-l">Instagram ad reach growth Oct 2024–Oct 2025</span></div>
-    <div class="sg"><span class="sg-n" style="color:var(--teal);">46%</span><span class="sg-l">All Google searches have local intent in Ghana</span></div>
-    <div class="sg"><span class="sg-n" style="color:var(--amber);">76%</span><span class="sg-l">Mobile "near me" searchers visit within 24 hours</span></div>
+  <h3>Market context — why these objectives are achievable</h3>
+  <div class="sgrid sg4">
+    <div class="sg">
+      <span class="sg-n" style="color:var(--c1);">$4.77B</span>
+      <span class="sg-l">Ghana hardware &amp; building materials market by 2028</span>
+      <span class="sg-src">Statista 2025</span>
+    </div>
+    <div class="sg">
+      <span class="sg-n" style="color:var(--amber);">5.2%</span>
+      <span class="sg-l">Ghana construction CAGR 2026–2029 — AfDB Big Push infrastructure backing</span>
+      <span class="sg-src">GlobalData / ResearchandMarkets H1 2026</span>
+    </div>
+    <div class="sg">
+      <span class="sg-n" style="color:var(--c2);">1.8M</span>
+      <span class="sg-l">Ghana housing unit deficit as of January 2026 — structural demand guarantee</span>
+      <span class="sg-src">Ministry of Works &amp; Housing, Jan 2026</span>
+    </div>
+    <div class="sg">
+      <span class="sg-n" style="color:var(--c4);">$0.24</span>
+      <span class="sg-l">Africa average Facebook CPC — world's lowest. GHC 1,500 goes further here than anywhere.</span>
+      <span class="sg-src">Vaizle / Superads 2025</span>
+    </div>
   </div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     SECTION 3 — ZERO-COST MARKETING
-══════════════════════════════════════════ -->
-<div class="sec" id="zerocost">
-  <div class="sec-eye">Section 02 — Zero-Cost Marketing Arsenal</div>
-  <h2>FREE CHANNELS<br>THAT WORK IN GHANA.</h2>
-  <p class="sec-sub">Our team's first instruction to every client with a constrained budget: exhaust every free channel before spending a pesewa on paid ads. These are the tactics that Ghana's fastest-growing SMEs use to build their initial audience and generate their first leads at zero cost.</p>
 
   <div class="ibox amber">
-    <span class="ibox-lbl">Marketing Director's Rule</span>
-    <strong>The free channels must come first.</strong> Over 60% of Ghanaian buyers rely on word-of-mouth and community trust before making a purchase. A business that is known in three Facebook groups before it runs an ad converts at 3–5× the rate of a business that runs ads into a cold audience with no prior presence. Wima's Week 1 is free. Everything in this section costs nothing but time.
+    <span class="ibox-lbl">The Strategic Logic</span>
+    <strong>Ghana's construction market is structurally undersupplied and digitally underpenetrated.</strong> A $4.77 billion building materials market by 2028, a 1.8 million unit housing deficit, and a 5.2% annual CAGR create permanent, structural demand. Yet most building materials suppliers in Ghana have no digital presence, no WhatsApp pipeline, and no BOQ capability. Wima enters a market with high demand and very low digital competition. The campaign objective is not to create demand — it is to capture demand that already exists but currently has no organised digital channel to flow through.
   </div>
 
-  <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;">Zero-cost tactic matrix — priority order</h3>
-  <table class="t">
-    <thead><tr><th>#</th><th>Tactic</th><th>Platform</th><th>Time Required</th><th>Expected Result</th><th>Priority</th></tr></thead>
-    <tbody>
-      <tr><td><strong>1</strong></td><td><strong>Google Business Profile (GBP)</strong><br><small>Claim and fully optimise — primary category: "Building Materials Supplier"</small></td><td>Google Search + Maps</td><td>2 hours setup · 30 mins/week</td><td>Appear in local pack for "building materials Accra", "ceiling installation Ghana", "drywall supplier Accra". 76% of searchers visit within 24 hours. 42% more direction requests with photos.</td><td><span class="badge badge-go">Day 1 — Free</span></td></tr>
-      <tr><td><strong>2</strong></td><td><strong>WhatsApp Business Status — daily posts</strong><br><small>Project photos, price tips, before/after images — posted daily on Status</small></td><td>WhatsApp Business</td><td>5 mins/day</td><td>Reaches 100% of saved contacts. 83.6% open rate. Free forever. Flash offers posted on Status generate immediate enquiry spikes (confirmed by Ghana SME research).</td><td><span class="badge badge-go">Day 1 — Free</span></td></tr>
-      <tr><td><strong>3</strong></td><td><strong>Facebook Group participation — 5 groups</strong><br><small>Post one genuinely helpful article per group per week. Never promotional.</small></td><td>Facebook</td><td>1 hour/week</td><td>5–15 organic enquiries per useful post. Groups: "Ghana Homes for Sale", "Ghanaians in UK Building in Ghana", "Accra Real Estate", "Ghana Interior Design", "Ghana Construction Network".</td><td><span class="badge badge-go">Day 3 — Free</span></td></tr>
-      <tr><td><strong>4</strong></td><td><strong>WhatsApp Community (broadcast group)</strong><br><small>Create a Wima Deal Hub customer community. Segment by category.</small></td><td>WhatsApp Business</td><td>1 hour setup</td><td>Direct channel to all interested buyers. Broadcast price lists, new stock alerts, project showcases. No algorithm — 100% of members see every message. Ghana's #1 retention tool.</td><td><span class="badge badge-go">Day 5 — Free</span></td></tr>
-      <tr><td><strong>5</strong></td><td><strong>Short-form video — organic Reels &amp; TikTok</strong><br><small>15–30 sec before/after videos posted organically before any paid spend</small></td><td>Instagram + TikTok</td><td>30 mins/post including filming</td><td>Organic video engagement 25% higher than static posts (Ghana research). Build follower base before running paid ads — ads perform better on accounts with existing organic content.</td><td><span class="badge badge-go">Day 7 — Free</span></td></tr>
-      <tr><td><strong>6</strong></td><td><strong>Cross-promotion with Jamal and suppliers</strong><br><small>Jamal posts about Wima, Wima posts about Jamal. Ask every supplier to tag Wima.</small></td><td>All platforms</td><td>1 hour/week</td><td>Collaborative partner posts reach both audiences at zero cost. Every supplier Wima works with has their own existing audience. One tag from a supplier with 2,000 followers = 2,000 free impressions.</td><td><span class="badge badge-go">Week 1 — Free</span></td></tr>
-      <tr><td><strong>7</strong></td><td><strong>Client testimonials — voice notes &amp; photos</strong><br><small>Ask every completed client for a 20-second WhatsApp voice note</small></td><td>WhatsApp + Facebook + Instagram</td><td>5 mins per client</td><td>Testimonials are the highest-converting content format in construction. A real client saying "I messaged Wima and got a BOQ in 2 hours" converts better than any designed ad. Collect from Day 1.</td><td><span class="badge badge-go">First project onward</span></td></tr>
-      <tr><td><strong>8</strong></td><td><strong>Content repurposing — one video, six formats</strong><br><small>Film once. Post everywhere in different cuts.</small></td><td>All platforms</td><td>30 mins editing per repurpose</td><td>One 30-second installation video becomes: Instagram Reel, Facebook post, TikTok, WhatsApp Status, WhatsApp group post, and a YouTube Short. Six touchpoints from one filming session.</td><td><span class="badge badge-go">Ongoing — Free</span></td></tr>
-      <tr><td><strong>9</strong></td><td><strong>Local SEO content — blog posts &amp; website pages</strong><br><small>"Drywall installation cost in Accra", "Best ceiling options Ghana 2026"</small></td><td>Google Search (organic)</td><td>2 hours per article</td><td>Long-tail keyword content captures high-intent buyers actively searching for Wima's products on Google. A business with 5 well-optimised service pages ranks above competitors with zero content.</td><td><span class="badge badge-wait">Month 2 — Free</span></td></tr>
-      <tr><td><strong>10</strong></td><td><strong>MoMo payment integration — perception of professionalism</strong><br><small>Make it easy to pay. Easy payment = faster conversions.</small></td><td>MTN MoMo / Vodafone Cash</td><td>1 hour setup</td><td>Ghana research confirms MoMo payment options increase conversion rates and make businesses appear more professional and trustworthy. A buyer who can pay immediately on WhatsApp does not need to visit a physical location.</td><td><span class="badge badge-go">Day 1 — Free</span></td></tr>
-    </tbody>
-  </table>
+  <h3>SMART objective summary</h3>
+  <div class="tbl-wrap">
+    <div class="tbl-title">Objectives — SMART Framework <span>Specific · Measurable · Achievable · Relevant · Time-bound</span></div>
+    <table>
+      <thead><tr><th>Objective</th><th>Specific Target</th><th>Measurement Method</th><th>Deadline</th><th>Achievability Rationale</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Awareness</strong></td><td>50,000 video views across 4 category Reels</td><td>Meta Ads Manager — ThruPlay metric</td><td>Day 14</td><td>At Ghana CPM $0.50 avg, GHC 500 = 80,000+ impressions. 15% ThruPlay rate = 12,000 views minimum. Organic adds further volume at zero cost.</td></tr>
+        <tr><td><strong>Lead Generation</strong></td><td>15–30 WhatsApp messages from qualified prospects</td><td>WhatsApp Business message count + qualification filter</td><td>Day 21</td><td>At GHC 75 CPL target with GHC 700 Week 3 budget, break-even = 9 leads. Target of 15 is conservative. Warm retargeting from Week 2 reduces CPL 40–60%.</td></tr>
+        <tr><td><strong>Conversion</strong></td><td>1–3 confirmed BOQ requests converting to projects</td><td>Wima WhatsApp pipeline tracking</td><td>Day 28</td><td>10% lead-to-project conversion rate is standard for construction. 15–30 leads × 10% = 1.5–3 projects. One GHC 5,000 project = 3.3× ROAS on GHC 1,500 budget.</td></tr>
+        <tr><td><strong>Google Visibility</strong></td><td>Wima appears in top-3 Google Maps local pack for "building materials Accra"</td><td>Google Business Profile Insights — search impressions</td><td>Day 28</td><td>A fully optimised GBP with 10+ photos and accurate NAP data takes 2–4 weeks to index. 86% of GBP views from category searches. 76% of "near me" searchers visit within 24 hours.</td></tr>
+        <tr><td><strong>Community Presence</strong></td><td>Wima known and trusted in 5 key Facebook groups — minimum 3 organic enquiries from group activity</td><td>Facebook group comment and message count</td><td>Day 28</td><td>One useful post per group per week = 5 posts × 4 weeks = 20 organic community touchpoints. Research confirms 5–15 enquiries per useful construction post in Ghana's homeowner groups.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-  <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;">Google Business Profile — the single most important free action</h3>
-  <div class="ibox teal">
-    <span class="ibox-lbl">Why GBP is Wima's #1 Free Priority</span>
-    Research from Foundfront Agency (March 2026) confirms: <strong>when someone in Ghana searches Google for "building materials near me" or "ceiling installation Accra," the first thing they see is a map with three business listings — not a website.</strong> That three-pack (the "local pack") is the most valuable free real estate in local search. Google Business Profile is completely free. Profiles with photos receive 42% more direction requests. A complete profile is 70% more likely to lead to contact. 86% of all GBP views come from category searches — meaning people who find Wima on Google are already looking for what Wima sells.
+
+<!-- ════ SECTION 2: AUDIENCES ════ -->
+<div class="sec" id="audiences">
+  <div class="sec-eye">Section 02 <span class="tag">Audience Profiles</span></div>
+  <h2>Who We're <em>Talking To.</em></h2>
+  <p class="sec-intro">Five distinct audience profiles. Each has a different pain point, a different purchasing trigger, and a different message that works. Mixing them into one campaign set wastes budget — each profile runs as a separate Meta ad set with its own creative, copy, and CTA.</p>
+
+  <!-- Audience 1 -->
+  <div class="aud-card" style="margin-bottom:12px;">
+    <div class="aud-head">
+      <div class="aud-stripe" style="background:var(--c1);width:5px;"></div>
+      <div class="aud-head-body">
+        <div>
+          <div class="aud-name">The Accra Homeowner &amp; Renovator</div>
+          <div class="aud-tag">Primary audience · 50% of budget · Weeks 2 and 3</div>
+        </div>
+        <span class="badge b-go">★ Priority 1</span>
+      </div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Demographics</span>
+        Age 28–55 · Greater Accra &amp; Kumasi · Salaried or business owner · Household income GHC 5,000+ per month · Owns or is building a property · Currently renovating or planning to
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Meta targeting parameters</span>
+        Location: Greater Accra Region, Kumasi<br>
+        Age: 28–55<br>
+        Interests: home improvement, interior design, Ghana real estate, property renovation<br>
+        Lookalike: 1% lookalike from Kabinart's 109K Facebook followers<br>
+        Behaviour: recently moved, homeowners
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Purchase trigger</span>
+        Embarrassment of unfinished ceiling or bare walls. Wanting to match homes seen on social media. Upcoming event (wedding, visitor, moving in). Referred by a friend or contractor.
+        <br><br>
+        <span class="aud-cell-lbl">Message that works</span>
+        Visual transformation. Show the before (their reality) and the after (their aspiration). Price on screen. One WhatsApp tap away.
+      </div>
+    </div>
+  </div>
+
+  <!-- Audience 2 -->
+  <div class="aud-card" style="margin-bottom:12px;">
+    <div class="aud-head">
+      <div class="aud-stripe" style="background:var(--amber);width:5px;"></div>
+      <div class="aud-head-body">
+        <div>
+          <div class="aud-name">Ghanaian Diaspora — UK &amp; USA</div>
+          <div class="aud-tag">High-value audience · 30% of budget · Separate campaign at UK/USA CPM rates</div>
+        </div>
+        <span class="badge b-warn">High Value</span>
+      </div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Demographics</span>
+        Age 30–55 · London, Manchester, Birmingham, New York, Atlanta, Washington DC · Ghanaian-born or second generation · Professional income · Building or renovating a Ghana property from abroad · Sends remittances regularly
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Meta targeting parameters</span>
+        Location: UK cities + USA cities listed above<br>
+        Language: English<br>
+        Interests: Ghana real estate, Accra property, Ghana homecoming, diaspora remittances<br>
+        Behaviour: frequent international travellers, expats<br>
+        Custom: Ghanaian diaspora Facebook group engagers
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Purchase trigger</span>
+        Cannot physically supervise their Ghana project. Fear of contractor dishonesty. Want a trusted, accountable partner. Planning a visit and want the house finished before arrival.
+        <br><br>
+        <span class="aud-cell-lbl">Message that works</span>
+        Trust, transparency, and escrow. "Pay via Wise. Photos at every stage. We handle everything on the ground." Project value: GHC 8,000–30,000+. One conversion covers the campaign.
+      </div>
+    </div>
+  </div>
+
+  <!-- Audience 3 -->
+  <div class="aud-card" style="margin-bottom:12px;">
+    <div class="aud-head">
+      <div class="aud-stripe" style="background:var(--c3);width:5px;"></div>
+      <div class="aud-head-body">
+        <div>
+          <div class="aud-name">Commercial Clients — Offices, Hotels, Restaurants</div>
+          <div class="aud-tag">B2B audience · 20% of budget · Facebook Lead Ads · East Legon, Airport City</div>
+        </div>
+        <span class="badge b-c3">B2B Segment</span>
+      </div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Demographics</span>
+        Decision-makers aged 30–55 · East Legon, Airport City, Cantonments, Labone · Hotels, restaurants, corporate HQs, banks · Company size 10–500 employees · Job titles: Procurement Manager, Facilities Manager, Hotel GM, Interior Designer
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Meta targeting parameters</span>
+        Location: Greater Accra (affluent districts)<br>
+        Job titles: Procurement Manager, Interior Designer, Architect, Hotel General Manager<br>
+        Company size: 10–500 employees<br>
+        Industry: hospitality, real estate, professional services<br>
+        Facebook Lead Ad format (instant form — no website click needed)
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Purchase trigger</span>
+        Office fitout or refurbishment cycle. New hotel opening. Restaurant renovation. Tenant improvement budget. Lease requirement for new commercial space.
+        <br><br>
+        <span class="aud-cell-lbl">Message that works</span>
+        Professional credentials, speed, and specification capability. "Supply and install with BOQ documentation." Lead with the cladding category — highest ticket, most visual for commercial.
+      </div>
+    </div>
+  </div>
+
+  <!-- Audience 4 -->
+  <div class="aud-card" style="margin-bottom:12px;">
+    <div class="aud-head">
+      <div class="aud-stripe" style="background:var(--c2);width:5px;"></div>
+      <div class="aud-head-body">
+        <div>
+          <div class="aud-name">SME Office Owners &amp; Tenants</div>
+          <div class="aud-tag">Drywall &amp; partition buyers · Accra SME belt · Office fitout and subdivision</div>
+        </div>
+        <span class="badge b-c2">Drywall Focus</span>
+      </div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Demographics</span>
+        Age 28–50 · Business owners or office managers · Greater Accra · Recently leased a new office or warehouse space · Needs to subdivide a large space into smaller rooms · Budget: GHC 3,500–30,000
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Meta targeting parameters</span>
+        Location: Greater Accra<br>
+        Interests: small business owners, entrepreneurs, office design<br>
+        Behaviour: recently moved, small business owners<br>
+        Age: 28–50<br>
+        Exclude: students and unemployed signals
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Purchase trigger</span>
+        New office lease where the space needs to be subdivided. Existing office needing more private meeting rooms. Home office conversion into a professional workspace.
+        <br><br>
+        <span class="aud-cell-lbl">Message that works</span>
+        Speed and professionalism. "Create private offices in your space. Installed in 2–5 days." Show the open-plan-to-partitioned transformation. Price on screen.
+      </div>
+    </div>
+  </div>
+
+  <!-- Audience 5 -->
+  <div class="aud-card">
+    <div class="aud-head">
+      <div class="aud-stripe" style="background:var(--c4);width:5px;"></div>
+      <div class="aud-head-body">
+        <div>
+          <div class="aud-name">Energy-Conscious Homeowners &amp; Hotel Operators</div>
+          <div class="aud-tag">Insulation audience · ECG bill trigger · Residential + hospitality</div>
+        </div>
+        <span class="badge b-c4">Insulation Focus</span>
+      </div>
+    </div>
+    <div class="aud-body">
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Demographics</span>
+        Age 30–55 · Greater Accra homeowners and hotel/restaurant operators · Currently experiencing high ECG electricity bills · Air-conditioning-dependent buildings · Interested in solar and energy efficiency solutions
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Meta targeting parameters</span>
+        Location: Greater Accra<br>
+        Interests: solar energy Ghana, ECG electricity, energy efficiency, home improvement<br>
+        Second audience: hotel &amp; restaurant operators (job title targeting)<br>
+        Behaviour: homeowners<br>
+        Age: 30–55
+      </div>
+      <div class="aud-cell">
+        <span class="aud-cell-lbl">Purchase trigger</span>
+        Unexpectedly high ECG bill. Load shedding forcing expensive generator use. New construction where insulation can be incorporated. Hotel seeking to reduce cooling costs per room per month.
+        <br><br>
+        <span class="aud-cell-lbl">Message that works</span>
+        Financial framing, not technical. "Your building is leaking money. Insulation cuts your cooling bill by up to 30%." Open with the ECG bill on a table. The financial saving is the product.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <h3>Audience budget allocation — Week 3 (primary lead generation week)</h3>
+  <div class="tbl-wrap">
+    <div class="tbl-title">Week 3 Budget Split by Audience <span>Total: GHC 700</span></div>
+    <table>
+      <thead><tr><th>Audience</th><th>Campaign Type</th><th>Format</th><th>Allocation</th><th>%</th><th>Expected Leads</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Accra Homeowners (warm retargeting)</strong><small>Week 2 video viewers — already know Wima</small></td><td>Click-to-WhatsApp</td><td>Still image + price badge</td><td style="font-family:var(--mono);font-weight:600;color:var(--amber);">GHC 200</td><td>29%</td><td>4–8 leads</td><td>Warm audiences convert at 40–60% lower CPL. Biggest ROI per cedi.</td></tr>
+        <tr><td><strong>Accra Homeowners (cold audience)</strong><small>New people who did not see Week 2 video</small></td><td>Click-to-WhatsApp</td><td>Before/after video</td><td style="font-family:var(--mono);font-weight:600;color:var(--amber);">GHC 180</td><td>26%</td><td>3–6 leads</td><td>Cold audience expansion for Cat 1 (Acoustic) and Cat 2 (Drywall).</td></tr>
+        <tr><td><strong>Commercial / B2B</strong><small>Office, hotel, developer decision-makers</small></td><td>Facebook Lead Ad</td><td>Static image + instant form</td><td style="font-family:var(--mono);font-weight:600;color:var(--amber);">GHC 170</td><td>24%</td><td>2–4 qualified form submissions</td><td>Cladding and insulation. Higher CPL acceptable — ticket is GHC 15,000+.</td></tr>
+        <tr><td><strong>Insulation — energy-saving audience</strong><small>ECG bill hook. Homeowners + hotels.</small></td><td>Click-to-WhatsApp</td><td>Educational video (ECG bill)</td><td style="font-family:var(--mono);font-weight:600;color:var(--amber);">GHC 150</td><td>21%</td><td>2–5 leads</td><td>Unique creative hook. No competitor in Ghana using this angle for insulation.</td></tr>
+        <tr><td><strong>Diaspora UK + USA</strong><small>London, Manchester, New York, Atlanta</small></td><td>Facebook Lead Ad</td><td>Still image with escrow badge</td><td style="font-family:var(--mono);font-weight:600;color:var(--amber);">GHC 100</td><td>14%</td><td>1–3 high-value enquiries</td><td>Higher CPM (UK $10.85) but one diaspora project = GHC 8,000–30,000. Single conversion covers entire campaign.</td></tr>
+        <tr class="tr-total"><td colspan="3"><strong>Week 3 Total</strong></td><td>GHC 700</td><td>100%</td><td>12–26 leads</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════ SECTION 3: MESSAGING ════ -->
+<div class="sec" id="messaging">
+  <div class="sec-eye">Section 03 <span class="tag">Messaging Framework</span></div>
+  <h2>What We Say<br>and <em>How We Say It.</em></h2>
+  <p class="sec-intro">Five messaging pillars, each anchored to a specific audience pain point. Every ad, every post, every WhatsApp reply maps to one of these pillars. Consistency across all touchpoints is what builds trust in a market where most construction suppliers have no coherent voice.</p>
+
+  <div class="g3" style="margin-bottom:24px;">
+    <div class="msg-pillar" style="border-top-color:var(--c1);">
+      <span class="mp-num" style="color:var(--c1);">Pillar 01</span>
+      <div class="mp-title">Transformation is visible. Results are concrete.</div>
+      <div class="mp-body">Every ad begins with the problem state — the bare concrete ceiling, the open unpartitioned space, the unclad exterior wall. The transformation is the content. Before and after, separated by Wima's work. This pillar owns the visual storytelling across all four categories.</div>
+      <div class="mp-proof">"Concrete ceiling → finished acoustic panel. From GHS 85/m². Free BOQ on WhatsApp."</div>
+      <div class="mp-hook">Bare concrete ceiling in frame 1. White text: "This is your ceiling right now." Time-lapse of installation. Finished ceiling with lighting. Price badge.</div>
+    </div>
+    <div class="msg-pillar" style="border-top-color:var(--amber);">
+      <span class="mp-num" style="color:var(--amber);">Pillar 02</span>
+      <div class="mp-title">Price transparency builds trust faster than any slogan.</div>
+      <div class="mp-body">Most Ghana construction suppliers hide prices, creating anxiety and distrust. Wima shows prices on screen in every ad. "From GHS 85/m²" shown in the video converts curious viewers into qualified leads because it pre-qualifies them. A person who messages after seeing the price is ready to buy.</div>
+      <div class="mp-proof">"We show prices. No surprises. Free BOQ delivered within 24 hours."</div>
+      <div class="mp-hook">Price badge appears at the end of every video, every carousel card, every static image. Never hidden. Always specific. Always in GHS.</div>
+    </div>
+    <div class="msg-pillar" style="border-top-color:var(--c2);">
+      <span class="mp-num" style="color:var(--c2);">Pillar 03</span>
+      <div class="mp-title">Wima is the builder's partner — not just a supplier.</div>
+      <div class="mp-body">Wima does not just deliver materials. It provides the BOQ, coordinates installation through Jamal and the craftsmen network, arranges financing, and documents the project for diaspora clients. This is a fundamentally different value proposition from any hardware shop or materials vendor in Accra.</div>
+      <div class="mp-proof">"Supply. Install. Document. Finance. One call to Wima covers it all."</div>
+      <div class="mp-hook">Carousel card 3: Wima logo + "Free site visit and BOQ · Install coordination · Bank financing available. WhatsApp us."</div>
+    </div>
   </div>
   <div class="g2">
-    <div>
-      <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--slate2);margin-bottom:8px;">GBP setup checklist — do all of these</div>
-      <div class="card tl" style="margin-bottom:8px;"><div class="card-t">Primary category</div><div class="card-b">Set to: "Building Materials Supplier" — this is the single most important ranking signal. Add secondary categories: "Ceiling Supplier", "Drywall Contractor", "Insulation Contractor".</div></div>
-      <div class="card tl" style="margin-bottom:8px;"><div class="card-t">Business description (250–750 words)</div><div class="card-b">Include: "building materials Accra", "drywall installation Ghana", "acoustic ceiling Accra", "exterior cladding Ghana", "insulation systems Accra". Natural language — not keyword stuffing.</div></div>
-      <div class="card tl" style="margin-bottom:8px;"><div class="card-t">Upload 10+ photos immediately</div><div class="card-b">Profile photo, cover, 5 before/after project photos (one per category), team photo, site photos. Profiles with photos get 42% more direction requests.</div></div>
-      <div class="card tl"><div class="card-t">Post weekly GBP updates</div><div class="card-b">Google rewards active profiles. Post one update per week: new project photo, a price guide, a product tip. This signals to Google that Wima is an active, relevant local business.</div></div>
+    <div class="msg-pillar" style="border-top-color:var(--c3);">
+      <span class="mp-num" style="color:var(--c3);">Pillar 04</span>
+      <div class="mp-title">Your Ghana home — completed before you land.</div>
+      <div class="mp-body">Exclusively for the diaspora audience. The emotional trigger is not the product — it is the fear of returning to an unfinished home, the embarrassment of showing guests a bare-walled property, and the distrust of contractors who disappear. Wima's escrow model and photo documentation remove every one of those fears.</div>
+      <div class="mp-proof">"Pay via Wise or bank transfer. We send photos at every stage. Your Ghana home is safe with us."</div>
+      <div class="mp-hook">Split screen: unfinished Ghana room on the left / finished room on the right. Text: "Building in Ghana from London? We handle it. You watch it happen." WhatsApp CTA.</div>
     </div>
-    <div>
-      <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--slate2);margin-bottom:8px;">GBP search terms to capture</div>
-      <table class="t" style="margin-bottom:0;">
-        <thead><tr><th>Search Term</th><th>Monthly Searches (est.)</th></tr></thead>
-        <tbody>
-          <tr><td>building materials Accra</td><td>High — commercial intent</td></tr>
-          <tr><td>ceiling installation Ghana</td><td>Medium — project intent</td></tr>
-          <tr><td>drywall supplier Accra</td><td>Medium — B2B intent</td></tr>
-          <tr><td>acoustic ceiling Accra</td><td>Medium — specification intent</td></tr>
-          <tr><td>exterior cladding Ghana</td><td>Low-medium — developer intent</td></tr>
-          <tr><td>insulation systems Accra</td><td>Low-medium — energy saving intent</td></tr>
-          <tr><td>building materials near me</td><td>High — immediate need intent</td></tr>
-          <tr><td>Wima Deal Hub</td><td>Brand — grows with awareness</td></tr>
-        </tbody>
-      </table>
+    <div class="msg-pillar" style="border-top-color:var(--c4);">
+      <span class="mp-num" style="color:var(--c4);">Pillar 05</span>
+      <div class="mp-title">Your building is leaking money. Insulation stops it.</div>
+      <div class="mp-body">Unique to the insulation category. The message frames insulation as a financial saving tool, not a technical product. An ECG electricity bill is the opening image. The copy is about GHC saved per month, not about R-values or thermal conductivity. This is a creative angle that no competitor in Ghana is using for insulation.</div>
+      <div class="mp-proof">"Insulation cuts your cooling bill by up to 30%. At GHS 95/m², it pays for itself within 18 months."</div>
+      <div class="mp-hook">Close-up of ECG bill with amount circled in red. Text: "Your building is leaking money. Every month." Thermal animation. Insulation installed. Price badge. WhatsApp CTA.</div>
     </div>
   </div>
 
-  <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;">Content calendar — free posting schedule (Week 1)</h3>
-  <table class="t">
-    <thead><tr><th>Day</th><th>Platform</th><th>Content</th><th>Time</th><th>Goal</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Monday</strong></td><td>Facebook Groups (all 5)</td><td>Helpful guide: "POP vs Acoustic Drywall vs Suspended Grid — cost and use case for Ghana homes"</td><td>30 mins</td><td>Community trust + first organic enquiries</td></tr>
-      <tr><td><strong>Tuesday</strong></td><td>WhatsApp Status</td><td>Before/after photo of acoustic ceiling installation. Price: "From GHS 85/m²"</td><td>5 mins</td><td>Reach all contacts at zero cost</td></tr>
-      <tr><td><strong>Wednesday</strong></td><td>Instagram Reels</td><td>15-second time-lapse of drywall partition being installed. CapCut edit with captions.</td><td>45 mins</td><td>Algorithm feed + organic reach</td></tr>
-      <tr><td><strong>Thursday</strong></td><td>Facebook Page</td><td>Product spotlight: Insulation Systems. ECG bill image + "cut your cooling costs by 30%"</td><td>20 mins</td><td>Page followers + engagement</td></tr>
-      <tr><td><strong>Friday</strong></td><td>WhatsApp Status + Groups</td><td>"Weekend offer: BOQ for any ceiling project in Accra — free, within 24 hours. WhatsApp us."</td><td>10 mins</td><td>Direct lead generation — Friday is peak decision-making day</td></tr>
-      <tr><td><strong>Saturday</strong></td><td>Instagram + Facebook</td><td>Behind-the-scenes: filming Jamal's installation. Show the work, not just the result.</td><td>20 mins</td><td>Authenticity — builds trust faster than polished content</td></tr>
-      <tr><td><strong>Sunday</strong></td><td>WhatsApp Community</td><td>Weekly price list for all four categories. "Week ahead — here's what Wima has available."</td><td>15 mins</td><td>Community retention + repeat engagement</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- ══════════════════════════════════════════
-     SECTION 4 — FOUR CATEGORIES
-══════════════════════════════════════════ -->
-<div class="sec" id="categories">
-  <div class="sec-eye">Section 03 — Four-Category Campaign Briefs</div>
-  <h2>FOUR CATEGORIES.<br>FOUR STRATEGIES.<br>ONE PIPELINE.</h2>
-  <p class="sec-sub">Each category has a distinct buyer psychology, a different visual hook, and a different WhatsApp auto-reply. These are not variations of one campaign — they are four separate conversion funnels sharing one budget and one WhatsApp number.</p>
-
-  <!-- CAT 1 -->
-  <div class="catcard">
-    <div class="catcard-stripe" style="background:var(--cat1);"></div>
-    <div class="catcard-body" style="position:relative;">
-      <div class="catcard-num" style="color:var(--cat1);">01</div>
-      <div class="catcard-head">
-        <div><div class="catcard-label" style="color:var(--cat1);">Category 01 — ✅ Launching</div><div class="catcard-name" style="color:var(--cat1);">Acoustic Ceiling Systems</div><span class="catcard-badge" style="background:#EBF3FD;color:var(--cat1);">Hotels · Offices · Residential</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="spec"><span class="spec-l">Price range</span><span class="spec-v">GHS 85–220/m²</span></div>
-        <div class="spec"><span class="spec-l">Avg project</span><span class="spec-v">GHS 4,000–45,000</span></div>
-        <div class="spec"><span class="spec-l">Target CPL</span><span class="spec-v">GHC 30–60</span></div>
-        <div class="spec"><span class="spec-l">Lead format</span><span class="spec-v">Video Reel</span></div>
-        <div class="spec"><span class="spec-l">Primary CTA</span><span class="spec-v">Click-to-WhatsApp</span></div>
-        <div class="spec"><span class="spec-l">Week 2 budget</span><span class="spec-v">GHC 140 of 500</span></div>
-      </div>
-      <div class="ad-block">
-        <div class="ad-block-lbl">Video ad script — 15 seconds — Reel format</div>
-        <div class="copy-box" data-l="0–2 sec: The hook — show the problem">Bare concrete ceiling. Exposed wires. Dusty slab. White text: "This is your ceiling right now."</div>
-        <div class="copy-box" data-l="2–12 sec: The transformation">Time-lapse of acoustic grid going up. Mineral fibre tiles clicking into place. Clean lines forming. Professional finish emerging.</div>
-        <div class="copy-box" data-l="12–15 sec: Reveal + CTA">Finished ceiling with recessed lighting. Price badge fades in: "From GHS 85/m² · Accra-wide · Free BOQ on WhatsApp 👇"</div>
-        <div class="ptags"><span class="pt pt-fb">Facebook Reels</span><span class="pt pt-ig">Instagram Reels</span><span class="pt pt-wa">Click-to-WhatsApp</span><span class="pt pt-tt">TikTok Phase 2</span></div>
-      </div>
-      <div class="ad-block">
-        <div class="ad-block-lbl">WhatsApp auto-reply — fires within 3 seconds</div>
-        <div class="copy-box" data-l="Paste into WhatsApp Business → Tools → Greeting Message">Hi! Welcome to Wima Deal Hub 👋 Thanks for reaching out about our Acoustic Ceiling Systems. To prepare your free BOQ, please reply with: 1️⃣ Your location in Accra/Ghana 2️⃣ Ceiling area in m² (or room dimensions) 3️⃣ Use: Home / Office / Hotel / Restaurant. Quote within 24 hours. 🏗️</div>
-      </div>
-      <div class="ad-block">
-        <div class="ad-block-lbl">Diaspora copy — UK &amp; USA audience</div>
-        <div class="copy-box" data-l="Headline">Building your Ghana home from London? Your ceiling, finished before you arrive.</div>
-        <div class="copy-box" data-l="Body">Acoustic ceiling systems supplied and installed across Accra. Pay via Wise, bank transfer, or SWIFT into our escrow. Photo updates at every stage. WhatsApp us from the UK.</div>
-      </div>
-    </div>
+  <div class="divider"></div>
+  <h3>Tone of voice — how Wima speaks across every channel</h3>
+  <div class="tbl-wrap">
+    <div class="tbl-title">Tone of Voice Matrix</div>
+    <table>
+      <thead><tr><th>Channel</th><th>Tone</th><th>Register</th><th>Example</th><th>Avoid</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Facebook/Instagram ads</strong></td><td>Direct · Visual · Confident</td><td>Short sentences. Present tense. Imperative CTAs.</td><td>"Your ceiling, finished. From GHS 85/m². WhatsApp us now 👇"</td><td>Superlatives ("best", "number one"). Vague promises. Long sentences in ad copy.</td></tr>
+        <tr><td><strong>WhatsApp auto-reply</strong></td><td>Warm · Professional · Efficient</td><td>Conversational but organised. Emoji used sparingly. Numbered lists for clarity.</td><td>"Hi! Welcome to Wima Deal Hub 👋 To prepare your free BOQ, please reply with: 1️⃣ Location 2️⃣ Area 3️⃣ Type."</td><td>Formal corporate language. Overly long messages. Walls of text without structure.</td></tr>
+        <tr><td><strong>WhatsApp follow-up</strong></td><td>Personal · Helpful · Action-oriented</td><td>First name if known. Specific to their enquiry. One action per message.</td><td>"Hi [Name] — based on your 40m² ceiling, here is your BOQ for acoustic panels. GHS 3,400 supply and install. Can we arrange a site visit this week?"</td><td>Generic copy-paste responses. No personalisation. Slow replies (target: under 1 hour).</td></tr>
+        <tr><td><strong>Facebook Group posts</strong></td><td>Expert · Helpful · Non-promotional</td><td>Third person about Wima until the very end. Lead with information, not sales.</td><td>"Here's a comparison of POP vs acoustic drywall vs suspended grid ceilings — cost, durability, and use case for Ghana homes." [Full guide] "We're Wima — we supply all three. WhatsApp us if you need a BOQ."</td><td>Hard sell in opening. Posting ads instead of content. Spam posting frequency (once per week maximum).</td></tr>
+        <tr><td><strong>WhatsApp Status</strong></td><td>Authentic · Visual · Consistent</td><td>Project photos. Real installs. Real prices. No stock photos.</td><td>[Before/after photo of real installation] "Acoustic ceiling, East Legon. 65m² completed in 2 days. From GHS 85/m². WhatsApp us 👇"</td><td>Stock photos. Designer graphics. Text-heavy images. Status posts without a price.</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- CAT 2 -->
-  <div class="catcard">
-    <div class="catcard-stripe" style="background:var(--cat2);"></div>
-    <div class="catcard-body" style="position:relative;">
-      <div class="catcard-num" style="color:var(--cat2);">02</div>
-      <div class="catcard-head">
-        <div><div class="catcard-label" style="color:var(--cat2);">Category 02 — ✅ Launching</div><div class="catcard-name" style="color:var(--cat2);">Drywall &amp; Partition Systems</div><span class="catcard-badge" style="background:#EAF3DE;color:var(--cat2);">Offices · Renovators · Developers</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="spec"><span class="spec-l">Price range</span><span class="spec-v">GHS 85–180/m²</span></div>
-        <div class="spec"><span class="spec-l">Avg project</span><span class="spec-v">GHS 3,500–30,000</span></div>
-        <div class="spec"><span class="spec-l">Target CPL</span><span class="spec-v">GHC 25–55</span></div>
-        <div class="spec"><span class="spec-l">Lead format</span><span class="spec-v">Video + Carousel</span></div>
-        <div class="spec"><span class="spec-l">Primary CTA</span><span class="spec-v">Click-to-WhatsApp</span></div>
-        <div class="spec"><span class="spec-l">Week 2 budget</span><span class="spec-v">GHC 140 of 500</span></div>
-      </div>
-      <div class="ad-block">
-        <div class="ad-block-lbl">Video ad script + carousel</div>
-        <div class="copy-box" data-l="0–2 sec: The hook">Open-plan space, no partition, no privacy. Text: "One room. No privacy. No function."</div>
-        <div class="copy-box" data-l="2–12 sec: Build sequence">Steel stud framing going up. Plasterboard panels fixed. Taping, jointing, door frame cut-out.</div>
-        <div class="copy-box" data-l="12–15 sec: Two distinct rooms revealed">Clean partition wall, separate spaces. "From GHS 85/m² · Commercial &amp; residential · Free BOQ on WhatsApp 👇"</div>
-        <div class="copy-box" data-l="Carousel — 3 cards (for commercial/office targeting)">Card 1: Open office, no partitions. "Need private offices?" / Card 2: Finished partition with glass insert. "Professional partition systems." / Card 3: Wima logo. "Free site visit and BOQ. WhatsApp Wima."</div>
-        <div class="ptags"><span class="pt pt-fb">Facebook Feed + Reels</span><span class="pt pt-ig">Instagram Stories</span><span class="pt pt-wa">Click-to-WhatsApp</span></div>
-      </div>
-      <div class="ad-block">
-        <div class="ad-block-lbl">WhatsApp auto-reply</div>
-        <div class="copy-box" data-l="Greeting message for drywall enquiries">Hi! Welcome to Wima Deal Hub 👋 Thanks for your interest in Drywall &amp; Partition Systems. For your free BOQ: 1️⃣ Location in Ghana 2️⃣ Type: New partition / Ceiling / Both 3️⃣ Area in m² or room size 4️⃣ Use: Home / Office / Shop. Quote within 24 hours. 🏗️</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CAT 3 -->
-  <div class="catcard">
-    <div class="catcard-stripe" style="background:var(--cat3);"></div>
-    <div class="catcard-body" style="position:relative;">
-      <div class="catcard-num" style="color:var(--cat3);">03</div>
-      <div class="catcard-head">
-        <div><div class="catcard-label" style="color:var(--cat3);">Category 03 — ✅ Launching</div><div class="catcard-name" style="color:var(--cat3);">Exterior Cladding &amp; Cement Board Systems</div><span class="catcard-badge" style="background:#FEF3E0;color:var(--cat3);">Developers · Architects · Commercial</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="spec"><span class="spec-l">Price range</span><span class="spec-v">GHS 120–380/m²</span></div>
-        <div class="spec"><span class="spec-l">Avg project</span><span class="spec-v">GHS 15,000–200,000+</span></div>
-        <div class="spec"><span class="spec-l">Target CPL</span><span class="spec-v">GHC 50–120</span></div>
-        <div class="spec"><span class="spec-l">Lead format</span><span class="spec-v">Static image + Lead Ad</span></div>
-        <div class="spec"><span class="spec-l">Primary CTA</span><span class="spec-v">Facebook Lead Form</span></div>
-        <div class="spec"><span class="spec-l">Week 3 budget</span><span class="spec-v">GHC 170 of 700</span></div>
-      </div>
-      <div class="ad-block">
-        <div class="ad-block-lbl">Static image ad + Facebook Lead Ad form</div>
-        <div class="copy-box" data-l="Image: split before/after of building exterior">Left: bare rendered block wall. Right: finished alucobond/cement board cladding. Wima logo bottom-right. Price: "From GHS 120/m²"</div>
-        <div class="copy-box" data-l="Headline">Transform your building's exterior. Cement board and cladding systems across Ghana.</div>
-        <div class="copy-box" data-l="Lead Ad form fields">Name · Company · Phone · Project type (New build / Renovation / Commercial / Residential) · Approximate area in m² · Location</div>
-        <div class="copy-box" data-l="Lead Ad thank-you message">Thank you. A Wima project specialist will contact you within 24 hours. WhatsApp us directly anytime: [wa.me/number]</div>
-        <div class="ptags"><span class="pt pt-fb">Facebook Lead Ads</span><span class="pt pt-ig">Instagram Feed</span><span class="pt pt-wa">WhatsApp follow-up</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CAT 4 -->
-  <div class="catcard">
-    <div class="catcard-stripe" style="background:var(--cat4);"></div>
-    <div class="catcard-body" style="position:relative;">
-      <div class="catcard-num" style="color:var(--cat4);">04</div>
-      <div class="catcard-head">
-        <div><div class="catcard-label" style="color:var(--cat4);">Category 04 — ✅ Launching</div><div class="catcard-name" style="color:var(--cat4);">Insulation Systems</div><span class="catcard-badge" style="background:#F0ECF9;color:var(--cat4);">Homeowners · Hotels · Cold Storage</span></div>
-      </div>
-      <div class="spec-row">
-        <div class="spec"><span class="spec-l">Price range</span><span class="spec-v">GHS 95–260/m²</span></div>
-        <div class="spec"><span class="spec-l">Avg project</span><span class="spec-v">GHS 5,000–60,000</span></div>
-        <div class="spec"><span class="spec-l">Target CPL</span><span class="spec-v">GHC 40–80</span></div>
-        <div class="spec"><span class="spec-l">Lead format</span><span class="spec-v">Educational video</span></div>
-        <div class="spec"><span class="spec-l">Primary CTA</span><span class="spec-v">Click-to-WhatsApp</span></div>
-        <div class="spec"><span class="spec-l">Week 3 budget</span><span class="spec-v">GHC 150 of 700</span></div>
-      </div>
-      <div class="ad-block">
-        <div class="ad-block-lbl">Educational video ad — 20 seconds — unique hook</div>
-        <div class="copy-box" data-l="0–3 sec: Pain hook — ECG bill">ECG electricity bill on a table, amount circled in red. Text: "Your building is leaking money. Every month."</div>
-        <div class="copy-box" data-l="3–15 sec: Simple visual explanation">Thermal animation: heat escaping through uninsulated walls and roof. Then same building with insulation blocking heat flow. Text: "Insulation keeps the cool in. Cuts your cooling bill by up to 30%."</div>
-        <div class="copy-box" data-l="15–20 sec: CTA">Completed insulation installation. "From GHS 95/m² · Residential &amp; commercial · Free BOQ on WhatsApp 👇"</div>
-        <div class="copy-box" data-l="WhatsApp auto-reply">Hi! Welcome to Wima Deal Hub 👋 Interested in cutting your cooling and energy costs? Our insulation systems can reduce bills by up to 30%. For your free BOQ: 1️⃣ Property type: Home / Office / Hotel / Warehouse 2️⃣ Location 3️⃣ Area: Roof / Walls / Floors / All 4️⃣ Size in m². Quote within 24 hours. 🏗️</div>
-        <div class="ptags"><span class="pt pt-fb">Facebook Feed</span><span class="pt pt-ig">Instagram Reels</span><span class="pt pt-wa">Click-to-WhatsApp</span><span class="pt pt-gg">YouTube Phase 3</span></div>
-      </div>
-    </div>
+  <h3>Per-category messaging — the one-line hook for each product</h3>
+  <div class="tbl-wrap">
+    <div class="tbl-title">Category Messaging Summary</div>
+    <table>
+      <thead><tr><th>Category</th><th>The Problem We Solve</th><th>The Transformation We Show</th><th>The Price We State</th><th>The CTA</th></tr></thead>
+      <tbody>
+        <tr><td><strong style="color:var(--c1);">Acoustic Ceiling Systems</strong></td><td>Bare concrete ceiling — exposed, unfinished, acoustically poor</td><td>Clean acoustic grid with mineral fibre tiles and recessed lighting</td><td>From GHS 85/m²</td><td>Get your free BOQ on WhatsApp in 24 hours</td></tr>
+        <tr><td><strong style="color:var(--c2);">Drywall &amp; Partition Systems</strong></td><td>One open space with no privacy or function separation</td><td>Two separate finished rooms with a clean plasterboard partition</td><td>From GHS 85/m²</td><td>Get your free BOQ on WhatsApp in 24 hours</td></tr>
+        <tr><td><strong style="color:var(--c3);">Exterior Cladding &amp; Cement Board</strong></td><td>Bare rendered block wall exterior — unfinished, weather-exposed</td><td>Clean alucobond or cement board cladding — professional, weather-resistant</td><td>From GHS 120/m²</td><td>Request a free site visit and commercial quote</td></tr>
+        <tr><td><strong style="color:var(--c4);">Insulation Systems</strong></td><td>High ECG electricity bills from poor thermal performance</td><td>Reduced cooling bills by up to 30% — insulation pays for itself in 18 months</td><td>From GHS 95/m²</td><td>Find out how much you could save — WhatsApp us</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 5 — BUDGET
-══════════════════════════════════════════ -->
-<div class="sec" id="budget">
-  <div class="sec-eye">Section 04 — GHC 1,500 Campaign Budget</div>
-  <h2>EVERY PESEWA<br>PLANNED.</h2>
-  <p class="sec-sub">Four weeks. GHC 1,500 total. Week 1 costs nothing. The budget front-loads into Week 3 because that is when leads are generated, not when awareness is built.</p>
+<!-- ════ SECTION 4: CHANNELS ════ -->
+<div class="sec" id="channels">
+  <div class="sec-eye">Section 04 <span class="tag">Channel Strategy</span></div>
+  <h2>Where We Show Up<br>and <em>Why.</em></h2>
+  <p class="sec-intro">Seven channels mapped by Ghana user data, cost benchmarks, and Wima's specific use case. Priority 1 channels activate immediately. Priority 2 channels activate at Day 60. Priority 3 channels activate at Month 3. Every free channel activates in Week 1.</p>
 
-  <div class="wk-grid">
-    <div class="wk"><span class="wk-lbl">Week 1 · Days 1–7</span><div class="wk-title">GROUNDWORK</div><div class="wk-budget" style="color:var(--green);">GHC 0</div><div class="wk-desc">Organic only. Film all 4 videos. Set up GBP. 5 Facebook groups joined. 4 WhatsApp auto-replies live. Meta Pixel installed.</div><div class="wk-bar" style="background:var(--rule);"></div></div>
-    <div class="wk"><span class="wk-lbl">Week 2 · Days 8–14</span><div class="wk-title">AWARENESS</div><div class="wk-budget" style="color:var(--cat1);">GHC 500</div><div class="wk-desc">Video views campaign. Acoustic + Drywall Reels. CPM-optimised. Build retargeting pool. GHC 71/day lifetime budget.</div><div class="wk-bar" style="background:var(--cat1);"></div></div>
-    <div class="wk"><span class="wk-lbl">Week 3 · Days 15–21</span><div class="wk-title">LEADS</div><div class="wk-budget" style="color:var(--amber);">GHC 700</div><div class="wk-desc">Click-to-WhatsApp. All 4 categories. Warm retargeting gets 55% of budget. Diaspora campaign activates. GHC 100/day.</div><div class="wk-bar" style="background:var(--amber);"></div></div>
-    <div class="wk"><span class="wk-lbl">Week 4 · Days 22–28</span><div class="wk-title">SCALE WINNER</div><div class="wk-budget" style="color:var(--cat4);">GHC 300</div><div class="wk-desc">Put GHC 200 behind the lowest-CPA campaign. Cut anything with zero leads. Organic testimonials. Project posts.</div><div class="wk-bar" style="background:var(--cat4);"></div></div>
+  <div class="ch-grid">
+    <div class="ch-card">
+      <div class="ch-head">
+        <div class="ch-icon" style="background:#EFF6FF;">📘</div>
+        <div>
+          <span class="ch-name">Facebook + Instagram</span>
+          <span class="ch-role">Paid awareness + lead generation</span>
+        </div>
+        <span class="ch-pri badge b-go">★ Priority 1</span>
+      </div>
+      <div class="ch-body">
+        <div class="ch-metric-row">
+          <div class="ch-m"><span class="ch-m-l">Ghana Users</span><span class="ch-m-v good">10.8M / rising</span></div>
+          <div class="ch-m"><span class="ch-m-l">Ghana CPM</span><span class="ch-m-v good">$0.30–$1.50</span></div>
+          <div class="ch-m"><span class="ch-m-l">Africa CPC</span><span class="ch-m-v good">$0.24 avg</span></div>
+          <div class="ch-m"><span class="ch-m-l">Wima Phase</span><span class="ch-m-v">Week 2 → ∞</span></div>
+        </div>
+        <div class="ch-use">Primary paid channel. Runs all four category campaigns. Advantage+ placement distributes budget across Facebook Feed, Reels, and Instagram Reels simultaneously — Meta's algorithm finds the cheapest impressions. Click-to-WhatsApp format ties directly into Wima's pipeline. Lookalike audience built from Kabinart's 109K followers provides the most efficient targeting available from Day 1.</div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <div class="ch-head">
+        <div class="ch-icon" style="background:#F0FDF4;">💬</div>
+        <div>
+          <span class="ch-name">WhatsApp Business</span>
+          <span class="ch-role">Lead conversion + retention engine</span>
+        </div>
+        <span class="ch-pri badge b-go">★ Priority 1</span>
+      </div>
+      <div class="ch-body">
+        <div class="ch-metric-row">
+          <div class="ch-m"><span class="ch-m-l">Ghana penetration</span><span class="ch-m-v good">83.6%</span></div>
+          <div class="ch-m"><span class="ch-m-l">Open rate</span><span class="ch-m-v good">80–98%</span></div>
+          <div class="ch-m"><span class="ch-m-l">vs Email</span><span class="ch-m-v good">4× higher</span></div>
+          <div class="ch-m"><span class="ch-m-l">Cost</span><span class="ch-m-v good">Free</span></div>
+        </div>
+        <div class="ch-use">Every paid ad drives here. 4 auto-replies set up before Week 2 — one per category — fire within 3 seconds. WhatsApp Status posts daily to all contacts at zero cost. WhatsApp Community broadcasts weekly price lists. Every lead is a WhatsApp conversation. The pipeline, the BOQ, the follow-up, and the close all happen here.</div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <div class="ch-head">
+        <div class="ch-icon" style="background:#FFFBEB;">🗺️</div>
+        <div>
+          <span class="ch-name">Google Business Profile</span>
+          <span class="ch-role">Local search visibility — free</span>
+        </div>
+        <span class="ch-pri badge b-go">★ Priority 1</span>
+      </div>
+      <div class="ch-body">
+        <div class="ch-metric-row">
+          <div class="ch-m"><span class="ch-m-l">GBP views source</span><span class="ch-m-v good">86% category</span></div>
+          <div class="ch-m"><span class="ch-m-l">Visit intent</span><span class="ch-m-v good">76% in 24h</span></div>
+          <div class="ch-m"><span class="ch-m-l">Complete profile</span><span class="ch-m-v good">70% more visits</span></div>
+          <div class="ch-m"><span class="ch-m-l">Cost</span><span class="ch-m-v good">Free forever</span></div>
+        </div>
+        <div class="ch-use">Claimed and fully optimised on Day 1. Primary category: "Building Materials Supplier." Service pages for all four categories. 10+ photos from Day 1. Weekly GBP posts. GhanaPostGPS digital address added. Captures high-intent buyers actively searching "building materials Accra", "ceiling installation Ghana" — people further along the buying journey than any paid social audience.</div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <div class="ch-head">
+        <div class="ch-icon" style="background:#F5F3FF;">👥</div>
+        <div>
+          <span class="ch-name">Facebook Groups</span>
+          <span class="ch-role">Organic community presence — free</span>
+        </div>
+        <span class="ch-pri badge b-go">★ Priority 1</span>
+      </div>
+      <div class="ch-body">
+        <div class="ch-metric-row">
+          <div class="ch-m"><span class="ch-m-l">Groups to join</span><span class="ch-m-v">5 groups</span></div>
+          <div class="ch-m"><span class="ch-m-l">Posts per week</span><span class="ch-m-v">1 per group</span></div>
+          <div class="ch-m"><span class="ch-m-l">Avg enquiries</span><span class="ch-m-v good">5–15 / post</span></div>
+          <div class="ch-m"><span class="ch-m-l">Cost</span><span class="ch-m-v good">Free</span></div>
+        </div>
+        <div class="ch-use">Groups: "Ghana Homes for Sale" · "Ghanaians in UK Building in Ghana" · "Accra Real Estate" · "Ghana Interior Design" · "Ghana Construction Network." One useful educational post per group per week. No promotional content until Week 2. Research confirms 60% of Ghanaian buyers trust community content over advertising — establishing presence before spending money on ads improves paid campaign performance significantly.</div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <div class="ch-head">
+        <div class="ch-icon" style="background:#F8F8F8;">🎵</div>
+        <div>
+          <span class="ch-name">TikTok</span>
+          <span class="ch-role">Organic Phase 1 · Paid Phase 2</span>
+        </div>
+        <span class="ch-pri badge b-warn">Phase 2 · Day 60</span>
+      </div>
+      <div class="ch-body">
+        <div class="ch-metric-row">
+          <div class="ch-m"><span class="ch-m-l">Ghana users</span><span class="ch-m-v">7.4M</span></div>
+          <div class="ch-m"><span class="ch-m-l">Global CPM</span><span class="ch-m-v">$7–$10</span></div>
+          <div class="ch-m"><span class="ch-m-l">Purchase intent</span><span class="ch-m-v good">39% buy via TT</span></div>
+          <div class="ch-m"><span class="ch-m-l">Account needed</span><span class="ch-m-v">Day 1 (organic)</span></div>
+        </div>
+        <div class="ch-use">Create TikTok Business account on Day 1 and post organic content — time-lapse installations, ceiling reveals, partition builds — before spending any money. TikTok ads perform significantly better on accounts with existing organic content and followers. Paid TikTok In-Feed ads activate at Day 60 once Wima has documented project content to work from. Organic-first approach costs nothing and builds the account simultaneously.</div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <div class="ch-head">
+        <div class="ch-icon" style="background:#FEF2F2;">🔍</div>
+        <div>
+          <span class="ch-name">Google Search + YouTube</span>
+          <span class="ch-role">High-intent paid search</span>
+        </div>
+        <span class="ch-pri badge" style="background:#F3F4F6;color:#6B7280;">Phase 3 · Month 3</span>
+      </div>
+      <div class="ch-body">
+        <div class="ch-metric-row">
+          <div class="ch-m"><span class="ch-m-l">Local intent searches</span><span class="ch-m-v good">46% of all Google</span></div>
+          <div class="ch-m"><span class="ch-m-l">Ghana CPC (est.)</span><span class="ch-m-v">$0.50–$2.00</span></div>
+          <div class="ch-m"><span class="ch-m-l">YouTube users</span><span class="ch-m-v">32.7% Ghana</span></div>
+          <div class="ch-m"><span class="ch-m-l">When to start</span><span class="ch-m-v">After Pixel data</span></div>
+        </div>
+        <div class="ch-use">Google Search captures the highest-intent buyers — people actively searching for "building materials Accra" or "drywall contractor Ghana" are further along the purchase funnel than any social media audience. Requires conversion tracking (Meta Pixel data) and a basic landing page before activating. YouTube pre-roll ads (6-second bumpers) run before Ghana home improvement content at some of the lowest CPMs globally. Activate Month 3.</div>
+      </div>
+    </div>
   </div>
 
-  <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;">Week 3 allocation — all four categories</h3>
-  <table class="t">
-    <thead><tr><th>Category</th><th>Campaign Type</th><th>Audience</th><th>Format</th><th>Allocation</th><th>Expected Leads</th></tr></thead>
-    <tbody>
-      <tr><td><strong style="color:var(--cat1);">01 Acoustic Ceiling</strong></td><td>Click-to-WhatsApp (retargeting)</td><td>Warm video viewers from Week 2 · Accra homeowners</td><td>Still image with price badge</td><td style="font-family:var(--mono);font-weight:700;color:var(--cat1);">GHC 200</td><td>4–8 WhatsApp messages</td></tr>
-      <tr><td><strong style="color:var(--cat2);">02 Drywall &amp; Partitions</strong></td><td>Click-to-WhatsApp (cold + retarget)</td><td>Accra offices + residential renovators</td><td>Video + 3-card carousel</td><td style="font-family:var(--mono);font-weight:700;color:var(--cat2);">GHC 180</td><td>3–7 WhatsApp messages</td></tr>
-      <tr><td><strong style="color:var(--cat3);">03 Exterior Cladding</strong></td><td>Facebook Lead Ad (B2B)</td><td>Architects · Developers · East Legon, Airport City</td><td>Static image + instant form</td><td style="font-family:var(--mono);font-weight:700;color:var(--cat3);">GHC 170</td><td>2–4 qualified form submissions</td></tr>
-      <tr><td><strong style="color:var(--cat4);">04 Insulation Systems</strong></td><td>Click-to-WhatsApp (educational)</td><td>Homeowners (ECG interest) · Hotels</td><td>Educational video (ECG bill hook)</td><td style="font-family:var(--mono);font-weight:700;color:var(--cat4);">GHC 150</td><td>2–5 WhatsApp messages</td></tr>
-      <tr><td><strong>Diaspora — all categories</strong></td><td>Facebook Lead Ad</td><td>UK (London, Manchester) + USA (NY, Atlanta)</td><td>Static image with escrow payment badge</td><td style="font-family:var(--mono);font-weight:700;color:var(--amber);">GHC 100</td><td>1–3 high-value enquiries</td></tr>
-      <tr class="t-total"><td colspan="4"><strong>Week 3 Total</strong></td><td>GHC 700</td><td>12–27 total leads</td></tr>
-    </tbody>
-  </table>
-
-  <h3 style="font-size:14px;font-weight:600;margin-bottom:12px;">Ad format decision matrix</h3>
-  <table class="t">
-    <thead><tr><th>Format</th><th>When to Use</th><th>When NOT to Use</th><th>Production Cost</th><th>Performance Level</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Video Reel (15–30 sec)</strong></td><td>Cold audience awareness · Phase 1 · All categories with transformation content</td><td>Never use for warm retargeting alone — overkill</td><td>GHC 0 — smartphone + CapCut (free)</td><td style="color:var(--green);font-weight:600;">Highest — 26% lower CPC than Feed</td></tr>
-      <tr><td><strong>Single static image</strong></td><td>Warm retargeting only · Remind viewers who already know Wima · Cladding B2B</td><td>Never use for cold audiences — no context, no trust</td><td>GHC 0 — screenshot from video</td><td style="color:var(--teal);font-weight:600;">High — when audience is warm</td></tr>
-      <tr><td><strong>Carousel (3 cards)</strong></td><td>Week 4 office/commercial targeting · Show product range in one unit</td><td>Don't use in Week 2 — needs warm audience</td><td>GHC 0 — Canva free templates</td><td style="color:var(--teal);font-weight:600;">Medium-high — good for B2B</td></tr>
-      <tr><td><strong>Facebook Lead Ad</strong></td><td>Cladding B2B · Diaspora · High-value qualified leads</td><td>Don't use for low-ticket residential — too much friction</td><td>GHC 0 — built in Meta Ads Manager</td><td style="color:var(--amber);font-weight:600;">Medium — quality over quantity</td></tr>
-      <tr><td><strong style="color:var(--coral);">Designer flyer / text poster</strong></td><td style="color:var(--coral);">Never</td><td style="color:var(--coral);">Always — across every week, every audience</td><td>GHC 500–2,000 wasted</td><td style="color:var(--coral);font-weight:600;">Lowest — looks like spam in Ghana feed</td></tr>
-    </tbody>
-  </table>
+  <div class="tbl-wrap">
+    <div class="tbl-title">Channel summary — priority, cost, and activation week</div>
+    <table>
+      <thead><tr><th>Channel</th><th>Type</th><th>Cost</th><th>Activation</th><th>Primary Job</th><th>KPI</th></tr></thead>
+      <tbody>
+        <tr><td><strong>WhatsApp Business</strong></td><td>Organic + paid (via Meta)</td><td style="color:#16A34A;font-family:var(--mono);">Free</td><td>Day 1</td><td>Lead conversion and pipeline management</td><td>WhatsApp messages received per week</td></tr>
+        <tr><td><strong>Google Business Profile</strong></td><td>Organic (SEO)</td><td style="color:#16A34A;font-family:var(--mono);">Free</td><td>Day 1</td><td>Local search visibility for buying-intent queries</td><td>Search impressions and direction requests</td></tr>
+        <tr><td><strong>Facebook Groups</strong></td><td>Organic</td><td style="color:#16A34A;font-family:var(--mono);">Free</td><td>Day 3</td><td>Community trust + pre-warms paid ad audiences</td><td>Organic enquiries per week</td></tr>
+        <tr><td><strong>WhatsApp Status</strong></td><td>Organic</td><td style="color:#16A34A;font-family:var(--mono);">Free</td><td>Day 1</td><td>Reach all saved contacts daily — zero cost</td><td>Status views per post</td></tr>
+        <tr><td><strong>Instagram Reels (organic)</strong></td><td>Organic</td><td style="color:#16A34A;font-family:var(--mono);">Free</td><td>Day 7</td><td>Before/after transformation content — seeds TikTok audience</td><td>Organic Reel views</td></tr>
+        <tr><td><strong>TikTok (organic)</strong></td><td>Organic</td><td style="color:#16A34A;font-family:var(--mono);">Free</td><td>Day 1</td><td>Build account before paid spend at Day 60</td><td>Followers gained per week</td></tr>
+        <tr><td><strong>Facebook + Instagram (paid)</strong></td><td>Paid</td><td style="color:var(--amber);font-family:var(--mono);">GHC 500 Wk2 · GHC 700 Wk3</td><td>Day 8</td><td>Awareness (Wk2) → lead generation (Wk3)</td><td>CPL, ThruPlay rate, WhatsApp messages</td></tr>
+        <tr><td><strong>TikTok (paid)</strong></td><td>Paid</td><td style="color:var(--amber);font-family:var(--mono);">Month 2 budget</td><td>Day 60</td><td>Younger demographic, viral potential, project content</td><td>Video views, click-throughs, WhatsApp messages</td></tr>
+        <tr><td><strong>Google Search (paid)</strong></td><td>Paid</td><td style="color:var(--amber);font-family:var(--mono);">Month 3 budget</td><td>Month 3</td><td>High-intent search capture</td><td>Search impression share, conversions</td></tr>
+        <tr><td><strong>LinkedIn InMail</strong></td><td>Paid (selective)</td><td style="color:var(--stop);font-family:var(--mono);">$20–$30 CPC</td><td>Month 4+</td><td>GREDA developers, hotel procurement, architects only</td><td>InMail open rate, qualified meetings</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 6 — CREATIVE DIRECTION
-══════════════════════════════════════════ -->
-<div class="sec" id="creative">
-  <div class="sec-eye">Section 05 — Creative Direction</div>
-  <h2>WHAT THE ADS<br>LOOK LIKE.</h2>
-  <p class="sec-sub">Researched across Ghana home services campaigns 2025–2026. The format that wins consistently is authentic smartphone video, shot in natural light, showing the problem in the first 2 seconds. No design agency required.</p>
 
-  <div class="dd-grid">
-    <div class="dd do"><span class="dd-h">✓ Do this</span><strong>Show the problem first.</strong> Bare concrete ceiling, open-plan space, unclad block wall, or an ECG bill. If viewers see the problem in the first 2 seconds, they stop scrolling. The contrast between before and after is the content.</div>
-    <div class="dd dont"><span class="dd-h">✗ Never do this</span><strong>Lead with the finished product.</strong> A beautiful ceiling is pleasant. A bare ugly ceiling followed by a beautiful ceiling is compelling. The brain registers before/after contrast within 250 milliseconds.</div>
-    <div class="dd do"><span class="dd-h">✓ Do this</span><strong>Show GHS pricing on screen.</strong> "From GHS 85/m²" in the video builds trust, pre-qualifies leads, and eliminates time-wasters. Price transparency is a competitive advantage — most Ghana competitors hide prices.</div>
-    <div class="dd dont"><span class="dd-h">✗ Never do this</span><strong>Run designer text flyers.</strong> Heavy graphic posters look like spam in the Ghana Facebook feed. Research consistently shows they generate a fraction of authentic smartphone video engagement in construction categories.</div>
-    <div class="dd do"><span class="dd-h">✓ Do this</span><strong>Add captions to every video.</strong> 85% of Facebook and Instagram users in Ghana watch videos without sound. CapCut (free app) adds AI-generated captions automatically in under 2 minutes.</div>
-    <div class="dd dont"><span class="dd-h">✗ Never do this</span><strong>Touch campaigns before Day 7.</strong> Meta's algorithm needs 7 full days to exit its learning phase. Editing any ad set before Day 7 resets learning, inflates CPA across all four campaigns, and wastes accumulated data.</div>
-    <div class="dd do"><span class="dd-h">✓ Do this</span><strong>Shoot vertically — 9:16 ratio.</strong> Facebook Reels, Instagram Reels, and Stories are all vertical. A horizontal video fills only 56% of the mobile screen. Shoot on a smartphone held vertically. No tripod needed.</div>
-    <div class="dd dont"><span class="dd-h">✗ Never do this</span><strong>Boost posts.</strong> The Boost Post button costs more, delivers less targeting precision, cannot build retargeting audiences, and cannot track WhatsApp conversions. Always use Meta Ads Manager. Always.</div>
+<!-- ════ SECTION 5: CONTENT CALENDAR ════ -->
+<div class="sec" id="calendar">
+  <div class="sec-eye">Section 05 <span class="tag">Content Calendar</span></div>
+  <h2>28-Day Week-by-Week<br><em>Content Calendar.</em></h2>
+  <p class="sec-intro">Every action, every platform, every dependency — mapped across 28 days. Dependencies are shown explicitly: Week 3 cannot launch without Week 2 building the retargeting pool. Week 4 cannot scale without Week 3 data identifying the winning campaign.</p>
+
+  <!-- SIGNATURE: GANTT CHART -->
+  <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);border-bottom:2px solid var(--amber);padding-bottom:6px;margin-bottom:12px;display:flex;justify-content:space-between;">
+    Campaign Gantt — 28 Days <span style="color:var(--faint);">Each column = 1 day · Colour = active campaign per category</span>
+  </div>
+  <div class="gantt-wrap">
+    <!-- Header -->
+    <div style="display:grid;grid-template-columns:160px repeat(7,1fr) repeat(7,1fr) repeat(7,1fr) repeat(7,1fr);background:var(--ink);">
+      <div style="font-family:var(--mono);font-size:8px;color:rgba(255,255,255,.3);padding:7px 12px;border-right:1px solid rgba(255,255,255,.08);">Campaign</div>
+      <div style="grid-column:span 7;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.5);padding:7px 12px;border-right:2px solid rgba(255,255,255,.15);font-weight:600;">Week 1 · Days 1–7 · Free</div>
+      <div style="grid-column:span 7;font-family:var(--mono);font-size:9px;color:var(--amber);padding:7px 12px;border-right:2px solid rgba(255,255,255,.15);font-weight:600;">Week 2 · Days 8–14 · GHC 500</div>
+      <div style="grid-column:span 7;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.5);padding:7px 12px;border-right:2px solid rgba(255,255,255,.15);font-weight:600;color:white;">Week 3 · Days 15–21 · GHC 700</div>
+      <div style="grid-column:span 7;font-family:var(--mono);font-size:9px;color:var(--amber);padding:7px 12px;font-weight:600;">Week 4 · Days 22–28 · GHC 300</div>
+    </div>
+    <!-- Gantt rows -->
+    <div style="font-size:0;">
+      <!-- Row function: label + 28 cells -->
+      <!-- Acoustic Ceiling -->
+      <div style="display:grid;grid-template-columns:160px repeat(28,1fr);border-bottom:1px solid var(--panel);align-items:center;min-height:34px;">
+        <div style="font-size:12px;color:var(--ink2);padding:0 12px;border-right:1px solid var(--rule);display:flex;align-items:center;gap:8px;height:34px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--c1);flex-shrink:0;"></span>Acoustic Ceiling</div>
+        <!-- W1: setup (light) -->
+        <div style="grid-column:span 7;height:34px;background:linear-gradient(90deg,rgba(30,64,175,.08),rgba(30,64,175,.12));border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c1);opacity:.6;">Setup &amp; Film</span></div>
+        <!-- W2: awareness -->
+        <div style="grid-column:span 7;height:34px;background:rgba(30,64,175,.18);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c1);">Awareness Video</span></div>
+        <!-- W3: leads -->
+        <div style="grid-column:span 7;height:34px;background:rgba(30,64,175,.35);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c1);font-weight:600;">Lead Generation</span></div>
+        <!-- W4: scale -->
+        <div style="grid-column:span 7;height:34px;background:rgba(30,64,175,.25);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c1);">Scale / Optimise</span></div>
+      </div>
+      <!-- Drywall -->
+      <div style="display:grid;grid-template-columns:160px repeat(28,1fr);border-bottom:1px solid var(--panel);align-items:center;min-height:34px;">
+        <div style="font-size:12px;color:var(--ink2);padding:0 12px;border-right:1px solid var(--rule);display:flex;align-items:center;gap:8px;height:34px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--c2);flex-shrink:0;"></span>Drywall &amp; Partitions</div>
+        <div style="grid-column:span 7;height:34px;background:rgba(22,101,52,.08);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c2);opacity:.6;">Setup &amp; Film</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(22,101,52,.18);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c2);">Awareness Video</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(22,101,52,.35);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c2);font-weight:600;">Lead Generation</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(22,101,52,.25);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c2);">Scale / Optimise</span></div>
+      </div>
+      <!-- Cladding -->
+      <div style="display:grid;grid-template-columns:160px repeat(28,1fr);border-bottom:1px solid var(--panel);align-items:center;min-height:34px;">
+        <div style="font-size:12px;color:var(--ink2);padding:0 12px;border-right:1px solid var(--rule);display:flex;align-items:center;gap:8px;height:34px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--c3);flex-shrink:0;"></span>Exterior Cladding</div>
+        <div style="grid-column:span 7;height:34px;background:rgba(146,64,14,.08);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c3);opacity:.6;">Photo Assets</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(146,64,14,.1);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c3);opacity:.7;">Organic Only</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(146,64,14,.3);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c3);font-weight:600;">B2B Lead Ads</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(146,64,14,.2);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c3);">Follow-up Leads</span></div>
+      </div>
+      <!-- Insulation -->
+      <div style="display:grid;grid-template-columns:160px repeat(28,1fr);border-bottom:1px solid var(--panel);align-items:center;min-height:34px;">
+        <div style="font-size:12px;color:var(--ink2);padding:0 12px;border-right:1px solid var(--rule);display:flex;align-items:center;gap:8px;height:34px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;"></span>Insulation Systems</div>
+        <div style="grid-column:span 7;height:34px;background:rgba(91,33,182,.08);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c4);opacity:.6;">ECG Hook Film</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(91,33,182,.1);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c4);opacity:.7;">Organic Only</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(91,33,182,.3);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c4);font-weight:600;">Educational Ads</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(91,33,182,.2);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--c4);">Scale / Optimise</span></div>
+      </div>
+      <!-- Diaspora -->
+      <div style="display:grid;grid-template-columns:160px repeat(28,1fr);align-items:center;min-height:34px;">
+        <div style="font-size:12px;color:var(--ink2);padding:0 12px;border-right:1px solid var(--rule);display:flex;align-items:center;gap:8px;height:34px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0;"></span>Diaspora UK/USA</div>
+        <div style="grid-column:span 7;height:34px;background:rgba(212,134,10,.08);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--amber);opacity:.6;">Group Presence</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(212,134,10,.1);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--amber);opacity:.7;">Organic Posts</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(212,134,10,.28);border-right:2px solid var(--rule);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--amber);font-weight:600;">Lead Ads Active</span></div>
+        <div style="grid-column:span 7;height:34px;background:rgba(212,134,10,.18);display:flex;align-items:center;padding:0 8px;"><span style="font-family:var(--mono);font-size:8px;color:var(--amber);">Follow-up</span></div>
+      </div>
+    </div>
   </div>
 
-  <div class="cl-wrap">
-    <div class="cl-title">AD READINESS CHECKLIST — 12 ITEMS</div>
-    <div class="cl-item"><div class="cl-n">01</div><div>Meta Business Suite account created at <strong>business.facebook.com</strong> — separate from personal Facebook profile</div></div>
-    <div class="cl-item"><div class="cl-n">02</div><div>Wima Facebook Business Page complete — profile photo, cover image (best before/after), category: Building Materials, WhatsApp number linked</div></div>
-    <div class="cl-item"><div class="cl-n">03</div><div><strong>Meta Pixel installed on Wima website before any ad spend</strong> — without this there is no retargeting, no conversion tracking, no lookalike audiences. One developer, 30 minutes, zero cost.</div></div>
-    <div class="cl-item"><div class="cl-n">04</div><div>Google Business Profile claimed and fully optimised — category: "Building Materials Supplier", 10+ photos, business description with local keywords, GhanaPostGPS address added</div></div>
-    <div class="cl-item"><div class="cl-n">05</div><div>WhatsApp Business auto-replies set up — <strong>4 separate greeting messages</strong>, one per category — tested by messaging the number yourself</div></div>
-    <div class="cl-item"><div class="cl-n">06</div><div>All 4 category before/after videos filmed — 15–20 seconds each, vertical format, natural daylight, captions added in CapCut (free)</div></div>
-    <div class="cl-item"><div class="cl-n">07</div><div>Wima joined as active participant in 5 key Facebook groups — no promotional posts yet, only helpful content and genuine community engagement</div></div>
-    <div class="cl-item"><div class="cl-n">08</div><div>Dollar-denominated Visa or Mastercard added to Meta Ads Manager — Meta bills in USD even in Ghana</div></div>
-    <div class="cl-item"><div class="cl-n">09</div><div>Week 2 campaign set as lifetime budget (GHC 500 total) not daily — Meta distributes lifetime budgets more efficiently across high-performing days</div></div>
-    <div class="cl-item"><div class="cl-n">10</div><div>Ad scheduling set: run only 6am–10pm Ghana time, higher weight on evenings (6–10pm) and weekends — confirmed peak hours for Ghana homeowner browsing</div></div>
-    <div class="cl-item"><div class="cl-n">11</div><div>MoMo payment option enabled and visible in WhatsApp Business profile — easy payment = faster conversion and higher trust perception</div></div>
-    <div class="cl-item"><div class="cl-n">12</div><div>30-day review date set in calendar now — review CPA per category, identify winner, determine Month 2 budget scale</div></div>
+  <!-- WEEK-BY-WEEK DETAIL -->
+
+  <!-- WEEK 1 -->
+  <div class="week-block">
+    <div class="week-hdr">
+      <span class="week-num">Week 1 · Days 1–7</span>
+      <div class="week-title">Foundation &amp; Groundwork</div>
+      <span class="week-budget" style="color:#16A34A;">GHC 0</span>
+    </div>
+    <div class="week-signal">
+      <div class="ws-seg" style="background:var(--c1);opacity:.3;"></div>
+      <div class="ws-seg" style="background:var(--c2);opacity:.3;"></div>
+      <div class="ws-seg" style="background:var(--c3);opacity:.15;"></div>
+      <div class="ws-seg" style="background:var(--c4);opacity:.15;"></div>
+    </div>
+    <div class="week-body">
+      <div style="font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:12px;">Dependency: all items in Week 1 must be complete before Week 2 spend begins on Day 8</div>
+      <div class="week-day-grid">
+        <div class="wd-day">Day 1</div>
+        <div class="wd-content">
+          <span class="wd-platform p-gbp">Google</span><span class="wd-platform p-wa">WhatsApp</span>
+          <strong>Claim and complete Google Business Profile.</strong> Go to business.google.com. Primary category: "Building Materials Supplier." Add all 4 product categories under Services. Upload 5+ photos immediately (profile, cover, 2 installation photos per available category). Add GhanaPostGPS address. Business description must include: "building materials Accra", "acoustic ceiling Ghana", "drywall partition Accra", "exterior cladding Ghana", "insulation systems Accra."
+          <br><strong>Set up WhatsApp Business</strong> — separate from personal number. Write 4 auto-replies (one per category). Test each one.
+          <span class="wd-free">Free — 3.5 hours total</span>
+        </div>
+        <div class="wd-day">Day 2</div>
+        <div class="wd-content">
+          <span class="wd-platform p-fb">Meta</span>
+          <strong>Create Meta Business Suite account</strong> at business.facebook.com. Create Wima Facebook Business Page — complete all fields, link WhatsApp number, set category: Building Materials. <strong>Install Meta Pixel</strong> on Wima website (developer task, 30 minutes). Verify with Meta Pixel Helper Chrome extension. Without the Pixel, no retargeting is possible in Week 3.
+          <span class="wd-free">Free — 2.5 hours + developer 30 mins</span>
+        </div>
+        <div class="wd-day">Day 2</div>
+        <div class="wd-content">
+          <span class="wd-platform p-or">TikTok</span>
+          <strong>Create TikTok Business account</strong> — begin building the account before paid spend at Day 60. An account with existing followers performs better in paid campaigns. Zero cost to create and post organic content.
+          <span class="wd-free">Free — 20 minutes</span>
+        </div>
+        <div class="wd-day">Day 3</div>
+        <div class="wd-content">
+          <span class="wd-platform p-fb">Facebook Groups</span>
+          <strong>Join 5 Facebook groups</strong> as Wima page: "Ghana Homes for Sale" · "Ghanaians in UK Building in Ghana" · "Accra Real Estate" · "Ghana Interior Design" · "Ghana Construction Network." Read and observe only — no posts today. Identify the questions homeowners and diaspora are asking about ceilings and building finishes.
+          <span class="wd-free">Free — 30 minutes</span>
+        </div>
+        <div class="wd-day">Day 4–5</div>
+        <div class="wd-content">
+          <span class="wd-platform p-ig">Instagram</span><span class="wd-platform p-tt">TikTok</span><span class="wd-platform p-wa">WhatsApp</span>
+          <strong>Film all 4 category before/after videos with Jamal</strong> — 15–20 seconds each, vertical 9:16 format, natural daylight. <em>Acoustic ceiling:</em> bare concrete → finished acoustic grid. <em>Drywall:</em> open space → partitioned rooms. <em>Cladding:</em> bare block wall → clad exterior. <em>Insulation:</em> ECG bill on table → insulation installed. Edit all 4 in CapCut (free). Add white captions — 85% of Ghana users watch without sound. <strong>⚠️ Dependency:</strong> All paid ads in Weeks 2–3 depend on having this footage.
+          <span class="wd-free">Free — Half day filming + 2 hours editing</span>
+        </div>
+        <div class="wd-day">Day 5</div>
+        <div class="wd-content">
+          <span class="wd-platform p-fb">Facebook Groups</span>
+          <strong>Post first helpful article in all 5 Facebook groups:</strong> "POP vs Acoustic Drywall vs Suspended Grid ceiling — cost, durability, and use case for Ghana homes 2026." Include a genuine price comparison table. No direct sales pitch. Wima mentioned in the final line only: "We supply all three. WhatsApp us for a free BOQ." <em>Expected response:</em> 5–15 organic enquiries per useful post.
+          <span class="wd-free">Free — 1 hour writing + 30 mins posting</span>
+        </div>
+        <div class="wd-day">Day 6</div>
+        <div class="wd-content">
+          <span class="wd-platform p-wa">WhatsApp</span><span class="wd-platform p-ig">Instagram</span>
+          <strong>Create WhatsApp Community</strong> (broadcast group) — add first contacts. Post first WhatsApp Status: before/after acoustic ceiling photo + "From GHS 85/m² — WhatsApp us for a free BOQ." <strong>Post first organic Instagram Reel</strong> — the acoustic ceiling transformation video with captions. Hashtags: #AccraHomes #GhanaConstruction #WimaBuilders #CeilingGhana #BuildingMaterialsGhana.
+          <span class="wd-free">Free — 45 minutes</span>
+        </div>
+        <div class="wd-day">Day 7</div>
+        <div class="wd-content">
+          <span class="wd-platform p-or">TikTok</span><span class="wd-platform p-fb">Facebook</span>
+          <strong>Post organic TikTok</strong> — drywall partition time-lapse. <strong>Post organic Facebook Reel</strong> — insulation ECG bill hook video. <strong>Final pre-launch check:</strong> GBP live and verified ✓ · Meta Pixel firing ✓ · 4 WhatsApp auto-replies tested ✓ · 4 videos edited with captions ✓ · Meta Ads Manager account funded ✓. If all five are confirmed, Week 2 paid campaign launches on Day 8.
+          <span class="wd-free">Free — 1 hour</span>
+        </div>
+      </div>
+      <div class="week-insight"><strong>Week 1 dependency check:</strong> Every item in this week feeds something in Weeks 2–4. The Meta Pixel (Day 2) enables all retargeting in Week 3. The videos (Day 4–5) are the creative assets for all paid ads. The Facebook group presence (Day 3–5) pre-warms the audience that paid ads will reach. If any Week 1 item is incomplete on Day 7, delay the Week 2 paid campaign launch by the number of days needed to complete it. Do not start paying for ads before the foundation is ready.</div>
+    </div>
   </div>
-</div>
 
-<!-- ══════════════════════════════════════════
-     SECTION 7 — RAPID LAUNCH TIMELINE
-══════════════════════════════════════════ -->
-<div class="sec" id="timeline">
-  <div class="sec-eye">Section 06 — Rapid Launch Timeline</div>
-  <h2>LAUNCH IN<br>14 DAYS.</h2>
-  <p class="sec-sub">The fastest possible path from today to live, paid social media campaign. Every action below has a clear owner (Gershon), a clear tool, and a clear time requirement. Nothing here requires a budget until Day 8.</p>
+  <!-- WEEK 2 -->
+  <div class="week-block">
+    <div class="week-hdr">
+      <span class="week-num">Week 2 · Days 8–14</span>
+      <div class="week-title">Awareness — Build the Retargeting Pool</div>
+      <span class="week-budget">GHC 500</span>
+    </div>
+    <div class="week-signal">
+      <div class="ws-seg" style="background:var(--c1);opacity:.7;"></div>
+      <div class="ws-seg" style="background:var(--c2);opacity:.7;"></div>
+      <div class="ws-seg" style="background:var(--c3);opacity:.2;"></div>
+      <div class="ws-seg" style="background:var(--c4);opacity:.2;"></div>
+    </div>
+    <div class="week-body">
+      <div style="font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:12px;">Dependency: Week 2 output (warm video viewer audience) is the primary input for Week 3 Campaign A (retargeting). The larger the Week 2 video view pool, the lower the Week 3 CPL.</div>
+      <div class="week-day-grid">
+        <div class="wd-day">Day 8</div>
+        <div class="wd-content">
+          <span class="wd-platform p-fb">Meta Ads</span>
+          <strong>Launch awareness campaign in Meta Ads Manager.</strong><br>
+          · Objective: Video Views (not conversions — not enough budget for learning phase)<br>
+          · Budget: GHC 500 lifetime (not daily — Meta distributes lifetime budgets more efficiently)<br>
+          · Creative: Acoustic ceiling + drywall transformation Reels (split test both — Meta auto-picks winner)<br>
+          · Audience: Greater Accra, age 28–55, interests: home improvement, interior design, Ghana real estate. Lookalike: 1% from Kabinart 109K followers<br>
+          · Placement: Advantage+ (Meta distributes across Facebook Feed, Reels, Instagram Reels)<br>
+          · <strong>Do NOT edit this campaign before Day 14. Set and leave.</strong>
+          <span class="wd-cost">GHC 500 lifetime — GHC 71/day average</span>
+        </div>
+        <div class="wd-day">Days 9–14</div>
+        <div class="wd-content">
+          <span class="wd-platform p-fb">Facebook Groups</span><span class="wd-platform p-wa">WhatsApp</span><span class="wd-platform p-ig">Instagram</span><span class="wd-platform p-tt">TikTok</span>
+          <strong>Continue organic content daily (see content calendar below).</strong> Do not touch the running Meta campaign. After 48 hours (Day 10): check ThruPlay rate in Meta Ads Manager. If under 15% (fewer than 15% of viewers watch 15+ seconds), the opening frame is wrong — reshoot the opening with the problem (bare ceiling) visible in the first 2 seconds. This is the only permitted edit before Day 14.
+          <span class="wd-free">Organic cost: Free</span>
+        </div>
+      </div>
 
-  <table class="t">
-    <thead><tr><th>Day</th><th>Action</th><th>Tool</th><th>Time</th><th>Cost</th></tr></thead>
-    <tbody>
-      <tr class="t-sub"><td colspan="5">Week 1 — Zero spend. Build the engine.</td></tr>
-      <tr><td><strong>Day 1</strong></td><td>Claim and complete Google Business Profile at business.google.com. Primary category: "Building Materials Supplier". Upload 5+ photos. Add all 4 product categories under Services.</td><td>Google (free)</td><td>2 hours</td><td>GHC 0</td></tr>
-      <tr><td><strong>Day 1</strong></td><td>Set up WhatsApp Business — separate from personal number. Write 4 auto-replies (one per category). Test each by messaging the number from another phone.</td><td>WhatsApp Business (free)</td><td>1.5 hours</td><td>GHC 0</td></tr>
-      <tr><td><strong>Day 2</strong></td><td>Create Meta Business Suite account. Create Wima Facebook Business Page. Complete all fields. Link WhatsApp number to the page.</td><td>business.facebook.com (free)</td><td>2 hours</td><td>GHC 0</td></tr>
-      <tr><td><strong>Day 2</strong></td><td>Install Meta Pixel on Wima website. Get pixel code from Meta Events Manager. Paste into website header. Verify with Meta Pixel Helper Chrome extension.</td><td>Meta Events Manager (free)</td><td>45 mins</td><td>GHC 0</td></tr>
-      <tr><td><strong>Day 3</strong></td><td>Join 5 Facebook groups as Wima page. Read and observe only — no posts yet.</td><td>Facebook (free)</td><td>30 mins</td><td>GHC 0</td></tr>
-      <tr><td><strong>Day 4–5</strong></td><td>Film all 4 category before/after videos with Jamal. 15–20 seconds each. Vertical. Natural daylight. Edit in CapCut (free) — add captions.</td><td>Smartphone + CapCut (free)</td><td>Half day + 2 hrs editing</td><td>GHC 0</td></tr>
-      <tr><td><strong>Day 5</strong></td><td>Post first helpful article in all 5 Facebook groups: "POP vs Acoustic Drywall vs Suspended Grid — cost and use case for Ghana homes 2026." No sales pitch. Wima mentioned in last line only.</td><td>Facebook (free)</td><td>1.5 hours</td><td>GHC 0</td></tr>
-      <tr><td><strong>Day 6</strong></td><td>Create WhatsApp Community. Add first contacts. Post first Status: before/after acoustic ceiling + "From GHS 85/m² — WhatsApp us for a free BOQ."</td><td>WhatsApp Business (free)</td><td>30 mins</td><td>GHC 0</td></tr>
-      <tr><td><strong>Day 7</strong></td><td>Post organic Instagram Reel — acoustic ceiling transformation video with captions. Hashtags: #AccraHomes #GhanaConstruction #WimaBuilders #CeilingGhana</td><td>Instagram (free)</td><td>30 mins</td><td>GHC 0</td></tr>
-      <tr class="t-sub"><td colspan="5">Week 2 — Awareness spend begins. GHC 500 lifetime budget.</td></tr>
-      <tr><td><strong>Day 8</strong></td><td>Launch awareness campaign in Meta Ads Manager. Objective: Video Views. Lifetime budget: GHC 500. Audience: Greater Accra, 28–55, home improvement interests. Placement: Advantage+. Do NOT touch for 7 days.</td><td>Meta Ads Manager</td><td>1 hour setup</td><td>GHC 500</td></tr>
-      <tr><td><strong>Days 9–14</strong></td><td>Continue daily organic posts. Reply to every Facebook group comment within 2 hours. Post WhatsApp Status daily. Do NOT edit the running campaign.</td><td>All organic channels</td><td>30 mins/day</td><td>GHC 0</td></tr>
-      <tr class="t-sub"><td colspan="5">Day 15 — Launch day. Three campaigns go live simultaneously.</td></tr>
-      <tr><td><strong>Day 15</strong></td><td>Launch 3 Click-to-WhatsApp campaigns. Campaign A: retargeting warm video viewers (GHC 400). Campaign B: cold audience all 4 categories (GHC 200). Campaign C: diaspora UK/USA (GHC 100). Set as lifetime budgets. Do NOT touch for 7 days.</td><td>Meta Ads Manager</td><td>2 hours setup</td><td>GHC 700</td></tr>
-      <tr class="t-sub"><td colspan="5">Week 4 — Scale winner, stop losers. GHC 300.</td></tr>
-      <tr><td><strong>Day 22</strong></td><td>Check Meta Ads Manager. Find the campaign with the lowest CPA (cost per WhatsApp message). Put GHC 200 behind it. Stop any campaign with zero WhatsApp messages after 7 days. Put GHC 100 behind the second-best performer.</td><td>Meta Ads Manager</td><td>1 hour analysis</td><td>GHC 300</td></tr>
-      <tr><td><strong>Days 23–28</strong></td><td>Post first completed project in all 5 Facebook groups — before/after photos + one client quote (with permission). Collect 3 voice note testimonials from WhatsApp leads. These become the Month 2 ad creative.</td><td>Facebook + WhatsApp</td><td>30 mins/day</td><td>GHC 0</td></tr>
-    </tbody>
-  </table>
-
-  <div class="ibox amber">
-    <span class="ibox-lbl">48-hour check after Day 8</span>
-    After 48 hours of the Week 2 video campaign, check one metric only in Meta Ads Manager: <strong>ThruPlay rate</strong> (% of viewers who watch 15+ seconds). If under 15% — the opening frame is wrong. Reshoot with the bare ceiling / problem visible in the first 2 seconds. This is the only edit to make before Day 15.
+      <div style="font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin:16px 0 10px;">Daily organic content — Week 2</div>
+      <div class="tbl-wrap" style="margin-bottom:16px;">
+        <table>
+          <thead><tr><th>Day</th><th>Platform</th><th>Content</th><th>Goal</th></tr></thead>
+          <tbody>
+            <tr><td>Mon Day 8</td><td><span class="wd-platform p-wa">WhatsApp Status</span></td><td>Before/after acoustic ceiling. "From GHS 85/m²." Price visible.</td><td>Reach all contacts at zero cost</td></tr>
+            <tr><td>Tue Day 9</td><td><span class="wd-platform p-fb">Facebook Groups</span></td><td>Post 2: "5 signs your office needs a drywall partition (and what it costs in Accra)"</td><td>5–15 organic enquiries from office owners</td></tr>
+            <tr><td>Wed Day 10</td><td><span class="wd-platform p-ig">Instagram Reel</span></td><td>Drywall partition time-lapse — vertical, captions. Organic post.</td><td>Algorithm reach + account growth</td></tr>
+            <tr><td>Thu Day 11</td><td><span class="wd-platform p-tt">TikTok</span></td><td>Insulation ECG bill video — 15 seconds. "Your building is leaking money."</td><td>TikTok organic discovery</td></tr>
+            <tr><td>Fri Day 12</td><td><span class="wd-platform p-wa">WhatsApp Status + Community</span></td><td>Weekly price list — all 4 categories. "This week: free BOQ for any Accra project."</td><td>Direct enquiries + community retention</td></tr>
+            <tr><td>Sat Day 13</td><td><span class="wd-platform p-fb">Facebook Groups</span></td><td>Post 3: "Building in Ghana from abroad? Here's exactly what you need to know about paying from the UK or USA." No sales pitch. Useful information.</td><td>Diaspora trust-building</td></tr>
+            <tr><td>Sun Day 14</td><td><span class="wd-platform p-ig">Instagram</span></td><td>Behind-the-scenes: filming Jamal's installation. Authentic, not polished.</td><td>Brand personality + authenticity signal</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-insight"><strong>Week 2 output that Week 3 needs:</strong> By Day 14, the Meta awareness campaign should have generated at minimum 5,000 video views. Everyone who watched 50%+ of the video is automatically added to a retargeting pool in Meta Ads Manager. Week 3 Campaign A targets this pool first — at 40–60% lower CPL than cold audiences. The bigger this pool, the cheaper Week 3's leads will be. If the pool is under 1,000 viewers by Day 14, increase the Week 3 retargeting budget allocation and decrease cold audience spend accordingly.</div>
+    </div>
   </div>
-</div>
 
-<!-- GITHUB GUIDE -->
-<div class="sec" id="github">
-  <div class="sec-eye">Section 07 — GitHub Pages Hosting Guide</div>
-  <h2>YOUR DOCUMENTS<br>LIVE ONLINE.<br>FREE FOREVER.</h2>
-  <p class="sec-sub">GitHub Pages hosts any HTML file as a public website at zero cost. No server fees. No hosting bills. This brief, the master hub, and all future Wima documents live at a permanent URL you can share with partners, investors, and suppliers.</p>
-
-  <div class="ibox teal" style="margin-bottom:24px;">
-    <span class="ibox-lbl">What you get</span>
-    A free public URL like <strong>wima-builders.github.io/wima-hub</strong> where all Wima documents live permanently. Share with Kabinart, your bank partners, diaspora clients, or investors — they click one link and see a professional document. No login required on their end. Update locally and push — website updates within 60 seconds. Cost: <strong>GHC 0.00, forever.</strong>
+  <!-- WEEK 3 -->
+  <div class="week-block">
+    <div class="week-hdr">
+      <span class="week-num">Week 3 · Days 15–21</span>
+      <div class="week-title">Launch Day — Lead Generation</div>
+      <span class="week-budget">GHC 700</span>
+    </div>
+    <div class="week-signal">
+      <div class="ws-seg" style="background:var(--c1);"></div>
+      <div class="ws-seg" style="background:var(--c2);"></div>
+      <div class="ws-seg" style="background:var(--c3);opacity:.8;"></div>
+      <div class="ws-seg" style="background:var(--c4);opacity:.8;"></div>
+    </div>
+    <div class="week-body">
+      <div style="font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:12px;">Dependency: Week 3 Campaign A requires Week 2 retargeting pool. Campaign B and C are cold audience and can launch independently. All 3 campaigns must run for 7 full days without edits — do not touch until Day 22.</div>
+      <div class="week-day-grid">
+        <div class="wd-day">Day 15</div>
+        <div class="wd-content">
+          <span class="wd-platform p-fb">Meta Ads</span>
+          <strong>Launch 3 Click-to-WhatsApp campaigns simultaneously.</strong><br><br>
+          <strong>Campaign A — Warm retargeting (GHC 400):</strong> Audience: everyone who watched 50%+ of Week 2 video. Format: single still image — finished ceiling with GHS price badge. Copy: "Still thinking about that ceiling? Get your free BOQ on WhatsApp in 24 hours." CTA: Send WhatsApp Message.<br><br>
+          <strong>Campaign B — Cold audience, all 4 categories (GHC 200):</strong> Audience: Accra homeowners 28–55, same interests, EXCLUDE Week 2 video viewers. Format: before/after video. Copy per category (see Section 03 messaging). CTA: Click-to-WhatsApp.<br><br>
+          <strong>Campaign C — Diaspora UK + USA (GHC 100):</strong> Audience: UK/USA Ghanaian diaspora interest targeting. Format: static image with escrow payment badge. Copy: "Building in Ghana from London? We coordinate everything. Pay via Wise."<br><br>
+          <strong>⚠️ Do NOT touch any campaign before Day 22. 7 full days minimum.</strong>
+          <span class="wd-cost">GHC 700 total — Campaigns A/B/C running simultaneously</span>
+        </div>
+        <div class="wd-day">Days 16–21</div>
+        <div class="wd-content">
+          <span class="wd-platform p-wa">WhatsApp</span><span class="wd-platform p-fb">Facebook Groups</span>
+          <strong>Respond to every WhatsApp lead within 1 hour during business hours.</strong> Research shows leads contacted within 1 hour convert at 7× the rate of leads contacted after 24 hours. The auto-reply handles the first contact — the human follow-up with the BOQ must come within 60 minutes.<br><br>
+          Continue daily organic content (see calendar table below). Post organic project photos in Facebook groups — the combination of running paid ads and organic community posts creates a multiplying effect where group members who also see the paid ads convert at a significantly higher rate.
+          <span class="wd-free">Organic content: Free</span>
+        </div>
+      </div>
+      <div style="font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin:16px 0 10px;">Daily organic content — Week 3</div>
+      <div class="tbl-wrap" style="margin-bottom:16px;">
+        <table>
+          <thead><tr><th>Day</th><th>Platform</th><th>Content</th><th>Goal</th></tr></thead>
+          <tbody>
+            <tr><td>Mon Day 15</td><td><span class="wd-platform p-wa">WhatsApp Status</span></td><td>Launch day announcement: "Wima Deal Hub is live. Building materials supplied and installed across Accra. WhatsApp us for your free BOQ today."</td><td>Brand launch signal to all contacts</td></tr>
+            <tr><td>Tue Day 16</td><td><span class="wd-platform p-fb">Facebook Groups</span></td><td>Post 4: Exterior cladding guide — "How to choose the right facade finish for your Ghana building. Cement board vs alucobond vs render — cost and durability compared."</td><td>Commercial/developer audience organic reach</td></tr>
+            <tr><td>Wed Day 17</td><td><span class="wd-platform p-ig">Instagram + TikTok</span></td><td>Cross-post: cladding before/after. Commercial building transformation. Caption: "Exterior cladding. East Legon. From GHS 120/m². WhatsApp us."</td><td>Commercial visual content</td></tr>
+            <tr><td>Thu Day 18</td><td><span class="wd-platform p-wa">WhatsApp Community</span></td><td>Broadcast: "This week only — free site visit for any project over 50m². WhatsApp us by Sunday." Creates urgency without discount.</td><td>Community conversion push</td></tr>
+            <tr><td>Fri Day 19</td><td><span class="wd-platform p-fb">Facebook Groups</span></td><td>Post 5: Diaspora-specific content: "How Ghanaians in the UK are finishing their homes remotely — the step-by-step guide to managing Ghana construction from abroad." Wima mentioned at the end.</td><td>Diaspora trust and lead generation</td></tr>
+            <tr><td>Sat Day 20</td><td><span class="wd-platform p-ig">Instagram</span></td><td>Insulation ECG bill Reel — organic post with full sound and voiceover: "This is your electricity bill. This is why." Cuts to insulation being installed.</td><td>Insulation category organic reach</td></tr>
+            <tr><td>Sun Day 21</td><td><span class="wd-platform p-wa">WhatsApp Status</span></td><td>Week 3 project roundup: "3 BOQs sent this week. 2 projects in discussion. Wima Deal Hub is open. WhatsApp us." Authentic, not promotional.</td><td>Social proof + trust signal</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="week-insight"><strong>Week 3 output that Week 4 needs:</strong> By Day 21, check each campaign's CPA in Meta Ads Manager. Record: Campaign A WhatsApp messages generated, Campaign B messages, Campaign C messages. The campaign with the lowest CPA (cheapest WhatsApp leads) gets 67% of Week 4's GHC 300 budget. The second-best gets 33%. Any campaign with zero WhatsApp messages after 7 days is stopped immediately and budget reallocated. This data-led decision is the single most important action in Week 4.</div>
+    </div>
   </div>
 
-  <div class="step"><div class="step-n">1</div><div class="step-c"><div class="step-t">Create a free GitHub account</div><div class="step-d">Go to <a href="https://github.com" target="_blank" rel="noopener">github.com</a> → click Sign up. Choose a username: <code>wima-builders</code> or <code>gershon-odai</code>. This becomes part of your URL. Verify your email when GitHub sends the confirmation link.<div class="tip"><strong>URL tip:</strong> Your documents will live at <strong>yourusername.github.io/wima-hub</strong>. Keep the username professional — investors and partners will see it.</div></div></div></div>
-
-  <div class="step"><div class="step-n">2</div><div class="step-c"><div class="step-t">Create a new repository named "wima-hub"</div><div class="step-d">Click the green <strong>New</strong> button → or go to <a href="https://github.com/new" target="_blank" rel="noopener">github.com/new</a>.<br><br>Fill in:<br>· <strong>Repository name:</strong> <code>wima-hub</code><br>· <strong>Visibility:</strong> Public (required for free hosting)<br>· <strong>✅ Add a README file</strong><br><br>Click <strong>Create repository.</strong><div class="tip"><strong>Why Public?</strong> GitHub Pages is free only for public repositories. Never upload passwords, bank details, or API keys to this repository.</div></div></div></div>
-
-  <div class="step"><div class="step-n">3</div><div class="step-c"><div class="step-t">Upload all three HTML files</div><div class="step-d">Inside your repository, click <strong>Add file → Upload files.</strong><br><br>Drag these files from your downloads folder:<br>· <code>index.html</code> — the homepage<br>· <code>wima-master-hub.html</code> — the full strategy hub<br>· <code>wima-campaign-brief.html</code> — this document<br><br>Scroll to <strong>Commit changes</strong> → type <code>Add Wima documents</code> → click <strong>Commit changes.</strong><div class="tip"><strong>File names:</strong> Lowercase letters and hyphens only. No spaces. <code>wima-campaign-brief.html</code> ✅ &nbsp; <code>Wima Campaign Brief.html</code> ✗</div></div></div></div>
-
-  <div class="step"><div class="step-n">4</div><div class="step-c"><div class="step-t">Enable GitHub Pages</div><div class="step-d">In your repository, click <strong>Settings</strong> tab (top of page) → scroll left sidebar → click <strong>Pages.</strong><br><br>Under <strong>Source:</strong> Branch: <strong>main</strong> · Folder: <strong>/ (root)</strong><br><br>Click <strong>Save.</strong> GitHub shows your URL. Wait 90 seconds. Open it — your documents are live.<div class="tip"><strong>First deployment:</strong> Takes 1–3 minutes. 404 error? Wait 2 minutes and refresh. Subsequent updates go live in 60 seconds.</div></div></div></div>
-
-  <div class="step"><div class="step-n">5</div><div class="step-c"><div class="step-t">Add a custom domain (optional — free)</div><div class="step-d">If you own a domain like <code>wima.com.gh</code>, go to Settings → Pages → enter your custom domain → Save. Then at your domain registrar, add these DNS records:<div class="code-block"><span class="cm"># Four A records:</span>
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-
-<span class="cm"># One CNAME:</span>
-www → yourusername.github.io</div>DNS takes 24–48 hours to propagate. After that, documents are at your own branded domain — still at zero cost.</div></div></div>
-
-  <div class="step"><div class="step-n">6</div><div class="step-c"><div class="step-t">Update documents — the ongoing workflow</div><div class="step-d"><strong>Option A (easiest):</strong> Edit HTML on your computer → go to github.com → click the file → click ✏️ pencil or upload new version → commit → live in 60 seconds.<br><br><strong>Option B (recommended):</strong> Download <a href="https://desktop.github.com" target="_blank" rel="noopener">GitHub Desktop</a> (free) → connect to your repository → edit files locally → click "Push to origin." No command line needed.<div class="tip"><strong>Worksheet note:</strong> Section K data saves in browser localStorage — does not sync to GitHub. Back up by emailing yourself the HTML file after any major worksheet updates.</div></div></div></div>
-
-  <div style="background:var(--navy);padding:20px 24px;border-left:4px solid var(--amber);margin-top:4px;">
-    <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:10px;">Your permanent URLs</div>
-    <div style="font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.65);line-height:2.2;">
-      Homepage: <strong style="color:var(--amber);">yourusername.github.io/wima-hub</strong><br>
-      Master Hub: <strong style="color:var(--amber);">yourusername.github.io/wima-hub/wima-master-hub.html</strong><br>
-      Campaign Brief: <strong style="color:var(--amber);">yourusername.github.io/wima-hub/wima-campaign-brief.html</strong><br>
-      Hosting cost: <strong style="color:var(--amber);">GHC 0.00 — free forever</strong>
+  <!-- WEEK 4 -->
+  <div class="week-block">
+    <div class="week-hdr">
+      <span class="week-num">Week 4 · Days 22–28</span>
+      <div class="week-title">Scale Winner · Collect Evidence · Plan Month 2</div>
+      <span class="week-budget">GHC 300</span>
+    </div>
+    <div class="week-signal">
+      <div class="ws-seg" style="background:var(--c1);opacity:.6;"></div>
+      <div class="ws-seg" style="background:var(--c2);opacity:.6;"></div>
+      <div class="ws-seg" style="background:var(--c3);opacity:.5;"></div>
+      <div class="ws-seg" style="background:var(--c4);opacity:.5;"></div>
+    </div>
+    <div class="week-body">
+      <div style="font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:12px;">Dependency: Week 4 budget allocation is 100% determined by Week 3 CPA data. No predetermined split — data decides.</div>
+      <div class="week-day-grid">
+        <div class="wd-day">Day 22</div>
+        <div class="wd-content">
+          <span class="wd-platform p-fb">Meta Ads</span>
+          <strong>Campaign audit and reallocation.</strong> Open Meta Ads Manager. For each Week 3 campaign, record: impressions, reach, WhatsApp messages, CPA. Apply the rule:<br>
+          · CPA under GHC 60 → scale: put GHC 200 behind this campaign<br>
+          · CPA GHC 60–100 → maintain: put GHC 75 behind this campaign<br>
+          · CPA over GHC 100 OR zero messages → stop immediately, reallocate budget to winner<br>
+          · Diaspora CPA under GHC 150 → maintain: keep running (ticket size justifies higher CPL)<br><br>
+          Set new campaigns as lifetime budgets. Do not edit again before Day 28.
+          <span class="wd-cost">GHC 300 — 100% behind data-proven winner(s)</span>
+        </div>
+        <div class="wd-day">Days 23–25</div>
+        <div class="wd-content">
+          <span class="wd-platform p-fb">Facebook Groups</span><span class="wd-platform p-wa">WhatsApp</span>
+          <strong>Post first completed project in all 5 Facebook groups</strong> — before/after photos + one client quote (with permission). This organic post generates as many enquiries as a paid ad and costs nothing. <strong>Collect 3 testimonial voice notes</strong> from WhatsApp leads who engaged (whether or not they converted). "I messaged Wima and got a BOQ in 2 hours" — 20–30 seconds. These become the Month 2 ad creative — social proof from a real Ghana person outperforms any designed ad in the construction category.
+          <span class="wd-free">Organic: Free</span>
+        </div>
+        <div class="wd-day">Days 26–28</div>
+        <div class="wd-content">
+          <span class="wd-platform p-fb">Meta</span><span class="wd-platform p-wa">WhatsApp</span><span class="wd-platform p-gbp">Google</span>
+          <strong>30-day review preparation.</strong> Compile all metrics (see Section 06 for the scorecard template). Document: total spend, total WhatsApp leads, qualified leads, BOQ requests sent, projects won or in discussion, best-performing category, best-performing ad format, best-performing audience. <strong>Month 2 decision:</strong> if CPA is under GHC 75 and at least 1 project is won or in advanced discussion, double the budget to GHC 3,000 for Month 2. If no projects won, maintain GHC 1,500 and change the creative before rerunning.
+          <span class="wd-free">Review: Free — 2 hours</span>
+        </div>
+      </div>
+      <div class="week-insight"><strong>The Month 2 trigger:</strong> One GHC 5,000 dry wall project at 6% margin = GHC 300 in procurement revenue. The entire 4-week campaign cost GHC 1,500. A ROAS of 1.0 (break-even) requires 5 projects at GHC 5,000 each. A ROAS of 3.3 (acceptable target) requires 1 project at GHC 25,000 or 5 projects at GHC 5,000. The campaign is a success if it generates at least 1 confirmed project and a pipeline of 3–5 prospects in active WhatsApp conversation. That alone justifies doubling the Month 2 budget.</div>
     </div>
   </div>
 </div>
 
-</div><!-- end .page -->
+<!-- ════ SECTION 6: METRICS ════ -->
+<div class="sec" id="metrics">
+  <div class="sec-eye">Section 06 <span class="tag">Success Metrics &amp; Scorecard</span></div>
+  <h2>How We Know<br><em>It's Working.</em></h2>
+  <p class="sec-intro">Every metric has a clear target, a clear source, and a clear decision rule attached. Metrics without decision rules are vanity. These numbers exist to tell Gershon exactly when to scale, when to hold, and when to change the creative.</p>
 
-<!-- DOWNLOAD SECTION -->
-<div class="dl-section" id="downloads">
-  <div class="dl-title">DOWNLOAD FOR OFFLINE USE</div>
-  <p class="dl-sub">All Wima strategy documents are available for offline use. Download any file and open in Chrome, Edge, Firefox, or Safari — no internet required after download. The worksheet in the Master Hub auto-saves in your browser and persists across sessions.</p>
-  <div class="dl-grid">
+  <!-- PRIMARY KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi" style="border-top-color:var(--c1);">
+      <span class="kpi-n" style="color:var(--c1);">50,000</span>
+      <span class="kpi-l">Video views target — Week 2</span>
+      <span class="kpi-note">Source: Meta Ads Manager → ThruPlay metric. Measured: Day 14. If under 30,000 views, the opening frame is wrong — reshoot with problem visible in first 2 seconds before Week 3 launches.</span>
+    </div>
+    <div class="kpi" style="border-top-color:var(--amber);">
+      <span class="kpi-n" style="color:var(--amber);">15–30</span>
+      <span class="kpi-l">WhatsApp leads — Weeks 3 &amp; 4</span>
+      <span class="kpi-note">Source: WhatsApp Business message count + manual qualification filter. Measured: Day 21 and Day 28. Minimum acceptable: 10 messages. Below 10 = creative or targeting problem, not a budget problem.</span>
+    </div>
+    <div class="kpi" style="border-top-color:var(--c2);">
+      <span class="kpi-n" style="color:var(--c2);">GHC 75</span>
+      <span class="kpi-l">Maximum cost per qualified lead</span>
+      <span class="kpi-note">Source: Total Week 3 ad spend ÷ WhatsApp leads received. Measured: Day 21. Above GHC 75 = retargeting pool too small (rebuild audience) or creative not converting (test new hook). Below GHC 40 = scale immediately.</span>
+    </div>
+    <div class="kpi" style="border-top-color:var(--c4);">
+      <span class="kpi-n" style="color:var(--c4);">1–3</span>
+      <span class="kpi-l">Projects won or in advanced discussion</span>
+      <span class="kpi-note">Source: WhatsApp pipeline tracking (manual). Measured: Day 28. A "project in advanced discussion" = lead has received a BOQ and has not declined. Counts toward the conversion objective even if not yet signed.</span>
+    </div>
+    <div class="kpi" style="border-top-color:var(--c3);">
+      <span class="kpi-n" style="color:var(--c3);">GHC 10K+</span>
+      <span class="kpi-l">Pipeline value — Day 28</span>
+      <span class="kpi-note">Source: Sum of all BOQs sent that are still in active discussion. Measured: Day 28. This is the leading indicator for Month 2 revenue. A GHC 10K+ pipeline with GHC 1,500 spent = 6.7× pipeline ROAS — strong enough to double the Month 2 budget.</span>
+    </div>
+    <div class="kpi" style="border-top-color:var(--amber);">
+      <span class="kpi-n" style="color:var(--amber);">3.3×</span>
+      <span class="kpi-l">Target ROAS — minimum acceptable</span>
+      <span class="kpi-note">Source: Revenue from confirmed projects ÷ GHC 1,500 total campaign spend. Global Facebook ROAS average: 2.79. Wima target: 3.3×. One GHC 5,000 project at full margin = 3.3×. One diaspora project at GHC 15,000 = 10×.</span>
+    </div>
+  </div>
+
+  <!-- FULL METRICS TABLE -->
+  <div class="tbl-wrap">
+    <div class="tbl-title">Full KPI Scorecard — 28 Days <span>To be completed on Day 28</span></div>
+    <table>
+      <thead><tr><th>Metric</th><th>Category</th><th>Target</th><th>Warning Level</th><th>Fail Level</th><th>Source</th><th>Decision if Fail</th></tr></thead>
+      <tbody>
+        <tr class="tr-group"><td colspan="7">Awareness Metrics — Week 2</td></tr>
+        <tr><td><strong>Video ThruPlay rate</strong><small>% watching 15+ seconds</small></td><td>Creative quality</td><td style="color:var(--go);font-weight:600;">&gt; 20%</td><td style="color:var(--warn);">10–20%</td><td style="color:var(--stop);">&lt; 10%</td><td>Meta Ads Manager</td><td>Reshoot opening 2 seconds — show problem first</td></tr>
+        <tr><td><strong>Total video views (ThruPlay)</strong></td><td>Awareness volume</td><td style="color:var(--go);font-weight:600;">&gt; 50,000</td><td style="color:var(--warn);">20,000–50,000</td><td style="color:var(--stop);">&lt; 20,000</td><td>Meta Ads Manager</td><td>Check audience size — may be too narrow for budget</td></tr>
+        <tr><td><strong>Retargeting pool size</strong><small>Video viewers 50%+</small></td><td>Week 3 readiness</td><td style="color:var(--go);font-weight:600;">&gt; 3,000</td><td style="color:var(--warn);">1,000–3,000</td><td style="color:var(--stop);">&lt; 1,000</td><td>Meta Audiences Manager</td><td>Reduce Week 3 retargeting budget, increase cold audience</td></tr>
+        <tr><td><strong>CPM achieved</strong></td><td>Efficiency</td><td style="color:var(--go);font-weight:600;">&lt; GHC 7.50</td><td style="color:var(--warn);">GHC 7.50–15</td><td style="color:var(--stop);">&gt; GHC 15</td><td>Meta Ads Manager</td><td>Audience too small or creative CTR too low — broaden targeting</td></tr>
+        <tr class="tr-group"><td colspan="7">Lead Generation Metrics — Week 3</td></tr>
+        <tr><td><strong>Total WhatsApp messages received</strong></td><td>Lead volume</td><td style="color:var(--go);font-weight:600;">15–30</td><td style="color:var(--warn);">8–14</td><td style="color:var(--stop);">&lt; 8</td><td>WhatsApp Business</td><td>Review creative — is price visible? Is the hook in the first 2 seconds?</td></tr>
+        <tr><td><strong>Qualified lead rate</strong><small>Answered all 3 auto-reply questions</small></td><td>Lead quality</td><td style="color:var(--go);font-weight:600;">&gt; 50%</td><td style="color:var(--warn);">30–50%</td><td style="color:var(--stop);">&lt; 30%</td><td>WhatsApp Business</td><td>Auto-reply may be too complex — simplify to 2 questions</td></tr>
+        <tr><td><strong>Cost per qualified WhatsApp lead (CPL)</strong></td><td>Efficiency</td><td style="color:var(--go);font-weight:600;">&lt; GHC 50</td><td style="color:var(--warn);">GHC 50–75</td><td style="color:var(--stop);">&gt; GHC 100</td><td>Meta Ads ÷ WhatsApp count</td><td>Scale retargeting (cheaper CPL), reduce cold audience spend</td></tr>
+        <tr><td><strong>Best-performing category (lowest CPL)</strong></td><td>Product-market fit signal</td><td style="color:var(--go);font-weight:600;">Any single category &lt; GHC 40 CPL</td><td style="color:var(--warn);">All categories &gt; GHC 60</td><td style="color:var(--stop);">No clear winner</td><td>Meta Ads Manager</td><td>Put 80% of Week 4 budget behind the single best-performing category</td></tr>
+        <tr><td><strong>Click-through rate (CTR)</strong></td><td>Creative effectiveness</td><td style="color:var(--go);font-weight:600;">&gt; 1.49%</td><td style="color:var(--warn);">0.72–1.49%</td><td style="color:var(--stop);">&lt; 0.72%</td><td>Meta Ads Manager</td><td>Below 0.72% = creative failure. Replace video or static image entirely.</td></tr>
+        <tr class="tr-group"><td colspan="7">Conversion Metrics — Weeks 3 &amp; 4</td></tr>
+        <tr><td><strong>BOQ requests sent</strong></td><td>Conversion step 1</td><td style="color:var(--go);font-weight:600;">5–10</td><td style="color:var(--warn);">2–4</td><td style="color:var(--stop);">&lt; 2</td><td>WhatsApp pipeline (manual)</td><td>If leads are coming but not requesting BOQs, the auto-reply is too complex</td></tr>
+        <tr><td><strong>Projects won or confirmed</strong></td><td>Conversion step 2</td><td style="color:var(--go);font-weight:600;">1–3</td><td style="color:var(--warn);">0 won but 3+ in discussion</td><td style="color:var(--stop);">0 won and 0 in discussion</td><td>WhatsApp pipeline (manual)</td><td>Review BOQ pricing — may be above market. Ask leads directly why they have not confirmed.</td></tr>
+        <tr><td><strong>Pipeline value (BOQs in discussion)</strong></td><td>Revenue indicator</td><td style="color:var(--go);font-weight:600;">GHC 10,000+</td><td style="color:var(--warn);">GHC 5,000–10,000</td><td style="color:var(--stop);">&lt; GHC 5,000</td><td>WhatsApp pipeline (manual)</td><td>Pipeline under GHC 5,000 → maintain GHC 1,500 budget for Month 2, change messaging</td></tr>
+        <tr><td><strong>ROAS (confirmed revenue ÷ ad spend)</strong></td><td>Return on investment</td><td style="color:var(--go);font-weight:600;">&gt; 3.3×</td><td style="color:var(--warn);">1.5–3.3×</td><td style="color:var(--stop);">&lt; 1.5×</td><td>Finance tracking (manual)</td><td>Below 1.5× → hold budget increase until conversion rate improves</td></tr>
+        <tr class="tr-group"><td colspan="7">Free Channel Metrics — All 4 Weeks</td></tr>
+        <tr><td><strong>Google Business Profile — search impressions</strong></td><td>Local SEO progress</td><td style="color:var(--go);font-weight:600;">&gt; 500 impressions by Day 28</td><td style="color:var(--warn);">100–500</td><td style="color:var(--stop);">&lt; 100</td><td>GBP Insights dashboard</td><td>Profile not verified or incomplete — fill in all fields and add more photos</td></tr>
+        <tr><td><strong>Organic enquiries from Facebook groups</strong></td><td>Community presence</td><td style="color:var(--go);font-weight:600;">3–10 per week</td><td style="color:var(--warn);">1–3 per week</td><td style="color:var(--stop);">0 per week</td><td>WhatsApp Business (manual)</td><td>Posts are too promotional — rewrite as educational guides with no sales language</td></tr>
+        <tr><td><strong>WhatsApp Status views per post</strong></td><td>Organic reach</td><td style="color:var(--go);font-weight:600;">Growing week on week</td><td style="color:var(--warn);">Flat</td><td style="color:var(--stop);">Declining</td><td>WhatsApp Business → Status analytics</td><td>Ask Jamal and suppliers to save Wima's number — Status only reaches saved contacts</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DECISION FRAMEWORK -->
+  <h3 style="margin-top:8px;">The 3 decision rules — applied on Day 21</h3>
+  <div class="g3">
+    <div class="card go">
+      <div class="card-t" style="color:var(--go);">✓ Scale — All three conditions met</div>
+      <div class="card-b">CPL under GHC 75 <strong>AND</strong> at least 10 WhatsApp leads <strong>AND</strong> at least 1 project won or in advanced BOQ discussion.<br><br>Action: Double Month 2 budget to GHC 3,000. Keep exact same winning campaign structure. Add Kabinart kitchen category to the campaign mix.</div>
+    </div>
+    <div class="card al">
+      <div class="card-t" style="color:var(--amber);">→ Hold — Mixed results</div>
+      <div class="card-b">Leads arrived but no confirmed projects yet, OR CPL is above GHC 75 but under GHC 120.<br><br>Action: Maintain GHC 1,500 budget for Month 2. Give existing pipeline 2 more weeks to convert before changing the campaign. Do not add new categories yet.</div>
+    </div>
+    <div class="card stop">
+      <div class="card-t" style="color:var(--stop);">✗ Change — Neither condition met</div>
+      <div class="card-b">Under 5 WhatsApp messages total after GHC 1,200 spent, OR CPL over GHC 150 with no prospect interest.<br><br>Action: Do not increase budget. Identify the failure point: wrong audience, wrong creative, or wrong channel. Change one variable at a time and retest at GHC 500 before scaling.</div>
+    </div>
+  </div>
+
+  <!-- 30-DAY REVIEW TEMPLATE -->
+  <div class="tbl-wrap" style="margin-top:8px;">
+    <div class="tbl-title">30-Day Campaign Review Template <span>Complete on Day 28–30</span></div>
+    <table>
+      <thead><tr><th>Metric</th><th>Target</th><th>Actual (fill in)</th><th>Status</th><th>Month 2 Action</th></tr></thead>
+      <tbody>
+        <tr class="score-row"><td>Total ad spend</td><td>GHC 1,500</td><td>GHC ______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>Total video views (ThruPlay)</td><td>50,000</td><td>______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>WhatsApp messages received</td><td>15–30</td><td>______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>Qualified leads (answered auto-reply)</td><td>8–15</td><td>______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>BOQs sent</td><td>5–10</td><td>______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>Projects won</td><td>1–3</td><td>______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>Pipeline value (GHC)</td><td>GHC 10,000+</td><td>GHC ______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>Cost per lead (CPL)</td><td>&lt; GHC 75</td><td>GHC ______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>Best-performing category</td><td>One clear winner</td><td>______</td><td>—</td><td>Scale this category first in Month 2</td></tr>
+        <tr class="score-row"><td>Best-performing ad format</td><td>One clear winner</td><td>______</td><td>—</td><td>Use this format for all Month 2 creatives</td></tr>
+        <tr class="score-row"><td>Worst-performing campaign</td><td>One to cut</td><td>______</td><td>—</td><td>Replace or retire in Month 2</td></tr>
+        <tr class="score-row"><td>Google Business Profile impressions</td><td>&gt; 500</td><td>______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>Organic group enquiries (total)</td><td>&gt; 20</td><td>______</td><td>—</td><td>—</td></tr>
+        <tr class="score-row"><td>Testimonials collected</td><td>3+</td><td>______</td><td>—</td><td>These are Month 2 ad creative</td></tr>
+        <tr class="tr-total"><td colspan="2">Month 2 budget decision</td><td colspan="3">Scale (GHC 3,000) / Hold (GHC 1,500) / Change creative first</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MONTH 2 ROADMAP -->
+  <div class="ibox ink" style="margin-top:8px;">
+    <span class="ibox-lbl">Month 2 Roadmap — If Week 4 scorecard says Scale</span>
+    Budget doubles to GHC 3,000. Kabinart kitchen category joins the campaign mix. Testimonial voice notes from Month 1 become the primary ad creative (social proof outperforms transformation video for warm audiences). The winning category from Month 1 gets 40% of Month 2's budget. TikTok paid ads activate with the installation time-lapse content accumulated over 30 days. Google Search ads activate targeting "building materials Accra", "drywall contractor Ghana", and "acoustic ceiling installation Accra." LinkedIn InMail is explored for GREDA developers and architects — GHC 170 test budget. AkomaPoints CRM begins collecting transaction data from Wima Deal Hub customers — the first data feed into the loyalty infrastructure.
+  </div>
+</div>
+
+<!-- ════ DOWNLOAD SECTION ════ -->
+<div class="dl-wrap" id="downloads">
+  <div class="dl-title">Download for <em>Offline Use.</em></div>
+  <p class="dl-sub">All Wima strategy documents are available as single HTML files. Open in any browser — Chrome, Edge, Firefox, or Safari. No internet required after download. The Master Hub worksheet auto-saves in your browser.</p>
+  <div class="dl-cards">
+    <div class="dl-card">
+      <span class="dl-icon">📐</span>
+      <div class="dl-name">Full Campaign Brief</div>
+      <div class="dl-desc">This document — objectives, audiences, messaging, channel strategy, 28-day calendar, and success scorecard.</div>
+      <a href="wima-full-campaign-brief.html" download="wima-full-campaign-brief.html" class="dl-btn">⬇ Download Brief</a>
+    </div>
     <div class="dl-card">
       <span class="dl-icon">📋</span>
-      <div class="dl-name">Campaign Brief</div>
-      <div class="dl-desc">This document — market intelligence, zero-cost tactics, 4 categories, GHC 1,500 budget, ad copy, WhatsApp scripts, 14-day launch plan, and GitHub guide.</div>
+      <div class="dl-name">Marketing Intelligence Brief</div>
+      <div class="dl-desc">Market research, zero-cost tactics, 4-category ad copy, WhatsApp scripts, budget tables, and GitHub hosting guide.</div>
       <a href="wima-campaign-brief.html" download="wima-campaign-brief.html" class="dl-btn">⬇ Download Brief</a>
     </div>
     <div class="dl-card">
       <span class="dl-icon">📚</span>
       <div class="dl-name">Master Intelligence Hub</div>
-      <div class="dl-desc">Complete 12-section ecosystem document — suppliers, banks, craftsmen, aquarium division, funders, and offline worksheet with auto-save.</div>
+      <div class="dl-desc">Complete 12-section ecosystem document — suppliers, banks, craftsmen, aquarium division, and offline worksheet.</div>
       <a href="wima-master-hub.html" download="wima-master-hub.html" class="dl-btn">⬇ Download Hub</a>
     </div>
-    <div class="dl-card">
-      <span class="dl-icon">🏠</span>
-      <div class="dl-name">Documents Homepage</div>
-      <div class="dl-desc">The index.html homepage that links all Wima documents — upload this as your GitHub Pages entry point.</div>
-      <a href="index.html" download="index.html" class="dl-btn">⬇ Download Index</a>
-    </div>
   </div>
-  <div class="dl-note">All documents are single HTML files. No internet required after download. Worksheet data saves automatically in browser localStorage — does not sync between computers.</div>
+  <div class="dl-note">Single HTML files · Work offline · No app required · Worksheet auto-saves in browser localStorage</div>
 </div>
 
+</div><!-- end .page -->
+
 <div class="footer">
-  <span class="footer-brand">Wima Deal Hub — Marketing Intelligence Brief 2026</span>
-  <span>Prepared by Wima Marketing Director &amp; Team · June 2026</span>
-  <span>Sources: DataReportal Ghana 2025–26 · WebSysGH · Foundfront Agency · LuminatePR · Vaizle · Superads · SamBoad Business Group · Benjamin Appiah-Poku · Codigits · IntentTale · Meta Business Help · Birdeye 2025</span>
+  <span class="footer-brand">Wima Deal Hub — Full Campaign Brief</span>
+  <span>Prepared by Wima Marketing Director &amp; Team · June 2026 · v1.0</span>
+  <span>Sources: DataReportal Ghana 2026 · GlobalData · ResearchandMarkets · Statista · WebSysGH · Foundfront Agency · LuminatePR · Vaizle · Superads · Madgicx · Benjamin Appiah-Poku · SamBoad Business Group · Meta Business Help · Birdeye 2025</span>
 </div>
 
 <script>
-const links=document.querySelectorAll('.nav-links a[href^="#"]');
-const secs=document.querySelectorAll('.sec[id]');
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}});
-},{rootMargin:'-20% 0px -70% 0px'});
-secs.forEach(s=>io.observe(s));
+/* Sticky nav active state via IntersectionObserver */
+const links = document.querySelectorAll('.nav-links a[href^="#"]');
+const secs  = document.querySelectorAll('.sec[id], .dl-wrap[id]');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(a => a.classList.toggle('active',
+        a.getAttribute('href') === '#' + e.target.id));
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+secs.forEach(s => io.observe(s));
 </script>
 </body>
 </html>
