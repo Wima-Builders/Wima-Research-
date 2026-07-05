@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wima Deal Hub — Campaign Flyers & Launch Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:    #F7F5F0;
+  --paper: #FFFFFF;
+  --rule:  #E2DDD4;
+  --ink:   #111008;
+  --ink2:  #3A3628;
+  --muted: #7A7468;
+  --faint: #B0A898;
+  --amber: #D4860A;
+  --amber2:#B87008;
+  --amber-lt:#FEF3DC;
+  /* Category colours */
+  --c1:#1E3A8A; /* Acoustic — deep blue */
+  --c2:#14532D; /* Drywall — deep green */
+  --c3:#78350F; /* Cladding — earth */
+  --c4:#4C1D95; /* Insulation — violet */
+  --space:'Space Grotesk',system-ui,sans-serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:200;background:var(--ink);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:2px solid var(--amber);}
+.nav-brand{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;}
+.nav-links{display:flex;gap:4px;}
+.nav-links a{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.38);padding:5px 10px;text-decoration:none;border-radius:3px;transition:all .12s;white-space:nowrap;}
+.nav-links a:hover{color:var(--amber);}
+.nav-dl{font-family:var(--mono);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;background:var(--amber);color:white;padding:6px 14px;border-radius:3px;text-decoration:none;margin-left:10px;}
+.nav-dl:hover{background:var(--amber2);}
+
+/* ── HERO ── */
+.hero{background:var(--ink);padding:64px 56px 52px;border-bottom:1px solid rgba(255,255,255,.08);}
+.hero-tag{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.hero-tag::before{content:'';width:24px;height:2px;background:var(--amber);}
+.hero-title{font-family:var(--space);font-size:clamp(38px,5.5vw,66px);font-weight:700;line-height:.95;letter-spacing:-.02em;color:white;margin-bottom:16px;}
+.hero-title .hl{color:var(--amber);}
+.hero-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.45);max-width:560px;line-height:1.75;margin-bottom:36px;}
+.launch-band{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.1);}
+.lb{padding:14px 18px;border-right:1px solid rgba(255,255,255,.08);}
+.lb:last-child{border-right:none;}
+.lb-n{font-family:var(--space);font-size:24px;font-weight:700;line-height:1;display:block;margin-bottom:4px;}
+.lb-l{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);}
+
+/* ── LAYOUT ── */
+.page{max-width:980px;}
+.sec{padding:56px 56px 44px;border-bottom:1px solid var(--rule);}
+.sec:last-of-type{border-bottom:none;}
+.sec-eye{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--faint);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.sec-eye::after{content:'';flex:1;height:1px;background:var(--rule);}
+.sec-eye .tag{background:var(--amber);color:white;padding:1px 8px;font-size:8px;border-radius:2px;font-weight:600;}
+h2{font-family:var(--space);font-size:34px;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:6px;letter-spacing:-.02em;}
+h2 em{font-style:italic;color:var(--amber);}
+.sec-intro{font-size:14px;color:var(--muted);line-height:1.7;max-width:640px;margin-bottom:32px;font-style:italic;}
+
+/* ══════════════════════════════════════════
+   FLYERS — the signature design element:
+   diagonal cut between dark colour block
+   and light spec section
+══════════════════════════════════════════ */
+.flyer-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px;}
+
+.flyer{
+  position:relative;
+  aspect-ratio:4/5;
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
+  transition:transform .2s, box-shadow .2s;
+}
+.flyer:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.24);}
+
+/* TOP block — dark colour, 62% height */
+.flyer-top{
+  flex:0 0 62%;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:24px 24px 0;
+}
+/* Diagonal cut at bottom of top block */
+.flyer-top::after{
+  content:'';
+  position:absolute;
+  bottom:-24px;
+  left:0; right:0;
+  height:48px;
+  background:inherit;
+  clip-path:polygon(0 0, 100% 0, 100% 40%, 0 100%);
+  z-index:2;
+}
+
+.flyer-eyebrow{
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:rgba(255,255,255,.45);
+  margin-bottom:auto;
+}
+.flyer-cat-num{
+  font-family:var(--space);
+  font-size:80px;
+  font-weight:700;
+  line-height:.85;
+  color:rgba(255,255,255,.08);
+  position:absolute;
+  right:16px;
+  top:16px;
+  letter-spacing:-.04em;
+}
+.flyer-product{
+  font-family:var(--space);
+  font-size:clamp(18px,2.2vw,24px);
+  font-weight:700;
+  color:white;
+  line-height:1.1;
+  letter-spacing:-.01em;
+  margin-top:auto;
+  padding-bottom:32px;
+  position:relative;
+  z-index:3;
+}
+.flyer-price{
+  font-family:var(--space);
+  font-size:clamp(36px,4.5vw,52px);
+  font-weight:700;
+  color:white;
+  line-height:1;
+  letter-spacing:-.03em;
+  margin-bottom:4px;
+}
+.flyer-price-label{
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:rgba(255,255,255,.55);
+}
+
+/* BOTTOM block — light, 38% height */
+.flyer-bottom{
+  flex:0 0 38%;
+  background:white;
+  padding:28px 24px 18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  position:relative;
+  z-index:1;
+}
+.flyer-tagline{
+  font-family:var(--space);
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.3;
+  margin-bottom:8px;
+}
+.flyer-specs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.flyer-spec{
+  font-family:var(--mono);
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  padding:3px 8px;
+  background:var(--bg);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  color:var(--ink2);
+}
+.flyer-cta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-top:1px solid var(--rule);
+  padding-top:10px;
+}
+.flyer-wa{
+  font-family:var(--space);
+  font-size:11px;
+  font-weight:600;
+  color:#128C7E;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.flyer-wa::before{content:'📱';}
+.flyer-boq{
+  font-family:var(--mono);
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  color:var(--faint);
+}
+.flyer-brand{
+  font-family:var(--space);
+  font-size:10px;
+  font-weight:600;
+  color:var(--muted);
+  letter-spacing:.04em;
+}
+
+/* Print download strip */
+.flyer-print-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-bottom:32px;
+}
+.flyer-dl-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:var(--ink);
+  color:var(--amber);
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:600;
+  padding:10px 0;
+  border:none;
+  cursor:pointer;
+  transition:all .12s;
+}
+.flyer-dl-btn:hover{background:var(--amber);color:white;}
+
+/* Usage notes */
+.usage-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:0;}
+.usage-card{background:white;border:1px solid var(--rule);padding:14px 16px;}
+.usage-icon{font-size:20px;margin-bottom:8px;display:block;}
+.usage-title{font-family:var(--space);font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.usage-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+/* ══════════════════════════════════════════
+   CAMPAIGN PAYMENT & LAUNCH SECTION
+══════════════════════════════════════════ */
+.launch-overview{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border:1px solid var(--rule);
+  margin-bottom:28px;
+}
+.lo-cell{padding:18px 22px;border-right:1px solid var(--rule);}
+.lo-cell:last-child{border-right:none;}
+.lo-label{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:6px;display:block;}
+.lo-val{font-family:var(--space);font-size:15px;font-weight:600;color:var(--ink);}
+.lo-note{font-size:12px;color:var(--muted);margin-top:3px;}
+
+/* Step cards */
+.step-block{
+  margin-bottom:10px;
+  display:grid;
+  grid-template-columns:52px 1fr;
+  overflow:hidden;
+  border:1px solid var(--rule);
+}
+.step-num{
+  background:var(--ink);
+  color:var(--amber);
+  font-family:var(--space);
+  font-size:22px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  letter-spacing:-.02em;
+}
+.step-body{
+  background:white;
+  border-left:none;
+  padding:16px 20px;
+}
+.step-title{
+  font-family:var(--space);
+  font-size:15px;
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:5px;
+}
+.step-desc{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+}
+.step-desc strong{color:var(--ink2);font-weight:600;}
+.step-desc a{color:var(--amber2);text-decoration:none;font-weight:500;}
+.step-desc a:hover{text-decoration:underline;}
+.step-desc code{
+  font-family:var(--mono);
+  font-size:11px;
+  background:var(--bg);
+  border:1px solid var(--rule);
+  padding:1px 6px;
+  border-radius:3px;
+}
+.tip{
+  background:var(--amber-lt);
+  border-left:3px solid var(--amber);
+  padding:9px 13px;
+  font-size:12.5px;
+  color:#5A3800;
+  line-height:1.65;
+  margin-top:10px;
+}
+.tip strong{color:#3A2000;}
+.warn{
+  background:#FEF2F2;
+  border-left:3px solid #DC2626;
+  padding:9px 13px;
+  font-size:12.5px;
+  color:#7F1D1D;
+  line-height:1.65;
+  margin-top:10px;
+}
+
+/* Budget table */
+table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:20px;}
+thead th{background:var(--ink);color:rgba(255,255,255,.7);padding:9px 14px;font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;text-align:left;font-weight:500;}
+td{padding:10px 14px;border-bottom:1px solid var(--bg);vertical-align:top;line-height:1.55;}
+tr:nth-child(even) td{background:var(--bg);}
+tr:hover td{background:var(--amber-lt);}
+.tr-total td{background:var(--ink)!important;color:white;font-family:var(--mono);font-weight:600;}
+
+/* Screen mockup */
+.screen{
+  background:#1A1A2E;
+  border-radius:12px;
+  overflow:hidden;
+  margin-bottom:20px;
+  box-shadow:0 8px 32px rgba(0,0,0,.2);
+}
+.screen-bar{
+  background:#2A2A3E;
+  padding:10px 16px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.screen-dot{width:10px;height:10px;border-radius:50%;}
+.screen-url{
+  flex:1;
+  background:#1A1A2E;
+  border-radius:4px;
+  padding:4px 12px;
+  font-family:var(--mono);
+  font-size:10px;
+  color:rgba(255,255,255,.4);
+  margin:0 8px;
+}
+.screen-body{padding:20px 24px;}
+.meta-ui{background:white;border-radius:8px;overflow:hidden;}
+.meta-nav{background:#1877F2;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;}
+.meta-logo{color:white;font-family:var(--space);font-size:16px;font-weight:700;}
+.meta-tabs{display:flex;gap:0;background:white;}
+.meta-tab{padding:10px 16px;font-size:12px;color:#606770;font-weight:500;border-bottom:3px solid transparent;cursor:pointer;font-family:var(--sans);}
+.meta-tab.active{color:#1877F2;border-bottom-color:#1877F2;}
+.meta-content{padding:20px;background:#F0F2F5;}
+.meta-card{background:white;border-radius:8px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.1);}
+.meta-card-title{font-family:var(--space);font-size:14px;font-weight:600;color:#1C1E21;margin-bottom:4px;}
+.meta-card-sub{font-size:12px;color:#606770;margin-bottom:12px;}
+.meta-btn{background:#1877F2;color:white;border:none;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:600;font-family:var(--sans);cursor:pointer;display:inline-block;}
+.meta-btn.green{background:#42B72A;}
+.meta-btn.outline{background:white;color:#1877F2;border:1px solid #1877F2;}
+.meta-field{background:#F0F2F5;border-radius:6px;padding:10px 14px;margin-bottom:8px;}
+.meta-field-label{font-size:11px;font-weight:600;color:#606770;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+.meta-field-val{font-size:13px;color:#1C1E21;font-family:var(--sans);}
+.meta-progress{display:flex;gap:0;margin-bottom:20px;}
+.mp-step{flex:1;text-align:center;padding:8px;}
+.mp-step.done{background:#E7F3E8;}
+.mp-step.active{background:#E7F0FF;}
+.mp-step .mp-n{width:24px;height:24px;border-radius:50%;background:#1877F2;color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 4px;}
+.mp-step.done .mp-n{background:#42B72A;}
+.mp-step .mp-l{font-size:10px;color:#606770;}
+.wa-preview{background:#E5DDD5;border-radius:8px;padding:16px;position:relative;overflow:hidden;}
+.wa-header{background:#075E54;padding:10px 14px;display:flex;align-items:center;gap:10px;margin:-16px -16px 12px;}
+.wa-avatar{width:36px;height:36px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:14px;color:white;font-weight:700;font-family:var(--space);}
+.wa-name{color:white;font-size:14px;font-weight:600;font-family:var(--sans);}
+.wa-status{color:rgba(255,255,255,.6);font-size:11px;}
+.wa-bubble{background:white;border-radius:0 12px 12px 12px;padding:10px 14px;max-width:80%;margin-bottom:6px;box-shadow:0 1px 2px rgba(0,0,0,.12);}
+.wa-bubble-text{font-size:13px;color:#1C1E21;line-height:1.5;font-family:var(--sans);}
+.wa-time{font-size:10px;color:#667781;text-align:right;margin-top:4px;}
+.wa-cta-bar{background:#25D366;color:white;text-align:center;padding:10px;font-size:13px;font-weight:600;border-radius:0 0 8px 8px;margin:8px -16px -16px;font-family:var(--sans);}
+
+/* ibox */
+.ibox{padding:12px 16px;margin-bottom:16px;border-left:3px solid;font-size:13px;line-height:1.65;}
+.ibox.amber{background:var(--amber-lt);border-color:var(--amber);color:#5A3800;}
+.ibox.green{background:#F0FDF4;border-color:#16A34A;color:#14532D;}
+.ibox.red{background:#FEF2F2;border-color:#DC2626;color:#7F1D1D;}
+.ibox-lbl{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.14em;display:block;margin-bottom:4px;opacity:.6;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+
+/* Payment card visual */
+.card-visual{
+  background:linear-gradient(135deg,#1A1A2E 0%,#2D2D4E 100%);
+  border-radius:12px;
+  padding:24px 28px;
+  color:white;
+  margin-bottom:16px;
+  position:relative;
+  overflow:hidden;
+}
+.card-visual::before{
+  content:'';
+  position:absolute;
+  width:200px;height:200px;
+  background:rgba(255,255,255,.04);
+  border-radius:50%;
+  right:-40px;top:-60px;
+}
+.card-chip{
+  width:36px;height:28px;
+  background:linear-gradient(135deg,#D4A830,#F0C850);
+  border-radius:4px;
+  margin-bottom:20px;
+}
+.card-num{
+  font-family:var(--mono);
+  font-size:16px;
+  letter-spacing:.2em;
+  margin-bottom:16px;
+  color:rgba(255,255,255,.9);
+}
+.card-row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;}
+.card-label{color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;font-size:8px;display:block;margin-bottom:3px;}
+
+/* DL section */
+.dl-wrap{background:var(--ink);padding:40px 56px;}
+.dl-title{font-family:var(--space);font-size:32px;font-weight:700;color:white;margin-bottom:6px;}
+.dl-sub{font-size:14px;color:rgba(255,255,255,.4);max-width:420px;margin:0 auto 28px;line-height:1.7;text-align:center;}
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:640px;margin:0 auto;}
+.dl-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);padding:16px 14px;text-align:center;transition:all .15s;}
+.dl-card:hover{background:rgba(212,134,10,.1);border-color:rgba(212,134,10,.3);}
+.dl-icon{font-size:20px;display:block;margin-bottom:8px;}
+.dl-name{font-size:13px;font-weight:600;color:white;margin-bottom:3px;}
+.dl-desc{font-size:11px;color:rgba(255,255,255,.35);line-height:1.5;margin-bottom:12px;}
+.dl-btn{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;padding:7px 14px;background:var(--amber);color:white;text-decoration:none;border-radius:3px;}
+
+/* Footer */
+.footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.25);padding:16px 56px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.07em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.footer-brand{font-family:var(--space);font-size:14px;color:var(--amber);text-transform:none;letter-spacing:0;}
+
+@media(max-width:768px){
+  .nav{padding:0 20px;}.nav-links{display:none;}
+  .hero,.sec{padding:40px 22px 32px;}
+  .flyer-grid,.flyer-print-row,.usage-grid,.g2,.launch-overview,.dl-grid{grid-template-columns:1fr;}
+  .launch-band{grid-template-columns:1fr 1fr;}
+  .lo-cell:nth-child(2){border-right:none;}
+  .footer{padding:14px 22px;flex-direction:column;}
+  .dl-wrap{padding:36px 22px;}
+}
+@media print{.nav,.dl-wrap{display:none;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">Wima Deal Hub — Campaign Flyers &amp; Launch Guide</div>
+  <div class="nav-links">
+    <a href="#flyers">Flyers</a>
+    <a href="#facebook">Facebook</a>
+    <a href="#whatsapp">WhatsApp</a>
+    <a href="#payment">Payment &amp; Launch</a>
+    <a href="#downloads" class="nav-dl">⬇ Download</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Wima Deal Hub · Campaign Launch Week · July 2026</div>
+  <h1 class="hero-title">Four flyers.<br>One launch.<br><span class="hl">This week.</span></h1>
+  <p class="hero-sub">Print-ready campaign flyers for all four Wima categories — plus the exact step-by-step guide to pay for and launch your first Facebook Click-to-WhatsApp campaign today.</p>
+  <div class="launch-band">
+    <div class="lb"><span class="lb-n" style="color:var(--amber);">4</span><span class="lb-l">Flyers — one per category</span></div>
+    <div class="lb"><span class="lb-n" style="color:#25D366;">GHC 0</span><span class="lb-l">Cost to print and share digitally</span></div>
+    <div class="lb"><span class="lb-n" style="color:#1877F2;">GHC 500</span><span class="lb-l">Week 2 Facebook ad budget</span></div>
+    <div class="lb"><span class="lb-n" style="color:white;">Today</span><span class="lb-l">When to post the flyers</span></div>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ════ SECTION 1: FLYERS ════ -->
+<div class="sec" id="flyers">
+  <div class="sec-eye">Section 01 <span class="tag">Campaign Flyers</span></div>
+  <h2>Four flyers.<br><em>Ready to post today.</em></h2>
+  <p class="sec-intro">Each flyer is designed for WhatsApp Status, Facebook feed posts, and printing on A4 or A5. Post one per day across Days 1–4 of your launch week — one category per day, building awareness before the paid campaign starts. Screenshot each flyer and post directly to WhatsApp Status at 7pm Ghana time.</p>
+
+  <div class="ibox amber" style="margin-bottom:24px;">
+    <span class="ibox-lbl">How to use these flyers this week</span>
+    <strong>Today and tomorrow:</strong> Post flyers 1 and 2 to WhatsApp Status and your Facebook Business Page — no ad budget needed yet. <strong>Days 3–4:</strong> Post flyers 3 and 4. <strong>Day 5 (Friday):</strong> Your retargeting pool is building. This is when you top up your ad account and schedule the first paid campaign for Day 8. The flyers are your organic warm-up. Videos follow next week.
+  </div>
+
+  <!-- FLYERS GRID -->
+  <div class="flyer-grid">
+
+    <!-- FLYER 1: ACOUSTIC CEILING -->
+    <div class="flyer" style="background:white;" onclick="window.print()">
+      <div class="flyer-top" style="background:var(--c1);">
+        <div class="flyer-cat-num">01</div>
+        <div class="flyer-eyebrow">Wima Deal Hub · Category 01</div>
+        <div class="flyer-product">
+          <div class="flyer-price">GHS 85<span style="font-size:.5em;font-weight:400;opacity:.7">/m²</span></div>
+          <div class="flyer-price-label">Supply &amp; Installation · Accra-wide</div>
+          <div style="margin-top:12px;font-family:var(--space);font-size:20px;font-weight:700;color:white;line-height:1.1;">Acoustic Ceiling<br>Systems</div>
+        </div>
+      </div>
+      <div class="flyer-bottom">
+        <div>
+          <div class="flyer-tagline">Transform your bare concrete ceiling. One working day. No surprises.</div>
+          <div class="flyer-specs">
+            <span class="flyer-spec">Mineral Fibre Panels</span>
+            <span class="flyer-spec">Sound Absorption</span>
+            <span class="flyer-spec">20+ Yr Lifespan</span>
+          </div>
+        </div>
+        <div class="flyer-cta">
+          <div class="flyer-wa">Free BOQ in 24 hours</div>
+          <div>
+            <div class="flyer-boq">WhatsApp: [your number]</div>
+            <div class="flyer-brand">WIMA DEAL HUB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLYER 2: DRYWALL -->
+    <div class="flyer" style="background:white;">
+      <div class="flyer-top" style="background:var(--c2);">
+        <div class="flyer-cat-num">02</div>
+        <div class="flyer-eyebrow">Wima Deal Hub · Category 02</div>
+        <div class="flyer-product">
+          <div class="flyer-price">GHS 85<span style="font-size:.5em;font-weight:400;opacity:.7">/m²</span></div>
+          <div class="flyer-price-label">Supply &amp; Installation · Accra-wide</div>
+          <div style="margin-top:12px;font-family:var(--space);font-size:20px;font-weight:700;color:white;line-height:1.1;">Drywall &amp;<br>Partition Systems</div>
+        </div>
+      </div>
+      <div class="flyer-bottom">
+        <div>
+          <div class="flyer-tagline">Create private offices and rooms. Installed in one day. No structural work.</div>
+          <div class="flyer-specs">
+            <span class="flyer-spec">Steel Stud Frame</span>
+            <span class="flyer-spec">Plasterboard</span>
+            <span class="flyer-spec">Ready to Paint</span>
+          </div>
+        </div>
+        <div class="flyer-cta">
+          <div class="flyer-wa">Free BOQ in 24 hours</div>
+          <div>
+            <div class="flyer-boq">WhatsApp: [your number]</div>
+            <div class="flyer-brand">WIMA DEAL HUB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLYER 3: CLADDING -->
+    <div class="flyer" style="background:white;">
+      <div class="flyer-top" style="background:var(--c3);">
+        <div class="flyer-cat-num">03</div>
+        <div class="flyer-eyebrow">Wima Deal Hub · Category 03</div>
+        <div class="flyer-product">
+          <div class="flyer-price">GHS 120<span style="font-size:.5em;font-weight:400;opacity:.7">/m²</span></div>
+          <div class="flyer-price-label">Supply &amp; Installation · Ghana-wide</div>
+          <div style="margin-top:12px;font-family:var(--space);font-size:20px;font-weight:700;color:white;line-height:1.1;">Exterior Cladding &amp;<br>Cement Board</div>
+        </div>
+      </div>
+      <div class="flyer-bottom">
+        <div>
+          <div class="flyer-tagline">Transform your building's exterior. Weather-resistant. Low maintenance. Professional finish.</div>
+          <div class="flyer-specs">
+            <span class="flyer-spec">Cement Board</span>
+            <span class="flyer-spec">Alucobond Panels</span>
+            <span class="flyer-spec">BOQ in 48 hrs</span>
+          </div>
+        </div>
+        <div class="flyer-cta">
+          <div class="flyer-wa">Free site visit available</div>
+          <div>
+            <div class="flyer-boq">WhatsApp: [your number]</div>
+            <div class="flyer-brand">WIMA DEAL HUB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLYER 4: INSULATION -->
+    <div class="flyer" style="background:white;">
+      <div class="flyer-top" style="background:var(--c4);">
+        <div class="flyer-cat-num">04</div>
+        <div class="flyer-eyebrow">Wima Deal Hub · Category 04</div>
+        <div class="flyer-product">
+          <div class="flyer-price">GHS 95<span style="font-size:.5em;font-weight:400;opacity:.7">/m²</span></div>
+          <div class="flyer-price-label">Supply &amp; Installation · Ghana-wide</div>
+          <div style="margin-top:12px;font-family:var(--space);font-size:20px;font-weight:700;color:white;line-height:1.1;">Insulation<br>Systems</div>
+        </div>
+      </div>
+      <div class="flyer-bottom">
+        <div>
+          <div class="flyer-tagline">Your ECG bill is high because your building has no insulation. We fix that.</div>
+          <div class="flyer-specs">
+            <span class="flyer-spec">Glasswool / Rockwool</span>
+            <span class="flyer-spec">Cut Bills 30%</span>
+            <span class="flyer-spec">Free Energy Estimate</span>
+          </div>
+        </div>
+        <div class="flyer-cta">
+          <div class="flyer-wa">Free energy estimate</div>
+          <div>
+            <div class="flyer-boq">WhatsApp: [your number]</div>
+            <div class="flyer-brand">WIMA DEAL HUB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end flyer-grid -->
+
+  <div style="font-family:var(--mono);font-size:9px;color:var(--faint);text-align:center;margin-bottom:28px;text-transform:uppercase;letter-spacing:.1em;">
+    Screenshot any flyer → Post to WhatsApp Status → Post to Facebook Page · Do this before any paid ads run
+  </div>
+
+  <!-- USAGE NOTES -->
+  <div class="usage-grid">
+    <div class="usage-card">
+      <span class="usage-icon">📱</span>
+      <div class="usage-title">WhatsApp Status</div>
+      <div class="usage-body">Screenshot the flyer → open WhatsApp Status → tap the + → select the screenshot → add your WhatsApp number as a caption → post at 7pm Ghana time. One flyer per day. Do all four this week.</div>
+    </div>
+    <div class="usage-card">
+      <span class="usage-icon">📘</span>
+      <div class="usage-title">Facebook Business Page</div>
+      <div class="usage-body">Screenshot the flyer → go to your Wima Facebook Business Page → Create Post → upload the screenshot → add the caption from Section 02 of the Social Media guide → post. One flyer per day, 7pm.</div>
+    </div>
+    <div class="usage-card">
+      <span class="usage-icon">🖨</span>
+      <div class="usage-title">Print for Sites &amp; Partners</div>
+      <div class="usage-body">Right-click any flyer → Save Image → print on A4 or A5 at any business centre in Accra. Post at Jamal's installation sites, at supplier offices, and at any bank or finance partner office. Physical presence builds trust.</div>
+    </div>
+    <div class="usage-card">
+      <span class="usage-icon">👥</span>
+      <div class="usage-title">Facebook Groups</div>
+      <div class="usage-body">Do NOT post flyers in Facebook groups — groups want helpful articles, not ads. Use the flyer in your WhatsApp Status and Business Page only. In groups, post the educational articles from the Content Library instead.</div>
+    </div>
+    <div class="usage-card">
+      <span class="usage-icon">📲</span>
+      <div class="usage-title">WhatsApp Community Broadcast</div>
+      <div class="usage-body">Broadcast the flyer to your WhatsApp Community once per week — pair it with the Sunday price list message. Do not broadcast more than once a week or contacts will mute the community.</div>
+    </div>
+    <div class="usage-card">
+      <span class="usage-icon">🎞</span>
+      <div class="usage-title">Flyers First, Then Videos</div>
+      <div class="usage-body">Flyers go out this week (Days 1–4). Videos follow next week when the paid awareness campaign starts. Flyers build the initial audience and validate your WhatsApp number and BOQ process before you spend any ad budget.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ SECTION 2: FACEBOOK ════ -->
+<div class="sec" id="facebook">
+  <div class="sec-eye">Section 02 <span class="tag">Facebook Paid Campaign</span></div>
+  <h2>Starting your Facebook<br><em>Click-to-WhatsApp campaign.</em></h2>
+  <p class="sec-intro">The exact steps to set up, fund, and launch a Facebook Click-to-WhatsApp campaign this week. No agency. No developer. One person with a phone and a dollar card. Read every step before you start — the order matters.</p>
+
+  <div class="ibox amber" style="margin-bottom:20px;">
+    <span class="ibox-lbl">Before you start — what you need ready</span>
+    <strong>1.</strong> A Wima Facebook Business Page (already set up, or create at facebook.com/pages/create) ·
+    <strong>2.</strong> Your WhatsApp Business number linked to the page ·
+    <strong>3.</strong> A dollar-denominated Visa or Mastercard (Meta bills in USD — see the Payment section below for the Wise solution) ·
+    <strong>4.</strong> One of the four flyer screenshots from Section 01 ·
+    <strong>5.</strong> The WhatsApp auto-reply set up and tested
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="meta-progress">
+    <div class="mp-step done"><div class="mp-n">✓</div><div class="mp-l">Business Page</div></div>
+    <div class="mp-step done"><div class="mp-n">✓</div><div class="mp-l">WhatsApp Linked</div></div>
+    <div class="mp-step active"><div class="mp-n">3</div><div class="mp-l">Meta Business Suite</div></div>
+    <div class="mp-step"><div class="mp-n">4</div><div class="mp-l">Create Campaign</div></div>
+    <div class="mp-step"><div class="mp-n">5</div><div class="mp-l">Add Payment</div></div>
+    <div class="mp-step"><div class="mp-n">6</div><div class="mp-l">Launch</div></div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">Go to Meta Business Suite</div>
+      <div class="step-desc">Open <a href="https://business.facebook.com" target="_blank" rel="noopener">business.facebook.com</a> on a desktop or laptop (not your phone — the full Ads Manager only works properly on desktop). Log in with the Facebook account connected to your Wima Business Page. You will see the Meta Business Suite dashboard. On the left sidebar, click <strong>Ads</strong> → then <strong>Ads Manager</strong>.</div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">Create a new campaign</div>
+      <div class="step-desc">In Ads Manager, click the green <strong>+ Create</strong> button. A campaign creation window opens. You will be asked to choose an <strong>Objective</strong>.<br><br>
+      For this week's flyer campaign, choose: <strong>Engagement → Messages</strong><br>
+      This is the objective that creates a Click-to-WhatsApp button on your ad. When someone taps the button, WhatsApp opens directly with Wima's number pre-filled. No website needed.<br><br>
+      Name your campaign: <code>Wima Deal Hub — Week 1 Flyers</code><br><br>
+      Click <strong>Continue</strong>.
+      <div class="tip"><strong>Why Messages, not Traffic or Awareness?</strong> You are not sending people to a website — you are sending them directly into a WhatsApp conversation. "Messages" objective tells Meta to find people most likely to send a WhatsApp message. It is the correct objective for a Click-to-WhatsApp campaign.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">Set your audience (Ad Set level)</div>
+      <div class="step-desc">
+      You are now at the <strong>Ad Set</strong> level. This is where you define WHO sees your ad.<br><br>
+      <strong>Messaging app:</strong> Select <strong>WhatsApp</strong><br>
+      <strong>Location:</strong> Ghana → Greater Accra Region (type "Greater Accra" in the location field)<br>
+      <strong>Age:</strong> 28 to 55<br>
+      <strong>Gender:</strong> All<br>
+      <strong>Detailed targeting:</strong> Click "Add interests" and add:
+      <ul style="margin:8px 0 8px 18px;font-size:13px;color:var(--muted);line-height:1.8;">
+        <li>Home improvement</li>
+        <li>Interior design</li>
+        <li>Real estate (Ghana)</li>
+        <li>Property renovation</li>
+        <li>Construction</li>
+      </ul>
+      <strong>Placements:</strong> Select <strong>Advantage+ Placements</strong> (let Meta decide — this is cheaper than manual placement)<br><br>
+      <strong>Budget:</strong> Set a <strong>Daily budget</strong> of GHC 71 (approximately $4.70). This runs the campaign for 7 days = GHC 500 total.
+      <div class="tip"><strong>Audience size tip:</strong> Check the estimated audience size on the right — it should show 200,000–800,000 people. If it shows under 100,000, broaden your interests. If it shows over 2 million, narrow your location to just Accra city.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <div class="step-title">Create your ad (Ad level) — upload the flyer</div>
+      <div class="step-desc">
+      You are now at the <strong>Ad</strong> level. This is the actual creative — what people will see.<br><br>
+      <strong>Ad format:</strong> Single image<br>
+      <strong>Upload:</strong> Upload the flyer screenshot for the category you are running first. Start with the Acoustic Ceiling flyer (Category 01).<br><br>
+      <strong>Primary text</strong> (the caption under the image — copy this):
+      <div style="background:var(--bg);border:1px solid var(--rule);padding:12px 14px;margin:8px 0;font-size:13px;color:var(--ink);line-height:1.7;font-style:italic;">
+        Acoustic ceiling panels — supplied and installed across Accra. From GHS 85/m².<br><br>
+        ✅ No cracking<br>
+        ✅ Sound absorption<br>
+        ✅ One working day<br>
+        ✅ Free itemised BOQ in 24 hours<br><br>
+        WhatsApp us your ceiling area and location. We'll send your price today. 👇
+      </div>
+      <strong>Headline:</strong> <code>Free BOQ — 24-hour turnaround</code><br>
+      <strong>Call to action button:</strong> Select <strong>Send WhatsApp message</strong><br>
+      <strong>WhatsApp number:</strong> Enter your Wima WhatsApp Business number<br><br>
+      Click <strong>Preview</strong> to see how the ad will look on a phone screen. Check that the flyer is readable and the WhatsApp button is visible.
+      <div class="tip"><strong>Image specs:</strong> Facebook recommends 1080×1080px for feed images. The flyer screenshot from a desktop browser will work, but for best quality, use the browser's zoom function to make the flyer fill the screen before screenshotting.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <div class="step-title">Review and publish</div>
+      <div class="step-desc">
+      Click <strong>Review</strong> to see a full summary of your campaign. Check:<br><br>
+      • Campaign objective: Engagement → Messages ✓<br>
+      • WhatsApp app selected ✓<br>
+      • Audience: Greater Accra, age 28–55 ✓<br>
+      • Daily budget: GHC 71 ✓<br>
+      • Ad creative: flyer uploaded ✓<br>
+      • CTA button: Send WhatsApp message ✓<br><br>
+      If everything looks correct, click <strong>Publish</strong>. Meta will review your ad — this usually takes 24 hours but often less than 2 hours. Once approved, the ad goes live and you will see it in Ads Manager with status <strong>"Active"</strong>.
+      <div class="warn"><strong>Do not edit the campaign after it goes live for the first 7 days.</strong> Meta's algorithm needs 7 full days to exit its learning phase. Any edit before Day 7 resets the learning and wastes everything spent so far.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- META UI MOCKUP -->
+  <div class="screen" style="margin-top:24px;">
+    <div class="screen-bar">
+      <div class="screen-dot" style="background:#FF5F57;"></div>
+      <div class="screen-dot" style="background:#FEBC2E;"></div>
+      <div class="screen-dot" style="background:#28C840;"></div>
+      <div class="screen-url">business.facebook.com/adsmanager</div>
+    </div>
+    <div class="screen-body">
+      <div class="meta-ui">
+        <div class="meta-nav">
+          <div class="meta-logo">Meta Ads Manager</div>
+          <div style="color:white;font-size:12px;opacity:.7;">Wima Deal Hub</div>
+        </div>
+        <div style="padding:16px 20px;background:#F0F2F5;">
+          <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+            <button class="meta-btn">+ Create Campaign</button>
+            <button class="meta-btn outline">Duplicate</button>
+            <button class="meta-btn outline">Edit</button>
+          </div>
+          <div class="meta-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+              <div>
+                <div class="meta-card-title">Wima Deal Hub — Week 1 Flyers</div>
+                <div class="meta-card-sub">Messages objective · Greater Accra · GHC 71/day</div>
+              </div>
+              <div style="background:#E7F3E8;color:#1E7E34;font-size:12px;font-weight:600;padding:4px 10px;border-radius:12px;">● Active</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center;">
+              <div><div style="font-size:18px;font-weight:700;color:#1C1E21;font-family:var(--space);">2,847</div><div style="font-size:11px;color:#606770;">Reach</div></div>
+              <div><div style="font-size:18px;font-weight:700;color:#1C1E21;font-family:var(--space);">4,213</div><div style="font-size:11px;color:#606770;">Impressions</div></div>
+              <div><div style="font-size:18px;font-weight:700;color:#1C1E21;font-family:var(--space);">7</div><div style="font-size:11px;color:#606770;">Messages</div></div>
+              <div><div style="font-size:18px;font-weight:700;color:#1C1E21;font-family:var(--space);">GHC 28</div><div style="font-size:11px;color:#606770;">Cost/message</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ SECTION 3: WHATSAPP ════ -->
+<div class="sec" id="whatsapp">
+  <div class="sec-eye">Section 03 <span class="tag">WhatsApp Setup</span></div>
+  <h2>Setting up WhatsApp<br><em>to receive every lead.</em></h2>
+  <p class="sec-intro">WhatsApp does not run paid ads on its own platform. All WhatsApp lead generation happens through Facebook's Click-to-WhatsApp format (set up in Section 02 above). This section covers the WhatsApp Business setup that must be in place before any ad goes live.</p>
+
+  <div class="g2" style="margin-bottom:20px;">
+    <div>
+      <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:12px;">WhatsApp Business setup checklist</div>
+
+      <div class="step-block" style="margin-bottom:8px;">
+        <div class="step-num" style="font-size:16px;">A</div>
+        <div class="step-body">
+          <div class="step-title">Download WhatsApp Business</div>
+          <div class="step-desc">Download the free <strong>WhatsApp Business</strong> app (not the regular WhatsApp) from the Play Store or App Store. Use a separate phone number from your personal WhatsApp — ideally a dedicated SIM for Wima. Register with your Wima business name.</div>
+        </div>
+      </div>
+
+      <div class="step-block" style="margin-bottom:8px;">
+        <div class="step-num" style="font-size:16px;">B</div>
+        <div class="step-body">
+          <div class="step-title">Complete your business profile</div>
+          <div class="step-desc">Go to Settings → Business tools → Business profile. Fill in: <strong>Business name:</strong> Wima Deal Hub · <strong>Category:</strong> Building Materials · <strong>Address:</strong> Accra, Ghana · <strong>Website:</strong> your GitHub Pages URL · <strong>Description:</strong> "Acoustic ceiling, drywall, exterior cladding, and insulation — supplied and installed across Ghana. Free BOQ in 24 hours."</div>
+        </div>
+      </div>
+
+      <div class="step-block" style="margin-bottom:8px;">
+        <div class="step-num" style="font-size:16px;">C</div>
+        <div class="step-body">
+          <div class="step-title">Set up the 4 auto-replies</div>
+          <div class="step-desc">Go to <strong>Settings → Business tools → Greeting message</strong>. Turn it ON. Copy and paste the auto-reply for whichever category the ad is running. The greeting message fires automatically when someone messages Wima for the first time — or after 14 days of inactivity. Test it: send a WhatsApp from another phone and confirm the greeting arrives within 3 seconds.</div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num" style="font-size:16px;">D</div>
+        <div class="step-body">
+          <div class="step-title">Link WhatsApp to your Facebook Page</div>
+          <div class="step-desc">In Facebook Business Suite → go to your Wima Business Page → Settings → WhatsApp → enter your WhatsApp Business number → tap <strong>Send code</strong> → enter the verification code → confirm. Once linked, Meta can use your WhatsApp number as a CTA destination in ads.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp preview mockup -->
+    <div>
+      <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:12px;">What the customer sees when they tap your ad</div>
+      <div class="wa-preview">
+        <div class="wa-header">
+          <div class="wa-avatar">W</div>
+          <div>
+            <div class="wa-name">Wima Deal Hub</div>
+            <div class="wa-status">Building Materials · Accra</div>
+          </div>
+        </div>
+        <div class="wa-bubble">
+          <div class="wa-bubble-text">Hi! Welcome to Wima Deal Hub 👋<br><br>Thanks for reaching out about our Acoustic Ceiling Systems. To prepare your free BOQ, please reply with:<br><br>1️⃣ Your location in Accra<br>2️⃣ Ceiling area in m² (or room size)<br>3️⃣ Use: Home / Office / Hotel<br><br>Quote within 24 hours. 🏗️</div>
+          <div class="wa-time">Just now · ✓✓</div>
+        </div>
+        <div class="wa-cta-bar">📱 Tap to reply — this is your lead</div>
+      </div>
+      <div style="font-family:var(--mono);font-size:9px;color:var(--faint);text-align:center;margin-top:8px;text-transform:uppercase;letter-spacing:.09em;">This auto-reply fires within 3 seconds of the customer tapping your ad</div>
+    </div>
+  </div>
+
+  <div class="ibox green">
+    <span class="ibox-lbl">WhatsApp organic — free, every day, this week</span>
+    Post to <strong>WhatsApp Status</strong> every day this week — one flyer per day. Status reaches 100% of your saved contacts at zero cost. 91.8% of Ghanaians connected to the internet use WhatsApp (Statista). For contacts who save your Wima number, every Status post is a free impression. This is your highest-ROI channel until the paid campaign starts.
+  </div>
+</div>
+
+<!-- ════ SECTION 4: PAYMENT & LAUNCH ════ -->
+<div class="sec" id="payment">
+  <div class="sec-eye">Section 04 <span class="tag">Campaign Payment &amp; Launch</span></div>
+  <h2>How to pay for<br><em>your Facebook campaign.</em></h2>
+  <p class="sec-intro">Meta (Facebook) bills all advertising in US dollars — even when your ads run in Ghana targeting Ghanaian audiences. You cannot pay with MoMo or a GHS bank account. This section tells you exactly how to fund your Meta ad account from Ghana, step by step.</p>
+
+  <div class="ibox red">
+    <span class="ibox-lbl">Critical — read this first</span>
+    <strong>Meta does not accept MTN MoMo, GHS bank transfers, or Vodafone Cash.</strong> You need a US-dollar-denominated Visa or Mastercard. The most accessible solution for someone in Accra right now is a <strong>Wise virtual card</strong> — which you can open online in under 30 minutes using your Ghana phone number and a Ghana ID. This is the method used by thousands of Ghanaian digital advertisers.
+  </div>
+
+  <!-- PAYMENT OVERVIEW -->
+  <div class="launch-overview" style="margin-bottom:28px;">
+    <div class="lo-cell">
+      <span class="lo-label">What Meta accepts</span>
+      <div class="lo-val">USD Visa or Mastercard</div>
+      <div class="lo-note">Virtual card is fine — physical card not required</div>
+    </div>
+    <div class="lo-cell">
+      <span class="lo-label">Best solution from Ghana</span>
+      <div class="lo-val">Wise virtual card</div>
+      <div class="lo-note">wise.com — open in 30 mins, no physical card needed</div>
+    </div>
+    <div class="lo-cell">
+      <span class="lo-label">Alternatives</span>
+      <div class="lo-val">GT Bank / Ecobank USD card</div>
+      <div class="lo-note">Dollar-denominated debit card from any Ghana bank</div>
+    </div>
+    <div class="lo-cell">
+      <span class="lo-label">Week 1 budget to load</span>
+      <div class="lo-val" style="color:var(--amber);">USD ~$33</div>
+      <div class="lo-note">≈ GHC 500 at current rate · covers 7 days at GHC 71/day</div>
+    </div>
+  </div>
+
+  <!-- PAYMENT STEPS -->
+  <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:16px;">Option A — Wise virtual card (recommended · fastest)</div>
+
+  <div class="step-block">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">Open a Wise account</div>
+      <div class="step-desc">Go to <a href="https://wise.com" target="_blank" rel="noopener">wise.com</a> on your phone or laptop. Click <strong>Register</strong>. Sign up with your email address. Wise accepts Ghana phone numbers and Ghana passport or Ghana Card as ID. You will need to upload a photo of your ID and take a selfie — the verification usually completes within a few hours.
+      <div class="tip"><strong>Why Wise?</strong> Wise gives you a real USD account number and a virtual Visa debit card. You can fund it from your Ghana MoMo or local bank account at the real mid-market exchange rate — significantly better than bureau de change rates. Many Accra-based digital advertisers use Wise as their Meta payment card.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">Get your Wise virtual Visa card</div>
+      <div class="step-desc">Once your Wise account is verified, go to <strong>Cards</strong> in the Wise app. Tap <strong>Get a card</strong>. Choose <strong>Virtual card</strong> (free — physical card costs a small fee but is not needed for Meta). Your virtual Visa card details appear immediately — card number, expiry date, and CVV. Save these securely.
+      <div class="tip"><strong>Fund the card:</strong> In Wise, click <strong>Add money</strong> → select <strong>GHS</strong> → choose <strong>Bank transfer</strong> or <strong>Mobile money</strong>. Transfer the equivalent of $35–$40 USD to cover Week 2's GHC 500 budget plus a small buffer. Wise will show you the exact GHS amount at the current rate before you confirm.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">Add the Wise card to Meta Ads Manager</div>
+      <div class="step-desc">In Meta Ads Manager, click the menu (≡) → <strong>Billing</strong> → <strong>Payment methods</strong> → <strong>Add payment method</strong> → <strong>Credit or debit card</strong>.<br><br>
+      Enter your Wise virtual card details:<br>
+      • Card number (16 digits from the Wise app)<br>
+      • Expiry date<br>
+      • CVV (3 digits)<br>
+      • Billing name: your name as registered on Wise<br>
+      • Billing address: your Ghana address<br><br>
+      Click <strong>Save</strong>. Meta will charge a small verification amount (usually $0.01–$1.00) to confirm the card — this is refunded automatically.
+      <div class="warn"><strong>If your card is declined:</strong> This sometimes happens because Wise needs to be set up to allow international transactions. In the Wise app, go to Cards → your virtual card → Settings → make sure "International transactions" and "Online payments" are both enabled.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card visual -->
+  <div class="card-visual">
+    <div class="card-chip"></div>
+    <div class="card-num">4242 •••• •••• ••••</div>
+    <div class="card-row">
+      <div>
+        <div class="card-label">Card holder</div>
+        <div style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;">GERSHON ODAI</div>
+      </div>
+      <div>
+        <div class="card-label">Expires</div>
+        <div style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;">••/••</div>
+      </div>
+      <div>
+        <div class="card-label">Issued by</div>
+        <div style="font-family:var(--space);font-size:13px;font-weight:600;color:rgba(255,255,255,.8);">Wise</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin:20px 0 16px;">Option B — Ghana bank dollar card (if you already have one)</div>
+
+  <div class="ibox amber">
+    <span class="ibox-lbl">GT Bank · Ecobank · Fidelity · Stanbic · Absa</span>
+    If you already have a USD dollar account with any of these banks, go to the branch and request a dollar Visa or Mastercard debit card linked to that account. Load it with $35–$40 and add it to Meta the same way as in Step 3 above. The process takes 1–5 banking days for the card to be issued. Wise is faster if you need to launch this week.
+  </div>
+
+  <!-- LAUNCH CHECKLIST -->
+  <div style="background:var(--ink);padding:24px 28px;margin-bottom:24px;">
+    <div style="font-family:var(--space);font-size:20px;font-weight:700;color:var(--amber);margin-bottom:20px;letter-spacing:-.01em;">LAUNCH CHECKLIST — complete in order</div>
+    <div style="display:grid;gap:0;">
+      <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);align-items:flex-start;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);border:1px solid rgba(232,160,32,.35);padding:2px 8px;flex-shrink:0;margin-top:1px;">01</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.75);">WhatsApp Business installed and business profile completed with Wima Deal Hub name, category, and description</div>
+      </div>
+      <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);align-items:flex-start;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);border:1px solid rgba(232,160,32,.35);padding:2px 8px;flex-shrink:0;margin-top:1px;">02</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.75);">Greeting message (auto-reply) written, turned on, and tested by messaging the Wima number from another phone</div>
+      </div>
+      <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);align-items:flex-start;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);border:1px solid rgba(232,160,32,.35);padding:2px 8px;flex-shrink:0;margin-top:1px;">03</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.75);">Wima Facebook Business Page created and WhatsApp number linked in Page Settings</div>
+      </div>
+      <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);align-items:flex-start;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);border:1px solid rgba(232,160,32,.35);padding:2px 8px;flex-shrink:0;margin-top:1px;">04</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.75);">Wise account opened, ID verified, virtual Visa card activated, and funded with USD equivalent of GHC 500–600</div>
+      </div>
+      <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);align-items:flex-start;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);border:1px solid rgba(232,160,32,.35);padding:2px 8px;flex-shrink:0;margin-top:1px;">05</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.75);">Wise card added to Meta Ads Manager billing and verified (Meta charges a $0.01–$1 test charge — confirm it appeared in Wise)</div>
+      </div>
+      <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);align-items:flex-start;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);border:1px solid rgba(232,160,32,.35);padding:2px 8px;flex-shrink:0;margin-top:1px;">06</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.75);">Four flyers posted to WhatsApp Status and Facebook Business Page (Days 1–4 this week, before the paid campaign starts)</div>
+      </div>
+      <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);align-items:flex-start;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);border:1px solid rgba(232,160,32,.35);padding:2px 8px;flex-shrink:0;margin-top:1px;">07</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.75);">Campaign created in Meta Ads Manager: objective = Messages, destination = WhatsApp, audience = Greater Accra 28–55, daily budget = GHC 71, creative = flyer screenshot, CTA = Send WhatsApp message</div>
+      </div>
+      <div style="display:flex;gap:14px;padding:10px 0;align-items:flex-start;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);border:1px solid rgba(232,160,32,.35);padding:2px 8px;flex-shrink:0;margin-top:1px;">08</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.75);">Campaign published and status confirmed as "Active" in Ads Manager. Do not touch it for 7 full days. Check WhatsApp daily for incoming messages.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUDGET SUMMARY TABLE -->
+  <h3 style="font-family:var(--space);font-size:16px;font-weight:600;margin-bottom:12px;">4-Week budget — what you actually spend and when</h3>
+  <table>
+    <thead>
+      <tr><th>Week</th><th>Action</th><th>GHC Spend</th><th>USD Equivalent</th><th>What to load on Wise</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Week 1</strong><br><small>Days 1–7 · This week</small></td>
+        <td>Flyers on WhatsApp Status and Facebook Page. No paid ads. Set up all accounts and Wise card.</td>
+        <td style="font-family:var(--mono);font-weight:600;color:#16A34A;">GHC 0</td>
+        <td style="font-family:var(--mono);">$0</td>
+        <td>Open Wise and load $40 ready for Week 2</td>
+      </tr>
+      <tr>
+        <td><strong>Week 2</strong><br><small>Days 8–14</small></td>
+        <td>First paid campaign live. Flyer as creative. Messages objective. GHC 71/day × 7 days.</td>
+        <td style="font-family:var(--mono);font-weight:600;color:var(--amber);">GHC 500</td>
+        <td style="font-family:var(--mono);">~$33</td>
+        <td>$35–$40 on Wise before Day 8</td>
+      </tr>
+      <tr>
+        <td><strong>Week 3</strong><br><small>Days 15–21</small></td>
+        <td>Click-to-WhatsApp leads campaign. Three ad sets. Retargeting + cold + diaspora. GHC 100/day.</td>
+        <td style="font-family:var(--mono);font-weight:600;color:var(--amber);">GHC 700</td>
+        <td style="font-family:var(--mono);">~$46</td>
+        <td>$50 on Wise before Day 15</td>
+      </tr>
+      <tr>
+        <td><strong>Week 4</strong><br><small>Days 22–28</small></td>
+        <td>Scale the winning campaign only. Stop anything with zero WhatsApp messages. GHC 43/day.</td>
+        <td style="font-family:var(--mono);font-weight:600;color:var(--amber);">GHC 300</td>
+        <td style="font-family:var(--mono);">~$20</td>
+        <td>$25 on Wise before Day 22</td>
+      </tr>
+      <tr class="tr-total">
+        <td colspan="2"><strong>Total 4-week campaign</strong></td>
+        <td>GHC 1,500</td>
+        <td>~$99 USD</td>
+        <td>Total Wise top-ups: ~$115 (includes buffer)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ibox green">
+    <span class="ibox-lbl">Meta billing — how and when you are charged</span>
+    Meta bills in one of two ways: either when your spend reaches your billing threshold (starts at $25, increases as your account matures) OR at the end of your billing cycle (monthly). You will receive an email receipt for every charge. Monitor your Wise balance weekly and top it up before the threshold is reached to avoid campaign interruption. If your Wise card runs low and the campaign pauses, the learning phase resets — avoid this by keeping at least $20 buffer on the card at all times.
+  </div>
+</div>
+
+</div><!-- end .page -->
+
+<!-- DOWNLOAD SECTION -->
+<div class="dl-wrap" id="downloads" style="text-align:center;">
+  <div class="dl-title">Download for offline use.</div>
+  <p class="dl-sub">All Wima campaign documents as single HTML files. Open in any browser. No internet required after download.</p>
+  <div class="dl-grid">
+    <div class="dl-card">
+      <span class="dl-icon">🎨</span>
+      <div class="dl-name">Flyers &amp; Launch Guide</div>
+      <div class="dl-desc">This document — 4 flyers, Facebook setup, WhatsApp setup, payment guide.</div>
+      <a href="wima-flyers-launch.html" download="wima-flyers-launch.html" class="dl-btn">⬇ Download</a>
+    </div>
+    <div class="dl-card">
+      <span class="dl-icon">📋</span>
+      <div class="dl-name">Marketing Intelligence Brief</div>
+      <div class="dl-desc">Market research, ad copy, WhatsApp scripts, and GitHub hosting guide.</div>
+      <a href="wima-campaign-brief.html" download="wima-campaign-brief.html" class="dl-btn">⬇ Download</a>
+    </div>
+    <div class="dl-card">
+      <span class="dl-icon">✍️</span>
+      <div class="dl-name">Ghana Content Library</div>
+      <div class="dl-desc">Blog posts, 28 social posts, emails, landing pages, press release.</div>
+      <a href="wima-content-library.html" download="wima-content-library.html" class="dl-btn">⬇ Download</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <span class="footer-brand">Wima Deal Hub — Campaign Flyers &amp; Launch Guide</span>
+  <span>Prepared by Wima Marketing Team · July 2026</span>
+  <span>Meta Ads Help Centre · Wise.com · PURC Ghana · Ghana Statistical Service</span>
+</div>
+
+<script>
+const links = document.querySelectorAll('.nav-links a[href^="#"]');
+const secs = document.querySelectorAll('[id]');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
