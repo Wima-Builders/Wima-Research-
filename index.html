@@ -3,410 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wima Builders — Strategy & Campaign Hub</title>
+<title>Wima Builders — Strategy &amp; Campaign Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0C0A08;
-  --surface:#141210;
-  --card:#1A1814;
-  --border:rgba(255,255,255,.08);
-  --border2:rgba(255,255,255,.04);
-  --amber:#C47A0A;
-  --amber2:#D4880C;
-  --amber-lt:rgba(196,122,10,.12);
-  --amber-rule:rgba(196,122,10,.3);
-  --white:rgba(255,255,255,.9);
-  --mid:rgba(255,255,255,.5);
-  --muted:rgba(255,255,255,.28);
-  --faint:rgba(255,255,255,.14);
-  --teal:#0F9B8E;
-  --teal-lt:rgba(15,155,142,.12);
-  --space:'Space Grotesk',system-ui,sans-serif;
-  --sans:'DM Sans',system-ui,sans-serif;
-  --mono:'IBM Plex Mono','Courier New',monospace;
-  /* product colours */
-  --deal:#C47A0A;
-  --sig:#0F9B8E;
+:root {
+  --bg: #0C0A08;
+  --surface: #141210;
+  --card: #1A1814;
+  --border: rgba(255,255,255,.08);
+  --amber: #C47A0A;
+  --amber2: #D4880C;
+  --amber-lt: rgba(196,122,10,.12);
+  --white: rgba(255,255,255,.9);
+  --mid: rgba(255,255,255,.5);
+  --muted: rgba(255,255,255,.28);
+  --faint: rgba(255,255,255,.14);
+  --teal: #0F9B8E;
+  --space: 'Space Grotesk', system-ui, sans-serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:15px;line-height:1.65;min-height:100vh;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--white); font-family: var(--sans); font-size: 15px; line-height: 1.65; }
 
-/* ── SHARED GLOBAL NAV ── */
-/* WIMA BUILDERS — SHARED GLOBAL NAVIGATION */
-.wb-topbar{position:fixed;top:0;left:0;right:0;z-index:9999;height:42px;background:#0C0A08;border-bottom:1px solid rgba(196,122,10,.3);display:flex;align-items:center;padding:0 20px;gap:0;font-family:'IBM Plex Mono','Courier New',monospace;}
-.wb-topbar-brand{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;margin-right:6px;}
-.wb-topbar-logo{width:24px;height:24px;background:#C47A0A;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;border-radius:3px;flex-shrink:0;font-family:'Space Grotesk',system-ui,sans-serif;}
-.wb-topbar-name{font-size:10px;font-weight:600;color:#C47A0A;text-transform:uppercase;letter-spacing:.14em;white-space:nowrap;}
-.wb-topbar-div{width:1px;height:22px;background:rgba(255,255,255,.1);margin:0 10px;flex-shrink:0;}
-.wb-topbar-links{display:flex;gap:1px;flex:1;overflow-x:auto;scrollbar-width:none;}
-.wb-topbar-links::-webkit-scrollbar{display:none;}
-.wb-topbar-links a{font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.32);padding:4px 10px;text-decoration:none;white-space:nowrap;border-radius:3px;transition:all .12s;border:1px solid transparent;}
-.wb-topbar-links a:hover{color:#C47A0A;background:rgba(196,122,10,.08);}
-.wb-topbar-links a.wb-active{color:#C47A0A;border-color:rgba(196,122,10,.35);background:rgba(196,122,10,.1);}
-.wb-topbar-links a.wb-home{color:rgba(255,255,255,.8);}
-.wb-badge{font-size:7px;background:#C47A0A;color:white;padding:1px 5px;border-radius:2px;margin-left:4px;vertical-align:middle;font-weight:600;letter-spacing:.05em;}
-.wb-push{height:42px;}
-@media(max-width:768px){.wb-topbar{padding:0 12px;}.wb-topbar-name{display:none;}.wb-topbar-links a{padding:4px 7px;font-size:8px;} }
+/* GLOBAL NAV */
+.wb-topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; height: 42px; background: #0C0A08; border-bottom: 1px solid rgba(196,122,10,.3); display: flex; align-items: center; padding: 0 20px; font-family: var(--mono); }
+.wb-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; flex-shrink: 0; margin-right: 6px; }
+.wb-logo { width: 24px; height: 24px; background: #C47A0A; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: white; border-radius: 3px; font-family: var(--space); }
+.wb-name { font-size: 10px; font-weight: 600; color: #C47A0A; text-transform: uppercase; letter-spacing: .14em; white-space: nowrap; }
+.wb-divider { width: 1px; height: 22px; background: rgba(255,255,255,.1); margin: 0 10px; flex-shrink: 0; }
+.wb-links { display: flex; gap: 1px; flex: 1; overflow-x: auto; scrollbar-width: none; }
+.wb-links::-webkit-scrollbar { display: none; }
+.wb-links a { font-size: 9px; text-transform: uppercase; letter-spacing: .09em; color: rgba(255,255,255,.32); padding: 4px 10px; text-decoration: none; white-space: nowrap; border-radius: 3px; transition: all .12s; border: 1px solid transparent; }
+.wb-links a:hover { color: #C47A0A; background: rgba(196,122,10,.08); }
+.wb-links a.active { color: #C47A0A; border-color: rgba(196,122,10,.35); background: rgba(196,122,10,.1); }
+.wb-badge { font-size: 7px; background: #C47A0A; color: white; padding: 1px 5px; border-radius: 2px; margin-left: 4px; vertical-align: middle; font-weight: 600; }
+.push { height: 42px; }
 
-/* ── HERO ── */
-.hero{
-  min-height:92vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:80px 56px 64px;
-  position:relative;
-  overflow:hidden;
-  border-bottom:1px solid var(--border);
-}
-/* Grid background texture */
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(196,122,10,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(196,122,10,.04) 1px,transparent 1px);
-  background-size:60px 60px;
-  pointer-events:none;
-}
-/* Amber glow */
-.hero::after{
-  content:'';
-  position:absolute;
-  width:500px;height:500px;
-  background:radial-gradient(circle,rgba(196,122,10,.12) 0%,transparent 70%);
-  top:-100px;right:-100px;
-  pointer-events:none;
-}
-.hero-eyebrow{
-  font-family:var(--mono);
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:.22em;
-  color:var(--amber);
-  margin-bottom:24px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  position:relative;z-index:1;
-}
-.hero-eyebrow::before{content:'';width:28px;height:2px;background:var(--amber);}
-.hero-h{
-  font-family:var(--space);
-  font-size:clamp(52px,8vw,104px);
-  font-weight:700;
-  line-height:.92;
-  letter-spacing:-.03em;
-  color:white;
-  margin-bottom:28px;
-  position:relative;z-index:1;
-}
-.hero-h .amber{color:var(--amber);}
-.hero-h .stroke{
-  -webkit-text-stroke:1px rgba(255,255,255,.35);
-  color:transparent;
-}
-.hero-tagline{
-  font-size:18px;
-  font-weight:300;
-  color:var(--mid);
-  max-width:560px;
-  line-height:1.7;
-  margin-bottom:44px;
-  position:relative;z-index:1;
-}
-.hero-stats{
-  display:flex;
-  gap:0;
-  border:1px solid var(--border);
-  width:fit-content;
-  position:relative;z-index:1;
-  margin-bottom:40px;
-  background:var(--surface);
-}
-.hs{
-  padding:12px 24px;
-  border-right:1px solid var(--border);
-}
-.hs:last-child{border-right:none;}
-.hs-n{
-  font-family:var(--space);
-  font-size:22px;
-  font-weight:700;
-  color:var(--amber);
-  display:block;
-  line-height:1;
-  margin-bottom:3px;
-}
-.hs-l{
-  font-family:var(--mono);
-  font-size:8px;
-  text-transform:uppercase;
-  letter-spacing:.1em;
-  color:var(--muted);
-}
-/* Products row */
-.products-row{
-  display:flex;
-  gap:12px;
-  position:relative;z-index:1;
-}
-.product-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 16px 8px 10px;
-  border:1px solid;
-  border-radius:100px;
-  font-family:var(--space);
-  font-size:13px;
-  font-weight:600;
-  text-decoration:none;
-  transition:all .15s;
-}
-.product-pill:hover{transform:translateY(-2px);}
-.product-pill .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.pp-deal{border-color:rgba(196,122,10,.4);color:var(--amber);background:rgba(196,122,10,.08);}
-.pp-deal:hover{background:rgba(196,122,10,.18);}
-.pp-sig{border-color:rgba(15,155,142,.4);color:#0F9B8E;background:rgba(15,155,142,.08);}
-.pp-sig:hover{background:rgba(15,155,142,.18);}
-.pp-coming{opacity:.45;cursor:default;pointer-events:none;}
+/* HERO */
+.hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 80px 56px 60px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(196,122,10,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(196,122,10,.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+.hero-glow { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(196,122,10,.1) 0%, transparent 70%); top: -100px; right: -100px; pointer-events: none; }
+.hero-tag { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .22em; color: var(--amber); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
+.hero-tag::before { content: ''; width: 28px; height: 2px; background: var(--amber); }
+.hero-h { font-family: var(--space); font-size: clamp(52px, 8vw, 100px); font-weight: 700; line-height: .92; letter-spacing: -.03em; color: white; margin-bottom: 28px; position: relative; z-index: 1; }
+.hero-h .c-amber { color: var(--amber); }
+.hero-h .c-stroke { -webkit-text-stroke: 1px rgba(255,255,255,.3); color: transparent; }
+.hero-sub { font-size: 17px; font-weight: 300; color: var(--mid); max-width: 540px; line-height: 1.75; margin-bottom: 40px; position: relative; z-index: 1; }
+.stats-row { display: flex; gap: 0; border: 1px solid var(--border); width: fit-content; background: var(--surface); position: relative; z-index: 1; margin-bottom: 36px; flex-wrap: wrap; }
+.stat { padding: 12px 22px; border-right: 1px solid var(--border); }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: var(--space); font-size: 22px; font-weight: 700; color: var(--amber); display: block; line-height: 1; margin-bottom: 3px; }
+.stat-l { font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.pills { display: flex; gap: 10px; position: relative; z-index: 1; flex-wrap: wrap; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px 8px 10px; border: 1px solid; border-radius: 100px; font-family: var(--space); font-size: 13px; font-weight: 600; text-decoration: none; transition: all .15s; }
+.pill:hover { transform: translateY(-2px); }
+.pill-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.pill-deal { border-color: rgba(196,122,10,.4); color: var(--amber); background: rgba(196,122,10,.08); }
+.pill-deal:hover { background: rgba(196,122,10,.18); }
+.pill-sig { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.3); background: transparent; pointer-events: none; }
 
-/* ── PRODUCT BRAND SECTIONS ── */
-.products-section{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  border-bottom:1px solid var(--border);
-}
-.product-brand{
-  padding:52px 56px;
-  position:relative;
-  overflow:hidden;
-}
-.product-brand:first-child{border-right:1px solid var(--border);}
-.pb-glow{
-  position:absolute;
-  width:300px;height:300px;
-  border-radius:50%;
-  top:-80px;right:-80px;
-  pointer-events:none;
-}
-.pb-eye{
-  font-family:var(--mono);
-  font-size:8px;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  margin-bottom:16px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.pb-eye::before{content:'';width:16px;height:2px;}
-.pb-name{
-  font-family:var(--space);
-  font-size:clamp(28px,3.5vw,42px);
-  font-weight:700;
-  line-height:1.05;
-  letter-spacing:-.02em;
-  margin-bottom:10px;
-}
-.pb-sub{
-  font-size:14px;
-  font-weight:300;
-  color:var(--muted);
-  line-height:1.7;
-  max-width:340px;
-  margin-bottom:28px;
-}
-.pb-cats{display:flex;flex-direction:column;gap:6px;margin-bottom:28px;}
-.pb-cat{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:13px;
-  color:var(--mid);
-}
-.pb-cat::before{content:'→';font-family:var(--mono);font-size:10px;opacity:.4;}
-.pb-launch{
-  font-family:var(--mono);
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  padding:7px 16px;
-  border:1px solid;
-  border-radius:3px;
-  text-decoration:none;
-  display:inline-block;
-  transition:all .12s;
-  font-weight:600;
-}
+/* PRODUCTS */
+.products { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); }
+.product { padding: 52px 56px; position: relative; overflow: hidden; }
+.product:first-child { border-right: 1px solid var(--border); }
+.prod-glow { position: absolute; width: 300px; height: 300px; border-radius: 50%; top: -80px; right: -80px; pointer-events: none; }
+.prod-eye { font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: .18em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.prod-eye::before { content: ''; width: 16px; height: 2px; }
+.prod-h { font-family: var(--space); font-size: clamp(24px, 3vw, 36px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 10px; }
+.prod-sub { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.7; max-width: 340px; margin-bottom: 24px; }
+.prod-cats { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; }
+.prod-cat { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mid); }
+.prod-cat::before { content: '→'; font-family: var(--mono); font-size: 10px; opacity: .4; }
+.prod-btn { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .12em; padding: 7px 16px; border: 1px solid; border-radius: 3px; text-decoration: none; display: inline-block; transition: all .12s; font-weight: 600; }
+.coming-tag { font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: .1em; background: rgba(15,155,142,.15); color: var(--teal); padding: 2px 8px; border-radius: 2px; display: inline-block; margin-bottom: 12px; }
 
-/* Deal Hub colours */
-.deal .pb-glow{background:radial-gradient(circle,rgba(196,122,10,.1),transparent 70%);}
-.deal .pb-eye{color:var(--amber);}
-.deal .pb-eye::before{background:var(--amber);}
-.deal .pb-name{color:white;}
-.deal .pb-launch{border-color:rgba(196,122,10,.4);color:var(--amber);}
-.deal .pb-launch:hover{background:rgba(196,122,10,.12);}
+/* Deal Hub */
+.prod-deal .prod-glow { background: radial-gradient(circle, rgba(196,122,10,.1), transparent 70%); }
+.prod-deal .prod-eye { color: var(--amber); }
+.prod-deal .prod-eye::before { background: var(--amber); }
+.prod-deal .prod-h { color: white; }
+.prod-deal .prod-btn { border-color: rgba(196,122,10,.4); color: var(--amber); }
+.prod-deal .prod-btn:hover { background: rgba(196,122,10,.12); }
 
-/* Signature colours */
-.sig .pb-glow{background:radial-gradient(circle,rgba(15,155,142,.08),transparent 70%);}
-.sig .pb-eye{color:var(--teal);}
-.sig .pb-eye::before{background:var(--teal);}
-.sig .pb-name{color:rgba(255,255,255,.7);}
-.sig .pb-sub{color:rgba(255,255,255,.22);}
-.sig .pb-cat{color:rgba(255,255,255,.2);}
-.sig .pb-launch{border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.22);cursor:default;pointer-events:none;}
-.sig .coming-badge{
-  font-family:var(--mono);font-size:8px;text-transform:uppercase;
-  letter-spacing:.1em;background:rgba(15,155,142,.15);color:var(--teal);
-  padding:2px 8px;border-radius:2px;display:inline-block;margin-bottom:14px;
-}
+/* Signature */
+.prod-sig .prod-glow { background: radial-gradient(circle, rgba(15,155,142,.08), transparent 70%); }
+.prod-sig .prod-eye { color: var(--teal); }
+.prod-sig .prod-eye::before { background: var(--teal); }
+.prod-sig .prod-h { color: rgba(255,255,255,.5); }
+.prod-sig .prod-sub { color: rgba(255,255,255,.18); }
+.prod-sig .prod-cat { color: rgba(255,255,255,.18); }
+.prod-sig .prod-btn { border-color: rgba(255,255,255,.08); color: rgba(255,255,255,.2); pointer-events: none; }
 
-/* ── DOCUMENTS SECTION ── */
-.docs-section{padding:56px 56px 52px;}
-.section-eye{
-  font-family:var(--mono);font-size:9px;text-transform:uppercase;
-  letter-spacing:.18em;color:var(--muted);margin-bottom:8px;
-  display:flex;align-items:center;gap:10px;
-}
-.section-eye::after{content:'';flex:1;height:1px;background:var(--border);}
-.section-eye .tag{background:var(--amber);color:white;padding:1px 8px;font-size:8px;border-radius:2px;font-weight:600;}
-.section-title{
-  font-family:var(--space);font-size:32px;font-weight:700;
-  letter-spacing:-.02em;color:white;margin-bottom:6px;
-}
-.section-title em{font-style:italic;color:var(--amber);}
-.section-intro{font-size:14px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:36px;font-style:italic;}
+/* RESEARCH */
+.research { padding: 32px 56px; border-bottom: 1px solid var(--border); background: var(--surface); }
+.research-title { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .18em; color: var(--amber); margin-bottom: 14px; }
+.research-grid { display: grid; grid-template-columns: repeat(6, 1fr); border: 1px solid var(--border); }
+.r-cell { padding: 10px 14px; border-right: 1px solid var(--border); }
+.r-cell:last-child { border-right: none; }
+.r-n { font-family: var(--space); font-size: 18px; font-weight: 700; color: var(--amber); display: block; line-height: 1; margin-bottom: 3px; }
+.r-l { font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); line-height: 1.4; }
 
-.docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--border);}
-.doc-card{
-  background:var(--card);
-  border:none;
-  text-decoration:none;
-  display:grid;
-  grid-template-columns:4px 1fr auto;
-  padding:0;
-  transition:background .15s;
-  position:relative;
-  overflow:hidden;
-}
-.doc-card:hover{background:#201E1A;}
-.doc-accent{background:var(--amber);}
-.doc-inner{padding:20px 22px 18px;}
-.doc-number{
-  font-family:var(--mono);font-size:8px;font-weight:600;
-  text-transform:uppercase;letter-spacing:.14em;
-  color:var(--muted);margin-bottom:8px;display:block;
-}
-.doc-title{
-  font-family:var(--space);font-size:15px;font-weight:600;
-  color:white;line-height:1.25;margin-bottom:6px;
-}
-.doc-desc{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:12px;}
-.doc-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:0;}
-.dtag{
-  font-family:var(--mono);font-size:8px;text-transform:uppercase;
-  letter-spacing:.07em;padding:2px 8px;border:1px solid var(--border);
-  border-radius:2px;color:var(--muted);
-}
-.doc-arrow{
-  display:flex;align-items:center;justify-content:center;
-  padding:0 16px;
-  font-family:var(--space);font-size:18px;color:var(--amber);
-  opacity:0;transition:opacity .15s;
-}
-.doc-card:hover .doc-arrow{opacity:1;}
-.doc-badge{
-  position:absolute;top:12px;right:12px;
-  font-family:var(--mono);font-size:7px;text-transform:uppercase;
-  letter-spacing:.1em;padding:2px 7px;border-radius:2px;font-weight:600;
-}
-.db-launch{background:rgba(196,122,10,.2);color:var(--amber);}
-.db-live{background:rgba(22,163,74,.2);color:#22C55E;}
+/* DOCS */
+.docs { padding: 52px 56px; }
+.sec-eye { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .18em; color: var(--muted); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.sec-eye::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.sec-eye .etag { background: var(--amber); color: white; padding: 1px 8px; font-size: 8px; border-radius: 2px; font-weight: 600; }
+.sec-h { font-family: var(--space); font-size: 32px; font-weight: 700; letter-spacing: -.02em; color: white; margin-bottom: 6px; }
+.sec-h em { font-style: italic; color: var(--amber); }
+.sec-intro { font-size: 14px; color: var(--muted); max-width: 560px; line-height: 1.7; margin-bottom: 32px; font-style: italic; }
+.docs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border: 1px solid var(--border); }
+.doc-card { background: var(--card); text-decoration: none; display: grid; grid-template-columns: 4px 1fr 36px; transition: background .15s; position: relative; overflow: hidden; }
+.doc-card:hover { background: #201E1A; }
+.doc-accent { }
+.doc-inner { padding: 20px 20px 18px; }
+.doc-num { font-family: var(--mono); font-size: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: 8px; display: block; }
+.doc-title { font-family: var(--space); font-size: 14px; font-weight: 600; color: white; line-height: 1.25; margin-bottom: 6px; }
+.doc-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+.doc-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.dtag { font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: .07em; padding: 2px 7px; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); }
+.doc-arr { display: flex; align-items: center; justify-content: center; color: var(--amber); font-size: 16px; opacity: 0; transition: opacity .15s; }
+.doc-card:hover .doc-arr { opacity: 1; }
+.doc-bdg { position: absolute; top: 10px; right: 10px; font-family: var(--mono); font-size: 7px; text-transform: uppercase; letter-spacing: .1em; padding: 2px 6px; border-radius: 2px; font-weight: 600; }
+.bdg-live { background: rgba(22,163,74,.2); color: #22C55E; }
+.bdg-now { background: rgba(196,122,10,.2); color: var(--amber); }
+.doc-disabled { opacity: .4; cursor: default; }
 
-/* ── WEEK PLAN STRIP ── */
-.week-strip{
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-}
-.week-cell{
-  padding:28px 32px;
-  border-right:1px solid var(--border);
-}
-.week-cell:last-child{border-right:none;}
-.week-n{
-  font-family:var(--mono);font-size:9px;text-transform:uppercase;
-  letter-spacing:.14em;color:var(--muted);margin-bottom:10px;display:block;
-}
-.week-title{
-  font-family:var(--space);font-size:15px;font-weight:600;
-  color:white;margin-bottom:6px;line-height:1.2;
-}
-.week-budget{
-  font-family:var(--space);font-size:22px;font-weight:700;
-  color:var(--amber);line-height:1;margin-bottom:8px;
-}
-.week-items{list-style:none;padding:0;}
-.week-items li{
-  font-size:12px;color:var(--muted);line-height:1.7;
-  padding-left:12px;position:relative;
-}
-.week-items li::before{content:'·';position:absolute;left:0;color:var(--amber);}
+/* WEEK PLAN */
+.weeks { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.week { padding: 28px 28px; border-right: 1px solid var(--border); }
+.week:last-child { border-right: none; }
+.wk-n { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: 8px; display: block; }
+.wk-title { font-family: var(--space); font-size: 15px; font-weight: 600; color: white; margin-bottom: 6px; }
+.wk-budget { font-family: var(--space); font-size: 22px; font-weight: 700; color: var(--amber); line-height: 1; margin-bottom: 10px; }
+.wk-list { list-style: none; padding: 0; }
+.wk-list li { font-size: 12px; color: var(--muted); line-height: 1.7; padding-left: 12px; position: relative; }
+.wk-list li::before { content: '·'; position: absolute; left: 0; color: var(--amber); }
 
-/* ── RESEARCH STRIP ── */
-.research-strip{
-  padding:36px 56px;
-  border-bottom:1px solid var(--border);
-  background:var(--surface);
-}
-.rs-title{
-  font-family:var(--mono);font-size:9px;text-transform:uppercase;
-  letter-spacing:.18em;color:var(--amber);margin-bottom:16px;
-}
-.rs-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--border);}
-.rs-item{padding:10px 14px;border-right:1px solid var(--border);}
-.rs-item:last-child{border-right:none;}
-.rs-n{
-  font-family:var(--space);font-size:18px;font-weight:700;
-  color:var(--amber);display:block;line-height:1;margin-bottom:3px;
-}
-.rs-l{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);line-height:1.4;}
+/* FOOTER */
+.footer { padding: 28px 56px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-brand { font-family: var(--space); font-size: 13px; font-weight: 600; color: var(--amber); }
+.footer-meta { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 
-/* ── FOOTER ── */
-.site-footer{
-  padding:32px 56px;
-  border-top:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:12px;
-}
-.sf-brand{font-family:var(--space);font-size:13px;font-weight:600;color:var(--amber);}
-.sf-meta{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
-.sf-built{font-family:var(--mono);font-size:9px;color:var(--faint);}
-
-@media(max-width:768px){
-  .hero{padding:60px 22px 40px;min-height:auto;}
-  .hero-h{font-size:44px;}
-  .products-section,.docs-grid{grid-template-columns:1fr;}
-  .product-brand:first-child{border-right:none;border-bottom:1px solid var(--border);}
-  .product-brand,.docs-section,.research-strip{padding:36px 22px;}
-  .hero-stats{flex-wrap:wrap;width:100%;}
-  .hs{border-right:none;border-bottom:1px solid var(--border);}
-  .week-strip{grid-template-columns:1fr 1fr;}
-  .rs-grid{grid-template-columns:1fr 1fr 1fr;}
-  .rs-item:nth-child(3){border-right:none;}
-  .rs-item:nth-child(3)~.rs-item{border-top:1px solid var(--border);}
-  .products-row{flex-wrap:wrap;}
-  .site-footer{padding:24px 22px;}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .wb-name { display: none; }
+  .wb-links a { padding: 4px 7px; font-size: 8px; }
+  .hero { padding: 60px 22px 40px; min-height: auto; }
+  .hero-h { font-size: 44px; }
+  .products { grid-template-columns: 1fr; }
+  .product:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+  .product { padding: 36px 22px; }
+  .docs-grid { grid-template-columns: 1fr; }
+  .docs { padding: 36px 22px; }
+  .research { padding: 28px 22px; }
+  .research-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .r-cell:nth-child(3) { border-right: none; }
+  .weeks { grid-template-columns: 1fr 1fr; }
+  .week { border-bottom: 1px solid var(--border); }
+  .footer { padding: 20px 22px; flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
@@ -414,13 +172,13 @@ body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:1
 
 <!-- GLOBAL NAV -->
 <div class="wb-topbar">
-  <a href="index.html" class="wb-topbar-brand">
-    <div class="wb-topbar-logo">WB</div>
-    <div class="wb-topbar-name">Wima Builders</div>
+  <a href="index.html" class="wb-brand">
+    <div class="wb-logo">WB</div>
+    <div class="wb-name">Wima Builders</div>
   </a>
-  <div class="wb-topbar-div"></div>
-  <div class="wb-topbar-links">
-    <a href="index.html" class="wb-home wb-active">⌂ Hub</a>
+  <div class="wb-divider"></div>
+  <div class="wb-links">
+    <a href="index.html" class="active">&#8962; Hub</a>
     <a href="wima-master-hub.html">Master Hub <span class="wb-badge">Strategy</span></a>
     <a href="wima-campaign-brief.html">Marketing Brief</a>
     <a href="wima-full-campaign-brief.html">Full Campaign <span class="wb-badge">28-day</span></a>
@@ -428,118 +186,96 @@ body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:1
     <a href="wima-flyers-launch.html">Flyers &amp; Launch <span class="wb-badge">This week</span></a>
   </div>
 </div>
-<div class="wb-push"></div>
+<div class="push"></div>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">Wima Builders — Strategy &amp; Campaign Intelligence Hub · July 2026</div>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-tag">Wima Builders &#8212; Strategy &amp; Campaign Intelligence Hub &#183; July 2026</div>
   <h1 class="hero-h">
     We build<br>
-    <span class="amber">Ghana's</span><br>
-    <span class="stroke">construction</span><br>
+    <span class="c-amber">Ghana&#8217;s</span><br>
+    <span class="c-stroke">construction</span><br>
     commerce.
   </h1>
-  <p class="hero-tagline">One company. Two products. A digital infrastructure for the way Ghana builds — connecting verified suppliers with buyers, one WhatsApp message at a time.</p>
-  <div class="hero-stats">
-    <div class="hs"><span class="hs-n">1.8M</span><span class="hs-l">Ghana housing deficit · Jan 2026</span></div>
-    <div class="hs"><span class="hs-n">2.7%</span><span class="hs-l">PBCI May 2026 — down from 22%</span></div>
-    <div class="hs"><span class="hs-n">91.8%</span><span class="hs-l">Ghana internet users on WhatsApp</span></div>
-    <div class="hs"><span class="hs-n">GHC 0</span><span class="hs-l">Cost to start — this week</span></div>
-    <div class="hs"><span class="hs-n">GHC 1,500</span><span class="hs-l">Total 4-week campaign budget</span></div>
+  <p class="hero-sub">One company. Two products. A digital infrastructure for the way Ghana builds &#8212; connecting verified suppliers with buyers, one WhatsApp message at a time.</p>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-n">1.8M</span><span class="stat-l">Ghana housing deficit &#183; Jan 2026</span></div>
+    <div class="stat"><span class="stat-n">2.7%</span><span class="stat-l">PBCI May 2026 &#8212; down from 22%</span></div>
+    <div class="stat"><span class="stat-n">91.8%</span><span class="stat-l">Ghana internet users on WhatsApp</span></div>
+    <div class="stat"><span class="stat-n">GHC 0</span><span class="stat-l">Cost to start &#8212; this week</span></div>
+    <div class="stat"><span class="stat-n">GHC 1,500</span><span class="stat-l">Total 4-week campaign budget</span></div>
   </div>
-  <div class="products-row">
-    <a href="wima-master-hub.html" class="product-pill pp-deal">
-      <div class="dot" style="background:#C47A0A;"></div>
-      Wima Deal Hub — Active
+  <div class="pills">
+    <a href="wima-master-hub.html" class="pill pill-deal">
+      <div class="pill-dot" style="background:#C47A0A;"></div>
+      Wima Deal Hub &#8212; Active
     </a>
-    <div class="product-pill pp-sig pp-coming">
-      <div class="dot" style="background:#0F9B8E;"></div>
-      Wima Signature — Coming Soon
+    <div class="pill pill-sig">
+      <div class="pill-dot" style="background:#0F9B8E;"></div>
+      Wima Signature &#8212; Coming Soon
     </div>
   </div>
 </div>
 
-<!-- PRODUCT BRANDS -->
-<div class="products-section">
-
-  <!-- Wima Deal Hub -->
-  <div class="product-brand deal">
-    <div class="pb-glow"></div>
-    <div class="pb-eye">Wima Deal Hub · Product 01 · Active</div>
-    <h2 class="pb-name">The digital bulk-buy<br>marketplace for Ghana<br>building materials.</h2>
-    <p class="pb-sub">Connecting verified suppliers with homeowners, contractors, and diaspora clients across Ghana. Supply and installation. Free BOQ in 24 hours. No physical showroom. No logistics. All via WhatsApp.</p>
-    <div class="pb-cats">
-      <div class="pb-cat">Acoustic Ceiling Systems — from GHS 85/m²</div>
-      <div class="pb-cat">Drywall &amp; Partition Systems — from GHS 85/m²</div>
-      <div class="pb-cat">Exterior Cladding &amp; Cement Board — from GHS 120/m²</div>
-      <div class="pb-cat">Insulation Systems — from GHS 95/m²</div>
+<!-- PRODUCTS -->
+<div class="products">
+  <div class="product prod-deal">
+    <div class="prod-glow"></div>
+    <div class="prod-eye">Wima Deal Hub &#183; Product 01 &#183; Active</div>
+    <h2 class="prod-h">The digital bulk-buy<br>marketplace for Ghana<br>building materials.</h2>
+    <p class="prod-sub">Connecting verified suppliers with homeowners, contractors, and diaspora clients across Ghana. Supply and installation. Free BOQ in 24 hours. All via WhatsApp.</p>
+    <div class="prod-cats">
+      <div class="prod-cat">Acoustic Ceiling Systems &#8212; from GHS 85/m&#178;</div>
+      <div class="prod-cat">Drywall &amp; Partition Systems &#8212; from GHS 85/m&#178;</div>
+      <div class="prod-cat">Exterior Cladding &amp; Cement Board &#8212; from GHS 120/m&#178;</div>
+      <div class="prod-cat">Insulation Systems &#8212; from GHS 95/m&#178;</div>
     </div>
-    <a href="wima-master-hub.html" class="pb-launch">→ Open Master Hub</a>
+    <a href="wima-master-hub.html" class="prod-btn">&#8594; Open Master Hub</a>
   </div>
-
-  <!-- Wima Signature -->
-  <div class="product-brand sig">
-    <div class="pb-glow"></div>
-    <div class="pb-eye">Wima Signature · Product 02</div>
-    <div class="coming-badge">Coming Soon</div>
-    <h2 class="pb-name">Premium specification<br>supply for Ghana's<br>high-end builds.</h2>
-    <p class="pb-sub">Curated procurement for architects, interior designers, and premium residential developers. Sourced internationally. Delivered to site. Specification-managed from concept to installation.</p>
-    <div class="pb-cats">
-      <div class="pb-cat">Premium kitchen &amp; joinery systems</div>
-      <div class="pb-cat">Designer lighting &amp; electrical</div>
-      <div class="pb-cat">Imported stone &amp; tile</div>
-      <div class="pb-cat">High-specification bathroom suites</div>
+  <div class="product prod-sig">
+    <div class="prod-glow"></div>
+    <div class="prod-eye">Wima Signature &#183; Product 02</div>
+    <div class="coming-tag">Coming Soon</div>
+    <h2 class="prod-h">Premium specification<br>supply for Ghana&#8217;s<br>high-end builds.</h2>
+    <p class="prod-sub">Curated procurement for architects, interior designers, and premium residential developers. Sourced internationally. Delivered to site.</p>
+    <div class="prod-cats">
+      <div class="prod-cat">Premium kitchen &amp; joinery systems</div>
+      <div class="prod-cat">Designer lighting &amp; electrical</div>
+      <div class="prod-cat">Imported stone &amp; tile</div>
+      <div class="prod-cat">High-specification bathroom suites</div>
     </div>
-    <div class="pb-launch">Launching after Deal Hub</div>
-  </div>
-
-</div>
-
-<!-- RESEARCH STRIP -->
-<div class="research-strip">
-  <div class="rs-title">Live Research Foundation — All Data Sourced · July 2026</div>
-  <div class="rs-grid">
-    <div class="rs-item">
-      <span class="rs-n">2.7%</span>
-      <span class="rs-l">PBCI May 2026 YoY · down from 22% · GSS via B&FT</span>
-    </div>
-    <div class="rs-item">
-      <span class="rs-n">-14.5%</span>
-      <span class="rs-l">Cement YoY May 2026 · steel -8.1% · labour -2.0%</span>
-    </div>
-    <div class="rs-item">
-      <span class="rs-n">8.4M</span>
-      <span class="rs-l">Ghana Facebook users · 66% social media share · Grokipedia</span>
-    </div>
-    <div class="rs-item">
-      <span class="rs-n">91.8%</span>
-      <span class="rs-l">Ghana internet users on WhatsApp · 98% open rate</span>
-    </div>
-    <div class="rs-item">
-      <span class="rs-n">$0.24</span>
-      <span class="rs-l">Africa avg Facebook CPC · world's lowest · Vaizle 2025</span>
-    </div>
-    <div class="rs-item">
-      <span class="rs-n">GHS 95</span>
-      <span class="rs-l">Cement 50kg Accra 2026 · ready-mix GHS 1,400/m³</span>
-    </div>
+    <div class="prod-btn">Launching after Deal Hub</div>
   </div>
 </div>
 
-<!-- DOCUMENTS SECTION -->
-<div class="docs-section">
-  <div class="section-eye">Strategy Documents <span class="tag">6 files · all linked</span></div>
-  <h2 class="section-title">Everything Wima needs<br>to <em>launch this week.</em></h2>
-  <p class="section-intro">Six strategy and campaign documents — each built for a specific job. Click any card to open. All documents are interlinked and work offline once downloaded.</p>
+<!-- RESEARCH -->
+<div class="research">
+  <div class="research-title">Live Research Foundation &#8212; All Data Sourced &#183; July 2026</div>
+  <div class="research-grid">
+    <div class="r-cell"><span class="r-n">2.7%</span><span class="r-l">PBCI May 2026 YoY &#183; down from 22% &#183; GSS via B&amp;FT</span></div>
+    <div class="r-cell"><span class="r-n">&#8722;14.5%</span><span class="r-l">Cement YoY May 2026 &#183; steel &#8722;8.1% &#183; labour &#8722;2.0%</span></div>
+    <div class="r-cell"><span class="r-n">8.4M</span><span class="r-l">Ghana Facebook users &#183; 66% social media share</span></div>
+    <div class="r-cell"><span class="r-n">91.8%</span><span class="r-l">Ghana internet users on WhatsApp &#183; 98% open rate</span></div>
+    <div class="r-cell"><span class="r-n">$0.24</span><span class="r-l">Africa avg Facebook CPC &#183; world&#8217;s lowest</span></div>
+    <div class="r-cell"><span class="r-n">GHS 95</span><span class="r-l">Cement 50kg Accra 2026 &#183; ready-mix GHS 1,400/m&#179;</span></div>
+  </div>
+</div>
+
+<!-- DOCUMENTS -->
+<div class="docs">
+  <div class="sec-eye">Strategy Documents <span class="etag">6 files &#183; all linked</span></div>
+  <h2 class="sec-h">Everything Wima needs<br>to <em>launch this week.</em></h2>
+  <p class="sec-intro">Six strategy and campaign documents &#8212; each built for a specific job. Click any card to open. All documents are interlinked and work offline once downloaded.</p>
 
   <div class="docs-grid">
 
-    <!-- Master Hub -->
     <a class="doc-card" href="wima-master-hub.html">
       <div class="doc-accent" style="background:#C47A0A;"></div>
       <div class="doc-inner">
-        <span class="doc-number">01 — Master Intelligence Hub</span>
-        <div class="doc-title">Wima Builders Ecosystem — Full Strategy, Suppliers, Finance &amp; Campaign</div>
+        <span class="doc-num">01 &#8212; Master Intelligence Hub</span>
+        <div class="doc-title">Wima Builders Ecosystem &#8212; Full Strategy, Suppliers, Finance &amp; Campaign</div>
         <div class="doc-desc">The central intelligence document. 12 sections covering ecosystem strategy, supplier directory, bank and finance partners, craftsmen network, aquarium division, and the complete GHC 1,500 campaign execution plan.</div>
         <div class="doc-tags">
           <span class="dtag">12 Sections</span>
@@ -548,17 +284,16 @@ body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:1
           <span class="dtag">28-Day Plan</span>
         </div>
       </div>
-      <div class="doc-arrow">→</div>
-      <div class="doc-badge db-live">Living doc</div>
+      <div class="doc-arr">&#8594;</div>
+      <div class="doc-bdg bdg-live">Living doc</div>
     </a>
 
-    <!-- Flyers & Launch -->
     <a class="doc-card" href="wima-flyers-launch.html">
       <div class="doc-accent" style="background:#D4880C;"></div>
       <div class="doc-inner">
-        <span class="doc-number">02 — Campaign Flyers &amp; Launch Guide</span>
-        <div class="doc-title">4 Campaign Flyers · Facebook Setup · WhatsApp Setup · Payment &amp; Launch</div>
-        <div class="doc-desc">Four print-ready campaign flyers, one per category. Step-by-step Facebook Click-to-WhatsApp campaign setup. WhatsApp Business auto-reply guide. Complete Campaign Payment section — Wise card method, 8-item launch checklist, 4-week budget table.</div>
+        <span class="doc-num">02 &#8212; Campaign Flyers &amp; Launch Guide</span>
+        <div class="doc-title">4 Campaign Flyers &#183; Facebook Setup &#183; WhatsApp Setup &#183; Payment &amp; Launch</div>
+        <div class="doc-desc">Four print-ready campaign flyers, one per category. Facebook Click-to-WhatsApp campaign setup. WhatsApp Business auto-reply guide. Wise card payment method, 8-item launch checklist, 4-week budget table.</div>
         <div class="doc-tags">
           <span class="dtag">4 Flyers</span>
           <span class="dtag">Facebook Ads</span>
@@ -566,17 +301,16 @@ body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:1
           <span class="dtag">Launch Checklist</span>
         </div>
       </div>
-      <div class="doc-arrow">→</div>
-      <div class="doc-badge db-launch">This week</div>
+      <div class="doc-arr">&#8594;</div>
+      <div class="doc-bdg bdg-now">This week</div>
     </a>
 
-    <!-- Content Library -->
     <a class="doc-card" href="wima-content-library.html">
       <div class="doc-accent" style="background:#0F766E;"></div>
       <div class="doc-inner">
-        <span class="doc-number">03 — Ghana Content Library</span>
-        <div class="doc-title">Blog Posts · 28 Social Posts · Emails · Landing Pages · Press Release · Case Study</div>
-        <div class="doc-desc">Research-based content across 6 channels in authentic Ghanaian voice. All PBCI 2.7%, ECG tariff, housing deficit and digital platform data cited. Language validated: chale, akwaaba, medaase, Borga, wahala — used correctly throughout.</div>
+        <span class="doc-num">03 &#8212; Ghana Content Library</span>
+        <div class="doc-title">Blog Posts &#183; 28 Social Posts &#183; Emails &#183; Landing Pages &#183; Press Release &#183; Case Study</div>
+        <div class="doc-desc">Research-based content across 6 channels in authentic Ghanaian voice. All PBCI 2.7%, ECG tariff, housing deficit and platform data cited. Language validated: chale, akwaaba, medaase, Borga, wahala.</div>
         <div class="doc-tags">
           <span class="dtag">4 Blog Posts</span>
           <span class="dtag">28 Social Posts</span>
@@ -584,16 +318,15 @@ body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:1
           <span class="dtag">Press Release</span>
         </div>
       </div>
-      <div class="doc-arrow">→</div>
+      <div class="doc-arr">&#8594;</div>
     </a>
 
-    <!-- Full Campaign Brief -->
     <a class="doc-card" href="wima-full-campaign-brief.html">
       <div class="doc-accent" style="background:#7C3AED;"></div>
       <div class="doc-inner">
-        <span class="doc-number">04 — Full Campaign Brief</span>
-        <div class="doc-title">Objectives · Audiences · Messaging Pillars · Channel Strategy · 28-Day Calendar · KPIs</div>
-        <div class="doc-desc">The investor-grade campaign brief. SMART objectives, 5 audience profiles, 5 messaging pillars, channel-by-channel strategy, a 28-day Gantt execution calendar, and a KPI scorecard with Ghana-specific benchmarks. Distributor-ready format.</div>
+        <span class="doc-num">04 &#8212; Full Campaign Brief</span>
+        <div class="doc-title">Objectives &#183; Audiences &#183; Messaging Pillars &#183; Channel Strategy &#183; 28-Day Calendar &#183; KPIs</div>
+        <div class="doc-desc">The investor-grade campaign brief. SMART objectives, 5 audience profiles, 5 messaging pillars, channel-by-channel strategy, a 28-day Gantt execution calendar, and a KPI scorecard with Ghana-specific benchmarks.</div>
         <div class="doc-tags">
           <span class="dtag">5 Audiences</span>
           <span class="dtag">5 Pillars</span>
@@ -601,16 +334,15 @@ body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:1
           <span class="dtag">KPI Scorecard</span>
         </div>
       </div>
-      <div class="doc-arrow">→</div>
+      <div class="doc-arr">&#8594;</div>
     </a>
 
-    <!-- Marketing Brief -->
     <a class="doc-card" href="wima-campaign-brief.html">
       <div class="doc-accent" style="background:#1D4ED8;"></div>
       <div class="doc-inner">
-        <span class="doc-number">05 — Marketing Intelligence Brief</span>
-        <div class="doc-title">Ghana Market Research · Zero-Cost Tactics · Ad Copy · WhatsApp Scripts · GitHub Guide</div>
-        <div class="doc-desc">Market intelligence and tactical playbook. Sourced Ghana social media data, competitor landscape, zero-cost 10-step marketing sequence, 4-category Facebook ad copy, WhatsApp Business scripts, and GitHub Pages hosting setup guide.</div>
+        <span class="doc-num">05 &#8212; Marketing Intelligence Brief</span>
+        <div class="doc-title">Ghana Market Research &#183; Zero-Cost Tactics &#183; Ad Copy &#183; WhatsApp Scripts &#183; GitHub Guide</div>
+        <div class="doc-desc">Market intelligence and tactical playbook. Sourced Ghana social media data, zero-cost 10-step marketing sequence, 4-category Facebook ad copy, WhatsApp Business scripts, and GitHub Pages hosting guide.</div>
         <div class="doc-tags">
           <span class="dtag">Market Research</span>
           <span class="dtag">Ad Copy</span>
@@ -618,69 +350,69 @@ body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:1
           <span class="dtag">GitHub Guide</span>
         </div>
       </div>
-      <div class="doc-arrow">→</div>
+      <div class="doc-arr">&#8594;</div>
     </a>
 
-    <!-- This Hub -->
-    <div class="doc-card" style="cursor:default;opacity:.5;">
+    <div class="doc-card doc-disabled">
       <div class="doc-accent" style="background:#44403C;"></div>
       <div class="doc-inner">
-        <span class="doc-number">06 — Hub Homepage</span>
-        <div class="doc-title">You are here — Wima Builders Strategy &amp; Campaign Hub</div>
-        <div class="doc-desc">The central navigation homepage linking all six documents. Upload all six files to your GitHub Pages repository to make the complete Wima intelligence hub live on the web.</div>
+        <span class="doc-num">06 &#8212; Hub Homepage</span>
+        <div class="doc-title">You are here &#8212; Wima Builders Strategy &amp; Campaign Hub</div>
+        <div class="doc-desc">The central navigation homepage linking all six documents. Upload all six files plus .nojekyll to your GitHub Pages repository to make the complete hub live on the web.</div>
         <div class="doc-tags">
           <span class="dtag">index.html</span>
           <span class="dtag">GitHub Pages</span>
+          <span class="dtag">.nojekyll required</span>
         </div>
       </div>
-      <div class="doc-arrow" style="opacity:0;">→</div>
+      <div class="doc-arr"></div>
     </div>
 
   </div>
 </div>
 
 <!-- WEEK PLAN -->
-<div class="week-strip">
-  <div class="week-cell">
-    <span class="week-n">Week 1 · This week · Now</span>
-    <div class="week-title">Flyers &amp; Setup</div>
-    <div class="week-budget">GHC 0</div>
-    <ul class="week-items">
-      <li>Post 4 flyers to WhatsApp Status (7pm, one per day)</li>
+<div class="weeks">
+  <div class="week">
+    <span class="wk-n">Week 1 &#183; This week &#183; Now</span>
+    <div class="wk-title">Flyers &amp; Setup</div>
+    <div class="wk-budget">GHC 0</div>
+    <ul class="wk-list">
+      <li>Post 4 flyers to WhatsApp Status (7pm daily)</li>
       <li>Post to Facebook Business Page</li>
-      <li>Print for Jamal's sites</li>
+      <li>Print for Jamal&#8217;s sites</li>
       <li>Set up Wise card &amp; Meta billing</li>
       <li>Complete WhatsApp Business auto-replies</li>
     </ul>
   </div>
-  <div class="week-cell">
-    <span class="week-n">Week 2 · Days 8–14</span>
-    <div class="week-title">First Paid Campaign</div>
-    <div class="week-budget">GHC 500</div>
-    <ul class="week-items">
+  <div class="week">
+    <span class="wk-n">Week 2 &#183; Days 8&#8211;14</span>
+    <div class="wk-title">First Paid Campaign</div>
+    <div class="wk-budget">GHC 500</div>
+    <ul class="wk-list">
       <li>Facebook Click-to-WhatsApp live</li>
-      <li>Flyer as creative · Messages objective</li>
-      <li>Greater Accra · age 28–55 · GHC 71/day</li>
+      <li>Flyer as creative &#183; Messages objective</li>
+      <li>Greater Accra &#183; age 28&#8211;55 &#183; GHC 71/day</li>
       <li>Do not edit for 7 days (learning phase)</li>
     </ul>
   </div>
-  <div class="week-cell">
-    <span class="week-n">Week 3 · Days 15–21</span>
-    <div class="week-title">Lead Conversion</div>
-    <div class="week-budget">GHC 700</div>
-    <ul class="week-items">
-      <li>3 ad sets: Accra · Diaspora · Retargeting</li>
+  <div class="week">
+    <span class="wk-n">Week 3 &#183; Days 15&#8211;21</span>
+    <div class="wk-title">Lead Conversion</div>
+    <div class="wk-budget">GHC 700</div>
+    <ul class="wk-list">
+      <li>3 ad sets: Accra &#183; Diaspora &#183; Retargeting</li>
       <li>Launch announcement across all channels</li>
       <li>First BOQs sent and confirmed</li>
       <li>Video content begins</li>
     </ul>
   </div>
-  <div class="week-cell">
-    <span class="week-n">Week 4 · Days 22–28</span>
-    <div class="week-title">Scale Winners</div>
-    <div class="week-budget">GHC 300</div>
-    <ul class="week-items">
-      <li>Scale ad set with lowest cost-per-message</li>
+  <div class="week">
+    <span class="wk-n">Week 4 &#183; Days 22&#8211;28</span>
+    <div class="wk-title">Scale Winners</div>
+    <div class="wk-budget">GHC 300</div>
+    <ul class="wk-list">
+      <li>Scale lowest cost-per-message ad set</li>
       <li>Stop all underperforming campaigns</li>
       <li>First case study published</li>
       <li>Month 2 planning begins</li>
@@ -689,10 +421,9 @@ body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:1
 </div>
 
 <!-- FOOTER -->
-<div class="site-footer">
-  <div class="sf-brand">Wima Builders · Accra, Ghana</div>
-  <div class="sf-meta">Wima Deal Hub · Wima Signature · Built by the Wima Team · July 2026</div>
-  <div class="sf-built">Strategy hub · All documents open offline · GitHub Pages hosted</div>
+<div class="footer">
+  <div class="footer-brand">Wima Builders &#183; Accra, Ghana</div>
+  <div class="footer-meta">Wima Deal Hub &#183; Wima Signature &#183; Built by the Wima Team &#183; July 2026</div>
 </div>
 
 </body>
