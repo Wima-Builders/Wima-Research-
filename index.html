@@ -3,182 +3,696 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wima Builders Ecosystem — Documents</title>
+<title>Wima Builders — Strategy & Campaign Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Inter',system-ui,sans-serif;background:#F7F4EE;color:#1A1A1A;min-height:100vh;}
-.top{background:#1A1A1A;border-bottom:3px solid #E8A020;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;}
-.brand{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#E8A020;letter-spacing:.05em;}
-.brand-sub{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.3);margin-top:2px;}
-.hero{background:#1A1A1A;padding:52px 48px 44px;position:relative;overflow:hidden;}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#E8A020,#F4B830,transparent);}
-.hero-label{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.3);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
-.hero-label::before{content:'';width:28px;height:1px;background:#E8A020;}
-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);line-height:.95;letter-spacing:.02em;color:white;margin-bottom:14px;}
-h1 em{color:#E8A020;font-style:normal;}
-.hero-desc{font-size:14px;font-weight:300;color:rgba(255,255,255,.45);max-width:480px;line-height:1.7;}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.08);margin-top:32px;}
-.stat{padding:14px 18px;border-right:1px solid rgba(255,255,255,.08);}
-.stat:last-child{border-right:none;}
-.sn{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#E8A020;display:block;line-height:1;}
-.sl{font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.28);margin-top:3px;display:block;}
-.docs{padding:40px 48px;}
-.docs-label{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#718096;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.docs-label::after{content:'';flex:1;height:1px;background:#D8D4C4;}
-.doc-card{display:grid;grid-template-columns:6px 1fr auto;margin-bottom:10px;background:white;border:1px solid #D8D4C4;text-decoration:none;color:#1A1A1A;transition:all .15s;overflow:hidden;}
-.doc-card:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.08);border-color:#E8A020;}
-.doc-accent{width:6px;}
-.doc-body{padding:18px 22px;}
-.doc-title{font-size:16px;font-weight:600;color:#1A1A1A;margin-bottom:4px;}
-.doc-desc{font-size:13px;color:#718096;line-height:1.55;margin-bottom:10px;}
-.doc-tags{display:flex;gap:6px;flex-wrap:wrap;}
-.dtag{font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.08em;padding:2px 8px;border-radius:3px;}
-.doc-arrow{display:flex;align-items:center;padding:0 22px;color:#D8D4C4;font-size:20px;transition:all .15s;}
-.doc-card:hover .doc-arrow{color:#E8A020;}
-.doc-version{font-family:'JetBrains Mono',monospace;font-size:9px;color:#A0AEC0;margin-top:6px;}
-.footer{background:#1A1A1A;color:rgba(255,255,255,.25);padding:16px 48px;font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center;border-top:3px solid #E8A020;}
-.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:16px;color:#E8A020;text-transform:none;letter-spacing:.04em;}
-@media(max-width:640px){
-  .top,.hero,.docs{padding-left:20px;padding-right:20px;}
-  .stats{grid-template-columns:1fr 1fr;}
-  .stat{border-bottom:1px solid rgba(255,255,255,.08);}
-  .footer{padding:12px 20px;flex-direction:column;gap:6px;text-align:center;}
+:root{
+  --bg:#0C0A08;
+  --surface:#141210;
+  --card:#1A1814;
+  --border:rgba(255,255,255,.08);
+  --border2:rgba(255,255,255,.04);
+  --amber:#C47A0A;
+  --amber2:#D4880C;
+  --amber-lt:rgba(196,122,10,.12);
+  --amber-rule:rgba(196,122,10,.3);
+  --white:rgba(255,255,255,.9);
+  --mid:rgba(255,255,255,.5);
+  --muted:rgba(255,255,255,.28);
+  --faint:rgba(255,255,255,.14);
+  --teal:#0F9B8E;
+  --teal-lt:rgba(15,155,142,.12);
+  --space:'Space Grotesk',system-ui,sans-serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+  /* product colours */
+  --deal:#C47A0A;
+  --sig:#0F9B8E;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:var(--sans);font-size:15px;line-height:1.65;min-height:100vh;}
+
+/* ── SHARED GLOBAL NAV ── */
+/* WIMA BUILDERS — SHARED GLOBAL NAVIGATION */
+.wb-topbar{position:fixed;top:0;left:0;right:0;z-index:9999;height:42px;background:#0C0A08;border-bottom:1px solid rgba(196,122,10,.3);display:flex;align-items:center;padding:0 20px;gap:0;font-family:'IBM Plex Mono','Courier New',monospace;}
+.wb-topbar-brand{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;margin-right:6px;}
+.wb-topbar-logo{width:24px;height:24px;background:#C47A0A;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;border-radius:3px;flex-shrink:0;font-family:'Space Grotesk',system-ui,sans-serif;}
+.wb-topbar-name{font-size:10px;font-weight:600;color:#C47A0A;text-transform:uppercase;letter-spacing:.14em;white-space:nowrap;}
+.wb-topbar-div{width:1px;height:22px;background:rgba(255,255,255,.1);margin:0 10px;flex-shrink:0;}
+.wb-topbar-links{display:flex;gap:1px;flex:1;overflow-x:auto;scrollbar-width:none;}
+.wb-topbar-links::-webkit-scrollbar{display:none;}
+.wb-topbar-links a{font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.32);padding:4px 10px;text-decoration:none;white-space:nowrap;border-radius:3px;transition:all .12s;border:1px solid transparent;}
+.wb-topbar-links a:hover{color:#C47A0A;background:rgba(196,122,10,.08);}
+.wb-topbar-links a.wb-active{color:#C47A0A;border-color:rgba(196,122,10,.35);background:rgba(196,122,10,.1);}
+.wb-topbar-links a.wb-home{color:rgba(255,255,255,.8);}
+.wb-badge{font-size:7px;background:#C47A0A;color:white;padding:1px 5px;border-radius:2px;margin-left:4px;vertical-align:middle;font-weight:600;letter-spacing:.05em;}
+.wb-push{height:42px;}
+@media(max-width:768px){.wb-topbar{padding:0 12px;}.wb-topbar-name{display:none;}.wb-topbar-links a{padding:4px 7px;font-size:8px;}}
+
+/* ── HERO ── */
+.hero{
+  min-height:92vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:80px 56px 64px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+/* Grid background texture */
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(196,122,10,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(196,122,10,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+/* Amber glow */
+.hero::after{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(196,122,10,.12) 0%,transparent 70%);
+  top:-100px;right:-100px;
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  color:var(--amber);
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  position:relative;z-index:1;
+}
+.hero-eyebrow::before{content:'';width:28px;height:2px;background:var(--amber);}
+.hero-h{
+  font-family:var(--space);
+  font-size:clamp(52px,8vw,104px);
+  font-weight:700;
+  line-height:.92;
+  letter-spacing:-.03em;
+  color:white;
+  margin-bottom:28px;
+  position:relative;z-index:1;
+}
+.hero-h .amber{color:var(--amber);}
+.hero-h .stroke{
+  -webkit-text-stroke:1px rgba(255,255,255,.35);
+  color:transparent;
+}
+.hero-tagline{
+  font-size:18px;
+  font-weight:300;
+  color:var(--mid);
+  max-width:560px;
+  line-height:1.7;
+  margin-bottom:44px;
+  position:relative;z-index:1;
+}
+.hero-stats{
+  display:flex;
+  gap:0;
+  border:1px solid var(--border);
+  width:fit-content;
+  position:relative;z-index:1;
+  margin-bottom:40px;
+  background:var(--surface);
+}
+.hs{
+  padding:12px 24px;
+  border-right:1px solid var(--border);
+}
+.hs:last-child{border-right:none;}
+.hs-n{
+  font-family:var(--space);
+  font-size:22px;
+  font-weight:700;
+  color:var(--amber);
+  display:block;
+  line-height:1;
+  margin-bottom:3px;
+}
+.hs-l{
+  font-family:var(--mono);
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--muted);
+}
+/* Products row */
+.products-row{
+  display:flex;
+  gap:12px;
+  position:relative;z-index:1;
+}
+.product-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px 8px 10px;
+  border:1px solid;
+  border-radius:100px;
+  font-family:var(--space);
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  transition:all .15s;
+}
+.product-pill:hover{transform:translateY(-2px);}
+.product-pill .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.pp-deal{border-color:rgba(196,122,10,.4);color:var(--amber);background:rgba(196,122,10,.08);}
+.pp-deal:hover{background:rgba(196,122,10,.18);}
+.pp-sig{border-color:rgba(15,155,142,.4);color:#0F9B8E;background:rgba(15,155,142,.08);}
+.pp-sig:hover{background:rgba(15,155,142,.18);}
+.pp-coming{opacity:.45;cursor:default;pointer-events:none;}
+
+/* ── PRODUCT BRAND SECTIONS ── */
+.products-section{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--border);
+}
+.product-brand{
+  padding:52px 56px;
+  position:relative;
+  overflow:hidden;
+}
+.product-brand:first-child{border-right:1px solid var(--border);}
+.pb-glow{
+  position:absolute;
+  width:300px;height:300px;
+  border-radius:50%;
+  top:-80px;right:-80px;
+  pointer-events:none;
+}
+.pb-eye{
+  font-family:var(--mono);
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.pb-eye::before{content:'';width:16px;height:2px;}
+.pb-name{
+  font-family:var(--space);
+  font-size:clamp(28px,3.5vw,42px);
+  font-weight:700;
+  line-height:1.05;
+  letter-spacing:-.02em;
+  margin-bottom:10px;
+}
+.pb-sub{
+  font-size:14px;
+  font-weight:300;
+  color:var(--muted);
+  line-height:1.7;
+  max-width:340px;
+  margin-bottom:28px;
+}
+.pb-cats{display:flex;flex-direction:column;gap:6px;margin-bottom:28px;}
+.pb-cat{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:13px;
+  color:var(--mid);
+}
+.pb-cat::before{content:'→';font-family:var(--mono);font-size:10px;opacity:.4;}
+.pb-launch{
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  padding:7px 16px;
+  border:1px solid;
+  border-radius:3px;
+  text-decoration:none;
+  display:inline-block;
+  transition:all .12s;
+  font-weight:600;
+}
+
+/* Deal Hub colours */
+.deal .pb-glow{background:radial-gradient(circle,rgba(196,122,10,.1),transparent 70%);}
+.deal .pb-eye{color:var(--amber);}
+.deal .pb-eye::before{background:var(--amber);}
+.deal .pb-name{color:white;}
+.deal .pb-launch{border-color:rgba(196,122,10,.4);color:var(--amber);}
+.deal .pb-launch:hover{background:rgba(196,122,10,.12);}
+
+/* Signature colours */
+.sig .pb-glow{background:radial-gradient(circle,rgba(15,155,142,.08),transparent 70%);}
+.sig .pb-eye{color:var(--teal);}
+.sig .pb-eye::before{background:var(--teal);}
+.sig .pb-name{color:rgba(255,255,255,.7);}
+.sig .pb-sub{color:rgba(255,255,255,.22);}
+.sig .pb-cat{color:rgba(255,255,255,.2);}
+.sig .pb-launch{border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.22);cursor:default;pointer-events:none;}
+.sig .coming-badge{
+  font-family:var(--mono);font-size:8px;text-transform:uppercase;
+  letter-spacing:.1em;background:rgba(15,155,142,.15);color:var(--teal);
+  padding:2px 8px;border-radius:2px;display:inline-block;margin-bottom:14px;
+}
+
+/* ── DOCUMENTS SECTION ── */
+.docs-section{padding:56px 56px 52px;}
+.section-eye{
+  font-family:var(--mono);font-size:9px;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--muted);margin-bottom:8px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-eye::after{content:'';flex:1;height:1px;background:var(--border);}
+.section-eye .tag{background:var(--amber);color:white;padding:1px 8px;font-size:8px;border-radius:2px;font-weight:600;}
+.section-title{
+  font-family:var(--space);font-size:32px;font-weight:700;
+  letter-spacing:-.02em;color:white;margin-bottom:6px;
+}
+.section-title em{font-style:italic;color:var(--amber);}
+.section-intro{font-size:14px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:36px;font-style:italic;}
+
+.docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--border);}
+.doc-card{
+  background:var(--card);
+  border:none;
+  text-decoration:none;
+  display:grid;
+  grid-template-columns:4px 1fr auto;
+  padding:0;
+  transition:background .15s;
+  position:relative;
+  overflow:hidden;
+}
+.doc-card:hover{background:#201E1A;}
+.doc-accent{background:var(--amber);}
+.doc-inner{padding:20px 22px 18px;}
+.doc-number{
+  font-family:var(--mono);font-size:8px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.14em;
+  color:var(--muted);margin-bottom:8px;display:block;
+}
+.doc-title{
+  font-family:var(--space);font-size:15px;font-weight:600;
+  color:white;line-height:1.25;margin-bottom:6px;
+}
+.doc-desc{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:12px;}
+.doc-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:0;}
+.dtag{
+  font-family:var(--mono);font-size:8px;text-transform:uppercase;
+  letter-spacing:.07em;padding:2px 8px;border:1px solid var(--border);
+  border-radius:2px;color:var(--muted);
+}
+.doc-arrow{
+  display:flex;align-items:center;justify-content:center;
+  padding:0 16px;
+  font-family:var(--space);font-size:18px;color:var(--amber);
+  opacity:0;transition:opacity .15s;
+}
+.doc-card:hover .doc-arrow{opacity:1;}
+.doc-badge{
+  position:absolute;top:12px;right:12px;
+  font-family:var(--mono);font-size:7px;text-transform:uppercase;
+  letter-spacing:.1em;padding:2px 7px;border-radius:2px;font-weight:600;
+}
+.db-launch{background:rgba(196,122,10,.2);color:var(--amber);}
+.db-live{background:rgba(22,163,74,.2);color:#22C55E;}
+
+/* ── WEEK PLAN STRIP ── */
+.week-strip{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.week-cell{
+  padding:28px 32px;
+  border-right:1px solid var(--border);
+}
+.week-cell:last-child{border-right:none;}
+.week-n{
+  font-family:var(--mono);font-size:9px;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--muted);margin-bottom:10px;display:block;
+}
+.week-title{
+  font-family:var(--space);font-size:15px;font-weight:600;
+  color:white;margin-bottom:6px;line-height:1.2;
+}
+.week-budget{
+  font-family:var(--space);font-size:22px;font-weight:700;
+  color:var(--amber);line-height:1;margin-bottom:8px;
+}
+.week-items{list-style:none;padding:0;}
+.week-items li{
+  font-size:12px;color:var(--muted);line-height:1.7;
+  padding-left:12px;position:relative;
+}
+.week-items li::before{content:'·';position:absolute;left:0;color:var(--amber);}
+
+/* ── RESEARCH STRIP ── */
+.research-strip{
+  padding:36px 56px;
+  border-bottom:1px solid var(--border);
+  background:var(--surface);
+}
+.rs-title{
+  font-family:var(--mono);font-size:9px;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--amber);margin-bottom:16px;
+}
+.rs-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--border);}
+.rs-item{padding:10px 14px;border-right:1px solid var(--border);}
+.rs-item:last-child{border-right:none;}
+.rs-n{
+  font-family:var(--space);font-size:18px;font-weight:700;
+  color:var(--amber);display:block;line-height:1;margin-bottom:3px;
+}
+.rs-l{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);line-height:1.4;}
+
+/* ── FOOTER ── */
+.site-footer{
+  padding:32px 56px;
+  border-top:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.sf-brand{font-family:var(--space);font-size:13px;font-weight:600;color:var(--amber);}
+.sf-meta{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+.sf-built{font-family:var(--mono);font-size:9px;color:var(--faint);}
+
+@media(max-width:768px){
+  .hero{padding:60px 22px 40px;min-height:auto;}
+  .hero-h{font-size:44px;}
+  .products-section,.docs-grid{grid-template-columns:1fr;}
+  .product-brand:first-child{border-right:none;border-bottom:1px solid var(--border);}
+  .product-brand,.docs-section,.research-strip{padding:36px 22px;}
+  .hero-stats{flex-wrap:wrap;width:100%;}
+  .hs{border-right:none;border-bottom:1px solid var(--border);}
+  .week-strip{grid-template-columns:1fr 1fr;}
+  .rs-grid{grid-template-columns:1fr 1fr 1fr;}
+  .rs-item:nth-child(3){border-right:none;}
+  .rs-item:nth-child(3)~.rs-item{border-top:1px solid var(--border);}
+  .products-row{flex-wrap:wrap;}
+  .site-footer{padding:24px 22px;}
 }
 </style>
 </head>
 <body>
 
-<div class="top">
-  <div>
-    <div class="brand">Wima Builders</div>
-    <div class="brand-sub">Ecosystem Intelligence Hub</div>
+<!-- GLOBAL NAV -->
+<div class="wb-topbar">
+  <a href="index.html" class="wb-topbar-brand">
+    <div class="wb-topbar-logo">WB</div>
+    <div class="wb-topbar-name">Wima Builders</div>
+  </a>
+  <div class="wb-topbar-div"></div>
+  <div class="wb-topbar-links">
+    <a href="index.html" class="wb-home wb-active">⌂ Hub</a>
+    <a href="wima-master-hub.html">Master Hub <span class="wb-badge">Strategy</span></a>
+    <a href="wima-campaign-brief.html">Marketing Brief</a>
+    <a href="wima-full-campaign-brief.html">Full Campaign <span class="wb-badge">28-day</span></a>
+    <a href="wima-content-library.html">Content Library <span class="wb-badge">6 channels</span></a>
+    <a href="wima-flyers-launch.html">Flyers &amp; Launch <span class="wb-badge">This week</span></a>
   </div>
 </div>
+<div class="wb-push"></div>
 
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-label">Strategy Documents · June 2026</div>
-  <h1>WIMA<br><em>DEAL HUB.</em></h1>
-  <p class="hero-desc">Complete strategy intelligence for Ghana's construction commerce platform. Four product categories. Three audiences. One WhatsApp pipeline. All documents are free to access — no login required.</p>
-  <div class="stats">
-    <div class="stat"><span class="sn">4</span><span class="sl">Product categories launching</span></div>
-    <div class="stat"><span class="sn">46+</span><span class="sl">Verified suppliers mapped</span></div>
-    <div class="stat"><span class="sn">22</span><span class="sl">Banks & finance partners</span></div>
-    <div class="stat"><span class="sn">GHC 0</span><span class="sl">Hosting cost — GitHub Pages</span></div>
+  <div class="hero-eyebrow">Wima Builders — Strategy &amp; Campaign Intelligence Hub · July 2026</div>
+  <h1 class="hero-h">
+    We build<br>
+    <span class="amber">Ghana's</span><br>
+    <span class="stroke">construction</span><br>
+    commerce.
+  </h1>
+  <p class="hero-tagline">One company. Two products. A digital infrastructure for the way Ghana builds — connecting verified suppliers with buyers, one WhatsApp message at a time.</p>
+  <div class="hero-stats">
+    <div class="hs"><span class="hs-n">1.8M</span><span class="hs-l">Ghana housing deficit · Jan 2026</span></div>
+    <div class="hs"><span class="hs-n">2.7%</span><span class="hs-l">PBCI May 2026 — down from 22%</span></div>
+    <div class="hs"><span class="hs-n">91.8%</span><span class="hs-l">Ghana internet users on WhatsApp</span></div>
+    <div class="hs"><span class="hs-n">GHC 0</span><span class="hs-l">Cost to start — this week</span></div>
+    <div class="hs"><span class="hs-n">GHC 1,500</span><span class="hs-l">Total 4-week campaign budget</span></div>
   </div>
-</div>
-
-<div class="docs">
-  <div class="docs-label">Strategy Documents</div>
-
-  <a class="doc-card" href="wima-master-hub.html">
-    <div class="doc-accent" style="background:#1A4A80;"></div>
-    <div class="doc-body">
-      <div class="doc-title">Wima Builders Ecosystem — Master Intelligence Hub</div>
-      <div class="doc-desc">The complete living reference: ecosystem modules, aquarium division, master craftsmen programme, 46+ verified suppliers, 22 banks and financial products, 4-tier funding strategy, Motito intelligence, 90-day launch plan, social media section, and an offline worksheet that auto-saves in the browser.</div>
-      <div class="doc-tags">
-        <span class="dtag" style="background:#E6F1FB;color:#1A4A80;">12 Sections</span>
-        <span class="dtag" style="background:#EAF3DE;color:#1A6840;">46+ Suppliers</span>
-        <span class="dtag" style="background:#F0ECF9;color:#5A2890;">Offline Worksheet</span>
-        <span class="dtag" style="background:#FBF0D8;color:#7A4A00;">GHC 1,500 Campaign</span>
-      </div>
-      <div class="doc-version">v2.3 · June 2026 · Sections A–L</div>
-    </div>
-    <div class="doc-arrow">→</div>
-  </a>
-
-  <a class="doc-card" href="wima-flyers-launch.html">
-    <div class="doc-accent" style="background:#D4860A;"></div>
-    <div class="doc-body">
-      <div class="doc-title">Campaign Flyers &amp; Launch Guide — 4 Flyers · Facebook Setup · WhatsApp Setup · Payment &amp; Launch</div>
-      <div class="doc-desc">Four print-ready campaign flyers (one per category) with the diagonal-cut design. Step-by-step Facebook Click-to-WhatsApp campaign setup. WhatsApp Business auto-reply configuration. Complete Campaign Payment &amp; Launch section — including the Wise virtual card method for funding Meta ads from Ghana, and the 8-item launch checklist with the 4-week GHC 1,500 budget table.</div>
-      <div class="doc-tags">
-        <span class="dtag" style="background:#FEF3DC;color:#7A4A00;">4 Flyers</span>
-        <span class="dtag" style="background:#EBF3FD;color:#1E3A8A;">Facebook Setup</span>
-        <span class="dtag" style="background:#F0FDF4;color:#14532D;">WhatsApp Setup</span>
-        <span class="dtag" style="background:#FEF2F2;color:#7F1D1D;">Wise Payment Guide</span>
-      </div>
-      <div class="doc-version">v1.0 · July 2026 · Launch week resource</div>
-    </div>
-    <div class="doc-arrow">→</div>
-  </a>
-
-  <a class="doc-card" href="wima-content-library.html">
-    <div class="doc-accent" style="background:#0F766E;"></div>
-    <div class="doc-body">
-      <div class="doc-title">Content Library — Blog Posts · Social Media · Email · Landing Pages · Press Release · Case Study</div>
-      <div class="doc-desc">Research-based marketing content in authentic Ghanaian voice across six channels. 4 SEO blog posts with July 2026 Ghana data: PBCI 2.7% YoY (down from 22%), cement -14.5% YoY, ECG GHS 1.97/kWh, housing deficit 1.8M units, Facebook 8.4M users with 66% market share, WhatsApp 91.8% of internet users. 28 social posts in authentic Accra voice (chale, akwaaba, medaase, Borga, wahala). 3 email newsletters. 4 landing pages. Ghana-media-ready press release. Case study template with Ghanaian-English quote guidance. Every factual claim sourced and cited.</div>
-      <div class="doc-tags">
-        <span class="dtag" style="background:#F0FDFA;color:#0F766E;">6 Channels</span>
-        <span class="dtag" style="background:#FEF3E0;color:#7A4A00;">28 Social Posts</span>
-        <span class="dtag" style="background:#EBF3FD;color:#1E3A8A;">4 Blog Posts</span>
-        <span class="dtag" style="background:#F5F3FF;color:#5B21B6;">Press Release</span>
-      </div>
-      <div class="doc-version">v2.1 · July 2026 · July 2026 Ghana data: PBCI 2.7%, cement -14.5%, WhatsApp 91.8%, Facebook 8.4M</div>
-    </div>
-    <div class="doc-arrow">→</div>
-  </a>
-
-  <a class="doc-card" href="wima-full-campaign-brief.html">
-    <div class="doc-accent" style="background:#D4860A;"></div>
-    <div class="doc-body">
-      <div class="doc-title">Full Campaign Brief — Objectives · Audiences · Messaging · Calendar · Metrics</div>
-      <div class="doc-desc">The complete structured launch plan: 3 SMART objectives, 5 audience profiles, 5 messaging pillars, channel strategy for 7 platforms, a 28-day week-by-week content calendar with a colour-coded Gantt chart, and a 15-row KPI scorecard with decision rules. Built for the Wima Deal Hub 4-category product launch.</div>
-      <div class="doc-tags">
-        <span class="dtag" style="background:#FEF3E0;color:#7A4A00;">6 Sections</span>
-        <span class="dtag" style="background:#EBF3FD;color:#1E3A8A;">28-Day Calendar</span>
-        <span class="dtag" style="background:#F0FDF4;color:#166534;">5 Audiences</span>
-        <span class="dtag" style="background:#F5F3FF;color:#5B21B6;">KPI Scorecard</span>
-      </div>
-      <div class="doc-version">v1.0 · June 2026 · Full campaign brief with Gantt chart</div>
-    </div>
-    <div class="doc-arrow">→</div>
-  </a>
-
-  <a class="doc-card" href="wima-campaign-brief.html">
-    <div class="doc-accent" style="background:#E8A020;"></div>
-    <div class="doc-body">
-      <div class="doc-title">Social Media Campaign Brief — 4 Categories · GHC 1,500</div>
-      <div class="doc-desc">Complete pre- and post-launch campaign plan for all four Wima Deal Hub categories: Acoustic Ceiling Systems, Drywall & Partition Systems, Exterior Cladding & Cement Board, and Insulation Systems. Includes ad copy, WhatsApp auto-reply scripts, audience targeting, 4-week budget breakdown, creative direction, and step-by-step GitHub Pages hosting guide.</div>
-      <div class="doc-tags">
-        <span class="dtag" style="background:#FBF0D8;color:#7A4A00;">4 Categories</span>
-        <span class="dtag" style="background:#E6F1FB;color:#1A4A80;">GHC 1,500 Budget</span>
-        <span class="dtag" style="background:#EAF3DE;color:#1A6840;">4-Week Plan</span>
-        <span class="dtag" style="background:#F0ECF9;color:#5A2890;">GitHub Guide</span>
-      </div>
-      <div class="doc-version">v1.0 · June 2026 · Updated with all launch categories</div>
-    </div>
-    <div class="doc-arrow">→</div>
-  </a>
-
-  <div class="docs-label" style="margin-top:32px;">Quick Reference</div>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
-    <div style="background:white;border:1px solid #D8D4C4;border-left:4px solid #1A4A80;padding:14px 16px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#718096;margin-bottom:6px;">Priority #1 contact</div>
-      <a href="tel:+233302214314" style="font-size:14px;font-weight:600;color:#1A1A1A;text-decoration:none;display:block;margin-bottom:2px;">SG Ghana Happy Home Loan</a>
-      <div style="font-size:12px;color:#718096;margin-bottom:6px;">0% interest · Up to GHS 50,000</div>
-      <a href="tel:+233302214314" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#1A4A80;text-decoration:none;">📞 +233-302-214314</a>
-    </div>
-    <div style="background:white;border:1px solid #D8D4C4;border-left:4px solid #1A6840;padding:14px 16px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#718096;margin-bottom:6px;">Priority #2 contact</div>
-      <a href="tel:+233551400099" style="font-size:14px;font-weight:600;color:#1A1A1A;text-decoration:none;display:block;margin-bottom:2px;">Kabinart Ghana</a>
-      <div style="font-size:12px;color:#718096;margin-bottom:6px;">Joseph Mattouk · After dry wall launch</div>
-      <a href="tel:+233551400099" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#1A6840;text-decoration:none;">📞 0551 400 099</a>
-    </div>
-    <div style="background:white;border:1px solid #D8D4C4;border-left:4px solid #E8A020;padding:14px 16px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#718096;margin-bottom:6px;">Apply immediately</div>
-      <a href="https://tefconnect.com" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:#1A1A1A;text-decoration:none;display:block;margin-bottom:2px;">TEF 2026 Application</a>
-      <div style="font-size:12px;color:#718096;margin-bottom:6px;">$5,000 seed · No equity given</div>
-      <a href="https://tefconnect.com" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#E8A020;text-decoration:none;">↗ tefconnect.com</a>
+  <div class="products-row">
+    <a href="wima-master-hub.html" class="product-pill pp-deal">
+      <div class="dot" style="background:#C47A0A;"></div>
+      Wima Deal Hub — Active
+    </a>
+    <div class="product-pill pp-sig pp-coming">
+      <div class="dot" style="background:#0F9B8E;"></div>
+      Wima Signature — Coming Soon
     </div>
   </div>
 </div>
 
-<div class="footer">
-  <span class="footer-brand">Wima Builders</span>
-  <span>Ecosystem Intelligence Hub · v2.3 · June 2026 · Hosted free on GitHub Pages</span>
+<!-- PRODUCT BRANDS -->
+<div class="products-section">
+
+  <!-- Wima Deal Hub -->
+  <div class="product-brand deal">
+    <div class="pb-glow"></div>
+    <div class="pb-eye">Wima Deal Hub · Product 01 · Active</div>
+    <h2 class="pb-name">The digital bulk-buy<br>marketplace for Ghana<br>building materials.</h2>
+    <p class="pb-sub">Connecting verified suppliers with homeowners, contractors, and diaspora clients across Ghana. Supply and installation. Free BOQ in 24 hours. No physical showroom. No logistics. All via WhatsApp.</p>
+    <div class="pb-cats">
+      <div class="pb-cat">Acoustic Ceiling Systems — from GHS 85/m²</div>
+      <div class="pb-cat">Drywall &amp; Partition Systems — from GHS 85/m²</div>
+      <div class="pb-cat">Exterior Cladding &amp; Cement Board — from GHS 120/m²</div>
+      <div class="pb-cat">Insulation Systems — from GHS 95/m²</div>
+    </div>
+    <a href="wima-master-hub.html" class="pb-launch">→ Open Master Hub</a>
+  </div>
+
+  <!-- Wima Signature -->
+  <div class="product-brand sig">
+    <div class="pb-glow"></div>
+    <div class="pb-eye">Wima Signature · Product 02</div>
+    <div class="coming-badge">Coming Soon</div>
+    <h2 class="pb-name">Premium specification<br>supply for Ghana's<br>high-end builds.</h2>
+    <p class="pb-sub">Curated procurement for architects, interior designers, and premium residential developers. Sourced internationally. Delivered to site. Specification-managed from concept to installation.</p>
+    <div class="pb-cats">
+      <div class="pb-cat">Premium kitchen &amp; joinery systems</div>
+      <div class="pb-cat">Designer lighting &amp; electrical</div>
+      <div class="pb-cat">Imported stone &amp; tile</div>
+      <div class="pb-cat">High-specification bathroom suites</div>
+    </div>
+    <div class="pb-launch">Launching after Deal Hub</div>
+  </div>
+
+</div>
+
+<!-- RESEARCH STRIP -->
+<div class="research-strip">
+  <div class="rs-title">Live Research Foundation — All Data Sourced · July 2026</div>
+  <div class="rs-grid">
+    <div class="rs-item">
+      <span class="rs-n">2.7%</span>
+      <span class="rs-l">PBCI May 2026 YoY · down from 22% · GSS via B&FT</span>
+    </div>
+    <div class="rs-item">
+      <span class="rs-n">-14.5%</span>
+      <span class="rs-l">Cement YoY May 2026 · steel -8.1% · labour -2.0%</span>
+    </div>
+    <div class="rs-item">
+      <span class="rs-n">8.4M</span>
+      <span class="rs-l">Ghana Facebook users · 66% social media share · Grokipedia</span>
+    </div>
+    <div class="rs-item">
+      <span class="rs-n">91.8%</span>
+      <span class="rs-l">Ghana internet users on WhatsApp · 98% open rate</span>
+    </div>
+    <div class="rs-item">
+      <span class="rs-n">$0.24</span>
+      <span class="rs-l">Africa avg Facebook CPC · world's lowest · Vaizle 2025</span>
+    </div>
+    <div class="rs-item">
+      <span class="rs-n">GHS 95</span>
+      <span class="rs-l">Cement 50kg Accra 2026 · ready-mix GHS 1,400/m³</span>
+    </div>
+  </div>
+</div>
+
+<!-- DOCUMENTS SECTION -->
+<div class="docs-section">
+  <div class="section-eye">Strategy Documents <span class="tag">6 files · all linked</span></div>
+  <h2 class="section-title">Everything Wima needs<br>to <em>launch this week.</em></h2>
+  <p class="section-intro">Six strategy and campaign documents — each built for a specific job. Click any card to open. All documents are interlinked and work offline once downloaded.</p>
+
+  <div class="docs-grid">
+
+    <!-- Master Hub -->
+    <a class="doc-card" href="wima-master-hub.html">
+      <div class="doc-accent" style="background:#C47A0A;"></div>
+      <div class="doc-inner">
+        <span class="doc-number">01 — Master Intelligence Hub</span>
+        <div class="doc-title">Wima Builders Ecosystem — Full Strategy, Suppliers, Finance &amp; Campaign</div>
+        <div class="doc-desc">The central intelligence document. 12 sections covering ecosystem strategy, supplier directory, bank and finance partners, craftsmen network, aquarium division, and the complete GHC 1,500 campaign execution plan.</div>
+        <div class="doc-tags">
+          <span class="dtag">12 Sections</span>
+          <span class="dtag">Supplier Network</span>
+          <span class="dtag">Finance Partners</span>
+          <span class="dtag">28-Day Plan</span>
+        </div>
+      </div>
+      <div class="doc-arrow">→</div>
+      <div class="doc-badge db-live">Living doc</div>
+    </a>
+
+    <!-- Flyers & Launch -->
+    <a class="doc-card" href="wima-flyers-launch.html">
+      <div class="doc-accent" style="background:#D4880C;"></div>
+      <div class="doc-inner">
+        <span class="doc-number">02 — Campaign Flyers &amp; Launch Guide</span>
+        <div class="doc-title">4 Campaign Flyers · Facebook Setup · WhatsApp Setup · Payment &amp; Launch</div>
+        <div class="doc-desc">Four print-ready campaign flyers, one per category. Step-by-step Facebook Click-to-WhatsApp campaign setup. WhatsApp Business auto-reply guide. Complete Campaign Payment section — Wise card method, 8-item launch checklist, 4-week budget table.</div>
+        <div class="doc-tags">
+          <span class="dtag">4 Flyers</span>
+          <span class="dtag">Facebook Ads</span>
+          <span class="dtag">Wise Payment</span>
+          <span class="dtag">Launch Checklist</span>
+        </div>
+      </div>
+      <div class="doc-arrow">→</div>
+      <div class="doc-badge db-launch">This week</div>
+    </a>
+
+    <!-- Content Library -->
+    <a class="doc-card" href="wima-content-library.html">
+      <div class="doc-accent" style="background:#0F766E;"></div>
+      <div class="doc-inner">
+        <span class="doc-number">03 — Ghana Content Library</span>
+        <div class="doc-title">Blog Posts · 28 Social Posts · Emails · Landing Pages · Press Release · Case Study</div>
+        <div class="doc-desc">Research-based content across 6 channels in authentic Ghanaian voice. All PBCI 2.7%, ECG tariff, housing deficit and digital platform data cited. Language validated: chale, akwaaba, medaase, Borga, wahala — used correctly throughout.</div>
+        <div class="doc-tags">
+          <span class="dtag">4 Blog Posts</span>
+          <span class="dtag">28 Social Posts</span>
+          <span class="dtag">3 Newsletters</span>
+          <span class="dtag">Press Release</span>
+        </div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+
+    <!-- Full Campaign Brief -->
+    <a class="doc-card" href="wima-full-campaign-brief.html">
+      <div class="doc-accent" style="background:#7C3AED;"></div>
+      <div class="doc-inner">
+        <span class="doc-number">04 — Full Campaign Brief</span>
+        <div class="doc-title">Objectives · Audiences · Messaging Pillars · Channel Strategy · 28-Day Calendar · KPIs</div>
+        <div class="doc-desc">The investor-grade campaign brief. SMART objectives, 5 audience profiles, 5 messaging pillars, channel-by-channel strategy, a 28-day Gantt execution calendar, and a KPI scorecard with Ghana-specific benchmarks. Distributor-ready format.</div>
+        <div class="doc-tags">
+          <span class="dtag">5 Audiences</span>
+          <span class="dtag">5 Pillars</span>
+          <span class="dtag">Gantt Calendar</span>
+          <span class="dtag">KPI Scorecard</span>
+        </div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+
+    <!-- Marketing Brief -->
+    <a class="doc-card" href="wima-campaign-brief.html">
+      <div class="doc-accent" style="background:#1D4ED8;"></div>
+      <div class="doc-inner">
+        <span class="doc-number">05 — Marketing Intelligence Brief</span>
+        <div class="doc-title">Ghana Market Research · Zero-Cost Tactics · Ad Copy · WhatsApp Scripts · GitHub Guide</div>
+        <div class="doc-desc">Market intelligence and tactical playbook. Sourced Ghana social media data, competitor landscape, zero-cost 10-step marketing sequence, 4-category Facebook ad copy, WhatsApp Business scripts, and GitHub Pages hosting setup guide.</div>
+        <div class="doc-tags">
+          <span class="dtag">Market Research</span>
+          <span class="dtag">Ad Copy</span>
+          <span class="dtag">WhatsApp Scripts</span>
+          <span class="dtag">GitHub Guide</span>
+        </div>
+      </div>
+      <div class="doc-arrow">→</div>
+    </a>
+
+    <!-- This Hub -->
+    <div class="doc-card" style="cursor:default;opacity:.5;">
+      <div class="doc-accent" style="background:#44403C;"></div>
+      <div class="doc-inner">
+        <span class="doc-number">06 — Hub Homepage</span>
+        <div class="doc-title">You are here — Wima Builders Strategy &amp; Campaign Hub</div>
+        <div class="doc-desc">The central navigation homepage linking all six documents. Upload all six files to your GitHub Pages repository to make the complete Wima intelligence hub live on the web.</div>
+        <div class="doc-tags">
+          <span class="dtag">index.html</span>
+          <span class="dtag">GitHub Pages</span>
+        </div>
+      </div>
+      <div class="doc-arrow" style="opacity:0;">→</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WEEK PLAN -->
+<div class="week-strip">
+  <div class="week-cell">
+    <span class="week-n">Week 1 · This week · Now</span>
+    <div class="week-title">Flyers &amp; Setup</div>
+    <div class="week-budget">GHC 0</div>
+    <ul class="week-items">
+      <li>Post 4 flyers to WhatsApp Status (7pm, one per day)</li>
+      <li>Post to Facebook Business Page</li>
+      <li>Print for Jamal's sites</li>
+      <li>Set up Wise card &amp; Meta billing</li>
+      <li>Complete WhatsApp Business auto-replies</li>
+    </ul>
+  </div>
+  <div class="week-cell">
+    <span class="week-n">Week 2 · Days 8–14</span>
+    <div class="week-title">First Paid Campaign</div>
+    <div class="week-budget">GHC 500</div>
+    <ul class="week-items">
+      <li>Facebook Click-to-WhatsApp live</li>
+      <li>Flyer as creative · Messages objective</li>
+      <li>Greater Accra · age 28–55 · GHC 71/day</li>
+      <li>Do not edit for 7 days (learning phase)</li>
+    </ul>
+  </div>
+  <div class="week-cell">
+    <span class="week-n">Week 3 · Days 15–21</span>
+    <div class="week-title">Lead Conversion</div>
+    <div class="week-budget">GHC 700</div>
+    <ul class="week-items">
+      <li>3 ad sets: Accra · Diaspora · Retargeting</li>
+      <li>Launch announcement across all channels</li>
+      <li>First BOQs sent and confirmed</li>
+      <li>Video content begins</li>
+    </ul>
+  </div>
+  <div class="week-cell">
+    <span class="week-n">Week 4 · Days 22–28</span>
+    <div class="week-title">Scale Winners</div>
+    <div class="week-budget">GHC 300</div>
+    <ul class="week-items">
+      <li>Scale ad set with lowest cost-per-message</li>
+      <li>Stop all underperforming campaigns</li>
+      <li>First case study published</li>
+      <li>Month 2 planning begins</li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+  <div class="sf-brand">Wima Builders · Accra, Ghana</div>
+  <div class="sf-meta">Wima Deal Hub · Wima Signature · Built by the Wima Team · July 2026</div>
+  <div class="sf-built">Strategy hub · All documents open offline · GitHub Pages hosted</div>
 </div>
 
 </body>
