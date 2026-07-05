@@ -32,7 +32,7 @@ html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;}
 
 /* ── NAV ── */
-.nav{position:sticky;top:0;z-index:200;background:var(--ink);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:2px solid var(--amber);}
+.nav{position:sticky;top:42px;z-index:200;background:var(--ink);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:2px solid var(--amber);}
 .nav-brand{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;}
 .nav-links{display:flex;gap:4px;}
 .nav-links a{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.38);padding:5px 10px;text-decoration:none;border-radius:3px;transition:all .12s;white-space:nowrap;}
@@ -474,9 +474,45 @@ tr:hover td{background:var(--amber-lt);}
   .dl-wrap{padding:36px 22px;}
 }
 @media print{.nav,.dl-wrap{display:none;}}
+
+/* WIMA BUILDERS — SHARED GLOBAL NAVIGATION */
+.wb-topbar{position:fixed;top:0;left:0;right:0;z-index:9999;height:42px;background:#0C0A08;border-bottom:1px solid rgba(196,122,10,.3);display:flex;align-items:center;padding:0 20px;gap:0;font-family:'IBM Plex Mono','Courier New',monospace;}
+.wb-topbar-brand{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;margin-right:6px;}
+.wb-topbar-logo{width:24px;height:24px;background:#C47A0A;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;border-radius:3px;flex-shrink:0;font-family:'Space Grotesk',system-ui,sans-serif;}
+.wb-topbar-name{font-size:10px;font-weight:600;color:#C47A0A;text-transform:uppercase;letter-spacing:.14em;white-space:nowrap;}
+.wb-topbar-div{width:1px;height:22px;background:rgba(255,255,255,.1);margin:0 10px;flex-shrink:0;}
+.wb-topbar-links{display:flex;gap:1px;flex:1;overflow-x:auto;scrollbar-width:none;}
+.wb-topbar-links::-webkit-scrollbar{display:none;}
+.wb-topbar-links a{font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.32);padding:4px 10px;text-decoration:none;white-space:nowrap;border-radius:3px;transition:all .12s;border:1px solid transparent;}
+.wb-topbar-links a:hover{color:#C47A0A;background:rgba(196,122,10,.08);}
+.wb-topbar-links a.wb-active{color:#C47A0A;border-color:rgba(196,122,10,.35);background:rgba(196,122,10,.1);}
+.wb-topbar-links a.wb-home{color:rgba(255,255,255,.55);}
+.wb-topbar-links a.wb-home:hover{color:#C47A0A;}
+.wb-badge{font-size:7px;background:#C47A0A;color:white;padding:1px 5px;border-radius:2px;margin-left:4px;vertical-align:middle;font-weight:600;letter-spacing:.05em;}
+.wb-push{height:42px;}
+@media(max-width:768px){.wb-topbar{padding:0 12px;}.wb-topbar-name{display:none;}.wb-topbar-links a{padding:4px 7px;font-size:8px;}}
+
 </style>
 </head>
 <body>
+<!-- WIMA BUILDERS GLOBAL TOPBAR -->
+<div class="wb-topbar">
+  <a href="index.html" class="wb-topbar-brand">
+    <div class="wb-topbar-logo">WB</div>
+    <div class="wb-topbar-name">Wima Builders</div>
+  </a>
+  <div class="wb-topbar-div"></div>
+  <div class="wb-topbar-links">
+      <a href="index.html" class="wb-home">⌂ Hub</a>
+      <a href="wima-master-hub.html">Master Hub<span class="wb-badge">Strategy</span></a>
+      <a href="wima-campaign-brief.html">Marketing Brief</a>
+      <a href="wima-full-campaign-brief.html">Full Campaign<span class="wb-badge">28-day</span></a>
+      <a href="wima-content-library.html">Content Library<span class="wb-badge">6 channels</span></a>
+      <a href="wima-flyers-launch.html" class="wb-active">Flyers &amp; Launch<span class="wb-badge">This week</span></a>
+  </div>
+</div>
+<div class="wb-push"></div>
+
 
 <nav class="nav">
   <div class="nav-brand">Wima Deal Hub — Campaign Flyers &amp; Launch Guide</div>
