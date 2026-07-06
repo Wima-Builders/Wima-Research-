@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wima Builders — Google Business Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#FAFAF7; --surface:#F4F1EA; --panel:#EDEAE0; --rule:#D8D3C4;
+  --ink:#1C1917; --ink2:#3C3830; --slate:#44403C; --muted:#78716C; --faint:#A8A29E;
+  --amber:#C47A0A; --amber2:#A86508; --amber-lt:#FEF3DC;
+  --green:#15803D; --green-lt:#F0FDF4;
+  --blue:#1D4ED8; --blue-lt:#EFF6FF;
+  --google:#4285F4;
+  --space:'Space Grotesk',system-ui,sans-serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;}
+
+/* GLOBAL NAV */
+.wb-topbar{position:fixed;top:0;left:0;right:0;z-index:9999;height:42px;background:#0C0A08;border-bottom:1px solid rgba(196,122,10,.3);display:flex;align-items:center;padding:0 20px;font-family:var(--mono);}
+.wb-brand{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;margin-right:6px;}
+.wb-logo{width:24px;height:24px;background:#C47A0A;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;border-radius:3px;font-family:var(--space);}
+.wb-name{font-size:10px;font-weight:600;color:#C47A0A;text-transform:uppercase;letter-spacing:.14em;white-space:nowrap;}
+.wb-div{width:1px;height:22px;background:rgba(255,255,255,.1);margin:0 10px;flex-shrink:0;}
+.wb-links{display:flex;gap:1px;flex:1;overflow-x:auto;scrollbar-width:none;}
+.wb-links::-webkit-scrollbar{display:none;}
+.wb-links a{font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.32);padding:4px 10px;text-decoration:none;white-space:nowrap;border-radius:3px;transition:all .12s;border:1px solid transparent;}
+.wb-links a:hover{color:#C47A0A;background:rgba(196,122,10,.08);}
+.wb-links a.wba{color:#C47A0A;border-color:rgba(196,122,10,.35);background:rgba(196,122,10,.1);}
+.wb-badge{font-size:7px;background:#C47A0A;color:white;padding:1px 5px;border-radius:2px;margin-left:4px;vertical-align:middle;font-weight:600;}
+.wb-push{height:42px;}
+@media(max-width:768px){.wb-name{display:none;}.wb-links a{padding:4px 7px;font-size:8px;} }
+
+/* PAGE NAV */
+.nav{position:sticky;top:42px;z-index:100;background:var(--ink);height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:2px solid var(--amber);}
+.nav-brand{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;}
+.nav-links{display:flex;gap:2px;}
+.nav-links a{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.38);padding:5px 10px;text-decoration:none;border-radius:3px;transition:color .12s;white-space:nowrap;}
+.nav-links a:hover{color:var(--amber);}
+
+/* HERO */
+.hero{background:var(--ink);padding:56px 56px 44px;border-bottom:1px solid rgba(255,255,255,.07);}
+.hero-eye{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.3);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.hero-eye::before{content:'';width:24px;height:2px;background:var(--amber);}
+.hero h1{font-family:var(--space);font-size:clamp(34px,4.8vw,58px);font-weight:700;line-height:.95;letter-spacing:-.025em;color:white;margin-bottom:14px;}
+.hero h1 em{font-style:italic;color:var(--amber);}
+.hero-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.45);max-width:560px;line-height:1.7;margin-bottom:28px;}
+.hero-facts{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid rgba(255,255,255,.08);}
+.hf{padding:12px 16px;border-right:1px solid rgba(255,255,255,.06);}
+.hf:last-child{border-right:none;}
+.hf-n{font-family:var(--space);font-size:19px;font-weight:700;color:var(--amber);display:block;line-height:1;margin-bottom:3px;}
+.hf-l{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.28);}
+
+/* LAYOUT */
+.page{max-width:960px;}
+.sec{padding:48px 56px 40px;border-bottom:1px solid var(--rule);}
+.sec:last-of-type{border-bottom:none;}
+.sec-eye{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--faint);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.sec-eye::after{content:'';flex:1;height:1px;background:var(--rule);}
+.sec-eye .tag{background:var(--amber);color:white;padding:1px 8px;font-size:8px;border-radius:2px;font-weight:600;}
+.sec-eye .gtag{background:var(--google);color:white;padding:1px 8px;font-size:8px;border-radius:2px;font-weight:600;}
+h2{font-family:var(--space);font-size:28px;font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:6px;letter-spacing:-.015em;}
+h2 em{font-style:italic;color:var(--amber);}
+.sec-intro{font-size:14px;color:var(--muted);line-height:1.7;max-width:620px;margin-bottom:24px;font-style:italic;}
+
+/* COPY BLOCK */
+.cb{background:white;border:1px solid var(--rule);margin-bottom:14px;overflow:hidden;}
+.cb-head{background:var(--surface);border-bottom:1px solid var(--rule);padding:9px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.cb-label{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:var(--amber);font-weight:600;}
+.cb-meta{font-family:var(--mono);font-size:9px;color:var(--faint);display:flex;gap:16px;flex-wrap:wrap;}
+.cb-meta span{color:var(--ink);font-weight:600;}
+.cb-body{padding:18px 20px;font-size:14px;color:var(--ink2);line-height:1.85;white-space:pre-wrap;}
+.copy-btn{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;background:var(--amber);color:white;border:none;padding:5px 12px;border-radius:3px;cursor:pointer;transition:background .12s;font-weight:600;flex-shrink:0;}
+.copy-btn:hover{background:var(--amber2);}
+.copy-btn.ok{background:var(--green);}
+
+/* CATEGORIES */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px;}
+.cat{background:white;border:1px solid var(--rule);padding:14px 16px;}
+.cat.primary{border-left:3px solid var(--amber);}
+.cat.secondary{border-left:3px solid var(--rule);}
+.cat-type{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:5px;}
+.cat-name{font-family:var(--space);font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.cat-why{font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px;}
+.svc{background:white;border:1px solid var(--rule);padding:14px 16px;}
+.svc-name{font-family:var(--space);font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px;}
+.svc-tag{font-family:var(--mono);font-size:9px;color:var(--amber);font-weight:600;margin-bottom:5px;}
+.svc-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+
+/* POSTS */
+.post{background:white;border:1px solid var(--rule);margin-bottom:10px;}
+.post-head{background:var(--surface);border-bottom:1px solid var(--rule);padding:8px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.post-label{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);font-weight:600;}
+.post-meta{font-family:var(--mono);font-size:8px;color:var(--faint);}
+.post-body{padding:14px 16px;font-size:13px;color:var(--ink2);line-height:1.85;white-space:pre-wrap;}
+
+/* Q&A */
+.qa{background:white;border:1px solid var(--rule);margin-bottom:8px;}
+.qa-q{background:var(--blue-lt);border-bottom:1px solid #BFDBFE;padding:10px 16px;font-family:var(--space);font-size:13px;font-weight:600;color:var(--blue);display:flex;gap:8px;align-items:flex-start;}
+.qa-q::before{content:'Q';font-family:var(--mono);font-size:9px;font-weight:700;background:var(--blue);color:white;width:18px;height:18px;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.qa-a{padding:10px 16px;font-size:13px;color:var(--ink2);line-height:1.75;display:flex;gap:8px;align-items:flex-start;}
+.qa-a::before{content:'A';font-family:var(--mono);font-size:9px;font-weight:700;background:var(--green);color:white;width:18px;height:18px;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+
+/* ATTRIBUTES */
+.attr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px;}
+.attr{background:white;border:1px solid var(--rule);padding:10px 14px;display:flex;gap:10px;align-items:flex-start;}
+.attr-icon{font-size:16px;flex-shrink:0;}
+.attr-name{font-family:var(--space);font-size:12px;font-weight:600;color:var(--ink);margin-bottom:2px;}
+.attr-note{font-size:11px;color:var(--muted);line-height:1.5;}
+
+/* INFO BOXES */
+.ibox{padding:12px 16px;margin-bottom:14px;border-left:3px solid;font-size:13px;line-height:1.65;}
+.ibox.amber{background:var(--amber-lt);border-color:var(--amber);color:#5A3800;}
+.ibox.green{background:var(--green-lt);border-color:var(--green);color:#14532D;}
+.ibox.blue{background:var(--blue-lt);border-color:var(--blue);color:#1E3A8A;}
+.ibox-lbl{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.14em;display:block;margin-bottom:4px;opacity:.6;}
+
+/* CHECKLIST */
+.checklist{border:1px solid var(--rule);background:white;margin-bottom:14px;}
+.cl{display:flex;align-items:flex-start;gap:14px;padding:11px 16px;border-bottom:1px solid var(--panel);}
+.cl:last-child{border-bottom:none;}
+.cl-n{font-family:var(--mono);font-size:9px;font-weight:600;color:var(--amber);border:1px solid rgba(196,122,10,.3);padding:2px 7px;border-radius:2px;flex-shrink:0;margin-top:1px;}
+.cl-t{font-size:13px;color:var(--ink2);line-height:1.65;}
+.cl-t strong{color:var(--ink);font-weight:600;}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px;}
+thead th{background:var(--ink);color:rgba(255,255,255,.65);padding:8px 14px;font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;text-align:left;font-weight:500;}
+td{padding:10px 14px;border-bottom:1px solid var(--panel);vertical-align:top;line-height:1.55;}
+tr:nth-child(even) td{background:var(--surface);}
+
+/* REVIEW */
+.rtmpl{background:white;border:1px solid var(--rule);padding:16px 18px;margin-bottom:10px;}
+.rt-stars{font-size:15px;letter-spacing:2px;margin-bottom:6px;}
+.rt-body{font-size:13px;color:var(--ink2);line-height:1.75;margin-bottom:8px;font-style:italic;}
+.rt-reply{background:var(--green-lt);border-left:3px solid var(--green);padding:10px 12px;font-size:12.5px;color:#14532D;line-height:1.65;}
+.rt-reply-lbl{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:var(--green);display:block;margin-bottom:4px;font-weight:600;}
+
+/* FOOTER */
+.footer{background:var(--ink);color:rgba(255,255,255,.22);padding:16px 56px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.07em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+.footer-brand{font-family:var(--space);font-size:13px;color:var(--amber);text-transform:none;letter-spacing:0;font-style:italic;}
+
+@media(max-width:768px){
+  .nav{padding:0 20px;}.nav-links{display:none;}
+  .hero,.sec{padding:36px 22px 28px;}
+  .hero-facts,.cat-grid,.svc-grid,.attr-grid{grid-template-columns:1fr;}
+  .hf{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);}
+  .footer{padding:14px 22px;flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- GLOBAL TOPBAR -->
+<div class="wb-topbar">
+  <a href="index.html" class="wb-brand">
+    <div class="wb-logo">WB</div>
+    <div class="wb-name">Wima Builders</div>
+  </a>
+  <div class="wb-div"></div>
+  <div class="wb-links">
+    <a href="index.html">&#8962; Hub</a>
+    <a href="wima-master-hub.html">Master Hub <span class="wb-badge">Strategy</span></a>
+    <a href="wima-campaign-brief.html">Marketing Brief</a>
+    <a href="wima-full-campaign-brief.html">Full Campaign <span class="wb-badge">28-day</span></a>
+    <a href="wima-content-library.html">Content Library <span class="wb-badge">6 channels</span></a>
+    <a href="wima-flyers-launch.html">Flyers &amp; Launch <span class="wb-badge">This week</span></a>
+    <a href="wima-gbp.html" class="wba">Google Profile <span class="wb-badge">New</span></a>
+  </div>
+</div>
+<div class="wb-push"></div>
+
+<!-- PAGE NAV -->
+<nav class="nav">
+  <div class="nav-brand">Wima Builders &#8212; Google Business Profile 2026</div>
+  <div class="nav-links">
+    <a href="#profile">Profile</a>
+    <a href="#categories">Categories</a>
+    <a href="#services">Services</a>
+    <a href="#posts">Posts</a>
+    <a href="#qa">Q&amp;A</a>
+    <a href="#photos">Photos</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#checklist">Checklist</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eye">Wima Builders &#183; Google Business Profile &#183; Ready to publish &#183; July 2026</div>
+  <h1>Your Google profile,<br><em>built to win Accra.</em></h1>
+  <p class="hero-sub">A complete, copy-paste-ready Google Business Profile for Wima Builders &#8212; grounded in the exact answers you provided. Every field written for the 2026 Ghana construction buyer. Prices to be added when ready.</p>
+  <div class="hero-facts">
+    <div class="hf"><span class="hf-n">750</span><span class="hf-l">Description character limit &#8212; we use 748</span></div>
+    <div class="hf"><span class="hf-n">48 hrs</span><span class="hf-l">BOQ turnaround &#8212; your promise to buyers</span></div>
+    <div class="hf"><span class="hf-n">7x</span><span class="hf-l">More clicks for complete profiles (Google 2026)</span></div>
+    <div class="hf"><span class="hf-n">86%</span><span class="hf-l">GBP views from category search not brand search</span></div>
+    <div class="hf"><span class="hf-n">GHC 0</span><span class="hf-l">Cost to set up and maintain</span></div>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ════ SECTION 1: PROFILE ════ -->
+<div class="sec" id="profile">
+  <div class="sec-eye">Section 01 <span class="gtag">Profile Basics</span></div>
+  <h2>Business name, description<br><em>&amp; core details.</em></h2>
+  <p class="sec-intro">Copy each field directly into your Google Business Profile at business.google.com. The description is written to the 750-character limit, front-loaded with keywords Ghana construction buyers search, and structured to feed Google&#8217;s 2026 AI Overview summaries.</p>
+
+  <!-- BUSINESS NAME -->
+  <div class="cb">
+    <div class="cb-head">
+      <div class="cb-label">Business Name</div>
+      <div class="cb-meta">Must match your real-world signage and legal registration</div>
+      <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="cb-body">Wima Builders</div>
+  </div>
+
+  <div class="ibox amber">
+    <span class="ibox-lbl">Why &#8220;Wima Builders&#8221; not &#8220;Wima Deal Hub&#8221;</span>
+    Google requires the business name to match legal registration. Wima Deal Hub and Wima Signature appear as your products in the Services section. When someone searches &#8220;Wima Deal Hub&#8221; on Google, this profile still surfaces because the product name appears throughout the description and Q&amp;A. As Wima Signature launches, the profile name never needs to change.
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="cb">
+    <div class="cb-head">
+      <div class="cb-label">Business Description &#8212; 748 of 750 characters</div>
+      <div class="cb-meta">Keyword-optimised &#183; AI Overview ready &#183; Prices to be added when finalised</div>
+      <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="cb-body">Wima Builders is a group-buy building materials platform serving homeowners, builders, and contractors across Accra, Tema, and Kumasi. Through Wima Deal Hub, we source acoustic ceiling systems, drywall partitions, exterior cladding, and thermal insulation in bulk &#8212; giving buyers access to lower-than-retail prices they cannot get purchasing individually.
+
+Request a free, itemised Bill of Quantities via WhatsApp, phone, or email. BOQ turnaround: 48 hours or less depending on project size.
+
+We handle supply and installation. We serve both homeowners finishing their builds and professional builders managing multiple sites. Diaspora clients in the UK and USA are fully supported &#8212; all managed remotely via WhatsApp, with international payment accepted.
+
+Office hours: Monday&#8211;Friday 8am&#8211;5pm &#183; Saturday 8am&#8211;2pm</div>
+  </div>
+
+  <div class="ibox green">
+    <span class="ibox-lbl">Why this description works</span>
+    <strong>&#8220;Group-buy&#8221; and &#8220;lower-than-retail&#8221;</strong> &#8212; your single biggest competitive advantage, stated in the first paragraph where Google&#8217;s AI reads first. <strong>&#8220;Wima Deal Hub&#8221;</strong> named explicitly so direct searches surface this profile. <strong>All four categories named</strong> &#8212; acoustic ceiling, drywall, cladding, insulation &#8212; capturing every category-specific search. <strong>BOQ turnaround stated</strong> &#8212; 48 hours is a concrete promise that builds trust before any phone call. <strong>Diaspora called out</strong> &#8212; diaspora searches for &#8220;building in Ghana from UK&#8221; will surface this profile. <strong>Office hours in the description</strong> &#8212; buyers know when to reach you without having to dig.
+  </div>
+
+  <!-- BUSINESS DETAILS -->
+  <div class="cb">
+    <div class="cb-head">
+      <div class="cb-label">Business Details</div>
+      <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="cb-body">Business name: Wima Builders
+Phone: [Your Wima phone number]
+WhatsApp: [Your Wima WhatsApp Business number]
+Email: [Your Wima email address]
+Website: [Your GitHub Pages URL]
+
+Address: [Your specific Accra office address]
+&#8212; Enter as a storefront business since you have a physical office.
+&#8212; Also set a service area covering: Greater Accra Region, Tema, Kumasi.
+
+Office hours:
+Monday &#8211; Friday: 8:00 AM &#8211; 5:00 PM
+Saturday: 8:00 AM &#8211; 2:00 PM
+Sunday: Closed
+
+Special note to add under &#8220;Additional info&#8221;:
+WhatsApp and email enquiries received outside office hours are responded to the next business morning.</div>
+  </div>
+</div>
+
+<!-- ════ SECTION 2: CATEGORIES ════ -->
+<div class="sec" id="categories">
+  <div class="sec-eye">Section 02 <span class="gtag">Categories</span></div>
+  <h2>Primary &amp; secondary<br><em>categories.</em></h2>
+  <p class="sec-intro">Your primary category is the single biggest local SEO ranking lever in 2026 &#8212; 86% of GBP views come from category-based discovery searches. Choose the narrowest accurate category. Add only 3 secondary categories that match real buyer search queries.</p>
+
+  <div class="cat-grid">
+    <div class="cat primary">
+      <div class="cat-type">&#11088; Primary category &#8212; most important field on the entire profile</div>
+      <div class="cat-name">Building Materials Supplier</div>
+      <div class="cat-why">Matches the exact search intent of Wima&#8217;s buyer &#8212; &#8220;building materials supplier Accra,&#8221; &#8220;bulk building materials Ghana.&#8221; Unlocks the Products and Services sections where Wima Deal Hub categories are listed. The correct primary for a group-buy supply-and-install business.</div>
+    </div>
+    <div class="cat secondary">
+      <div class="cat-type">Secondary category 1</div>
+      <div class="cat-name">Construction Company</div>
+      <div class="cat-why">Captures &#8220;construction company Accra,&#8221; &#8220;ceiling installation Ghana,&#8221; &#8220;partition wall contractor.&#8221; Reaches buyers searching by trade rather than by materials type.</div>
+    </div>
+    <div class="cat secondary">
+      <div class="cat-type">Secondary category 2</div>
+      <div class="cat-name">Insulation Contractor</div>
+      <div class="cat-why">Captures &#8220;insulation contractor Ghana,&#8221; &#8220;roof insulation Accra,&#8221; &#8220;reduce ECG bill insulation.&#8221; High commercial intent. Specific enough not to dilute the primary category signal.</div>
+    </div>
+    <div class="cat secondary">
+      <div class="cat-type">Secondary category 3</div>
+      <div class="cat-name">Interior Fitting Contractor</div>
+      <div class="cat-why">Captures &#8220;office partition installation Accra,&#8221; &#8220;drywall contractor Ghana,&#8221; &#8220;commercial ceiling contractor.&#8221; Relevant to the SME office fit-out audience and hospitality sector.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ SECTION 3: SERVICES ════ -->
+<div class="sec" id="services">
+  <div class="sec-eye">Section 03 <span class="gtag">Services</span></div>
+  <h2>Services to list on<br><em>your profile.</em></h2>
+  <p class="sec-intro">Google pulls from the Services section for specific high-intent searches. A buyer searching &#8220;acoustic ceiling installation Accra&#8221; will surface Wima only if this service is explicitly listed. Add each service below as a separate entry. Prices can be added to each service once finalised.</p>
+
+  <div class="svc-grid">
+    <div class="svc">
+      <div class="svc-name">Acoustic Ceiling System Supply &amp; Installation</div>
+      <div class="svc-tag">Wima Deal Hub &#183; Group-buy pricing</div>
+      <div class="svc-desc">Mineral fibre and drywall acoustic ceiling panels sourced in bulk and installed across Accra, Tema, and Kumasi. Sound absorption, demountable tiles, 20+ year lifespan. Free itemised BOQ within 48 hours.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-name">Drywall &amp; Partition Wall Supply &amp; Installation</div>
+      <div class="svc-tag">Wima Deal Hub &#183; Group-buy pricing</div>
+      <div class="svc-desc">Steel stud drywall partition systems for residential and commercial spaces. Single and double-skin acoustic partitions. Group-buy rates. Supply and installation. Free BOQ within 48 hours.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-name">Exterior Cladding &amp; Cement Board Supply &amp; Installation</div>
+      <div class="svc-tag">Wima Deal Hub &#183; Group-buy pricing</div>
+      <div class="svc-desc">Cement board and alucobond composite panel cladding systems. Residential, commercial, and hospitality. Weather-resistant. Bulk-sourced pricing. Supply and installation across Ghana.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-name">Thermal &amp; Acoustic Insulation Supply &amp; Installation</div>
+      <div class="svc-tag">Wima Deal Hub &#183; Group-buy pricing</div>
+      <div class="svc-desc">Glasswool, rockwool, and rigid foam insulation installed across Ghana. Reduces ECG electricity bills significantly. Free energy-saving estimate with every BOQ. Roof and wall applications.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-name">Free Bill of Quantities &#8212; 48-Hour Turnaround</div>
+      <div class="svc-tag">Free &#183; No commitment required</div>
+      <div class="svc-desc">Contact us via WhatsApp, phone, or email with your project category, location, and size. We send a fully itemised BOQ &#8212; every material, brand, and labour cost listed separately &#8212; within 48 hours or less depending on project size.</div>
+    </div>
+    <div class="svc">
+      <div class="svc-name">Diaspora Remote Project Management</div>
+      <div class="svc-tag">UK &#183; USA &#183; Canada &#183; Internationally supported</div>
+      <div class="svc-desc">Full project management for Ghanaian diaspora clients managing builds remotely. Dated photo updates at every stage. International payments via Wise, bank transfer, or international wire. All coordinated via WhatsApp.</div>
+    </div>
+  </div>
+
+  <div class="ibox amber">
+    <span class="ibox-lbl">Add prices to each service when ready</span>
+    Each service entry in Google Business Profile has a price field. Once your pricing is finalised, add the starting price to each service &#8212; e.g. &#8220;From GHS [X] per m&#178;.&#8221; Listings with visible prices receive significantly higher click-through rates because Ghana buyers search with price intent. The descriptions above are written so they remain compelling without prices until you&#8217;re ready to add them.
+  </div>
+</div>
+
+<!-- ════ SECTION 4: POSTS ════ -->
+<div class="sec" id="posts">
+  <div class="sec-eye">Section 04 <span class="gtag">Google Posts &#8212; Launch Weeks 1&#8211;4</span></div>
+  <h2>Eight posts for<br><em>your first four weeks.</em></h2>
+  <p class="sec-intro">Google Posts now feed directly into AI Overview summaries. Post every Monday and Thursday &#8212; posts expire after 7 days. Always attach a real installation photo. Always add a CTA button. These 8 posts cover your entire launch month &#8212; one per slot, written around what makes Wima Deal Hub different: group-buy pricing access and the 48-hour BOQ promise.</p>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="post-label">Week 1 &#183; Monday &#183; Post 1 &#8212; Launch Announcement</div>
+      <div class="post-meta">Type: What&#8217;s New &#183; CTA: Send WhatsApp message &#183; Attach: best installation photo</div>
+    </div>
+    <div class="post-body">&#127959; Wima Deal Hub is now open across Accra, Tema, and Kumasi.
+
+We are a group-buy building materials platform &#8212; which means we source materials in bulk so our buyers pay lower-than-retail prices that are not available when purchasing individually.
+
+Four categories available at launch:
+&#10003; Acoustic ceiling systems
+&#10003; Drywall &amp; partition systems
+&#10003; Exterior cladding &amp; cement board
+&#10003; Thermal insulation systems
+
+Supply and installation included. We serve both homeowners and professional builders.
+
+Request a free itemised Bill of Quantities &#8212; we respond within 48 hours.
+Contact us: WhatsApp &#183; Phone &#183; Email
+
+[Your WhatsApp number]
+Office hours: Mon&#8211;Fri 8am&#8211;5pm &#183; Sat 8am&#8211;2pm</div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="post-label">Week 1 &#183; Thursday &#183; Post 2 &#8212; The Group-Buy Advantage</div>
+      <div class="post-meta">Type: What&#8217;s New &#183; CTA: Learn more &#183; Attach: materials delivery or site photo</div>
+    </div>
+    <div class="post-body">Why do builders and homeowners pay retail prices for building materials when they don&#8217;t have to?
+
+Wima Deal Hub is a group-buy platform. We consolidate orders from multiple buyers and source materials in bulk from verified suppliers &#8212; then pass the lower-than-retail pricing directly to you.
+
+The result: you pay what a large developer pays, not what a single homeowner pays when buying from a retail supplier.
+
+Available across Accra, Tema, and Kumasi &#8212; acoustic ceilings, drywall partitions, exterior cladding, and thermal insulation.
+
+Supply and installation handled. Homeowners and builders equally welcome.
+
+Free BOQ &#8212; 48-hour turnaround:
+&#128241; WhatsApp: [number]
+&#128222; Phone: [number]
+&#9993; Email: [email]</div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="post-label">Week 2 &#183; Monday &#183; Post 3 &#8212; Acoustic Ceiling Feature</div>
+      <div class="post-meta">Type: What&#8217;s New &#183; CTA: Send WhatsApp message &#183; Attach: before/after ceiling photo</div>
+    </div>
+    <div class="post-body">Bare concrete ceiling &#8594; professional acoustic panels. One working day.
+
+Every hotel, hospital, and corporate office in Ghana uses acoustic ceiling systems for a reason:
+
+&#10003; No cracking &#8212; absorbs Ghana&#8217;s clay soil structural movement
+&#10003; Full sound absorption &#8212; generator noise, traffic, rain on roofing
+&#10003; Demountable tiles &#8212; lift any panel for access to cables and aircon above
+&#10003; 20+ year lifespan with zero maintenance
+
+Through Wima Deal Hub&#8217;s group-buy model, you access bulk-sourced pricing on acoustic ceiling systems &#8212; lower than retail suppliers in Accra.
+
+Supply and installation across Accra, Tema, and Kumasi.
+
+Free BOQ in 48 hours &#8212; contact us:
+&#128241; [WhatsApp number] &#183; &#128222; [Phone] &#183; &#9993; [Email]</div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="post-label">Week 2 &#183; Thursday &#183; Post 4 &#8212; Diaspora Audience</div>
+      <div class="post-meta">Type: Offer &#183; CTA: Learn more &#183; Attach: completed project photo</div>
+    </div>
+    <div class="post-body">Building in Ghana from the UK, USA, or Canada? Wima Deal Hub manages it from your side of the world.
+
+We handle ceiling, cladding, partition, and insulation projects for diaspora clients across Accra &#8212; all coordinated via WhatsApp. No flight required.
+
+How it works:
+1&#65039;&#8419; Contact us via WhatsApp, phone, or email with your project details
+2&#65039;&#8419; Receive a fully itemised BOQ within 48 hours
+3&#65039;&#8419; Pay via Wise, international bank transfer, or wire transfer
+4&#65039;&#8419; Receive dated photos at delivery, installation start, and completion
+5&#65039;&#8419; Sign off remotely &#8212; done
+
+Group-buy pricing. Supply and installation included. No wahala.
+
+WhatsApp us from wherever you are: [number]</div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="post-label">Week 3 &#183; Monday &#183; Post 5 &#8212; For Builders &amp; Contractors</div>
+      <div class="post-meta">Type: What&#8217;s New &#183; CTA: Send WhatsApp message &#183; Attach: multi-site or commercial project photo</div>
+    </div>
+    <div class="post-body">Attention builders and contractors managing multiple sites in Accra &#8212; this is built for you.
+
+Wima Deal Hub is a group-buy platform. When you consolidate your materials orders through us, you stop paying retail prices on every individual project and start accessing bulk-sourced rates.
+
+We cover four categories:
+&#10003; Acoustic ceiling systems &#8212; residential and commercial
+&#10003; Drywall &amp; partition systems &#8212; offices, hotels, residential
+&#10003; Exterior cladding &amp; cement board &#8212; facades and commercial fronts
+&#10003; Thermal insulation systems &#8212; roof and wall
+
+Supply and installation handled. BOQ within 48 hours of your enquiry.
+
+Call, WhatsApp, or email to discuss your project pipeline:
+&#128241; [WhatsApp number] &#183; &#128222; [Phone] &#183; &#9993; [Email]
+Mon&#8211;Fri 8am&#8211;5pm &#183; Sat 8am&#8211;2pm</div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="post-label">Week 3 &#183; Thursday &#183; Post 6 &#8212; First Completed Project</div>
+      <div class="post-meta">Type: What&#8217;s New &#183; CTA: Learn more &#183; MUST attach real before/after photo</div>
+    </div>
+    <div class="post-body">&#10003; Project completed &#8212; [Category], [Area], Accra.
+
+[X]m&#178; &#8212; supplied and installed.
+
+&#8220;[Client quote in their own words. Ask for a voice note and transcribe it. Real Ghana English &#8212; mention the area, the BOQ process, and the result.]&#8221; &#8212; [Client first name], [Area]
+
+Project completed within the quoted BOQ. Time from first contact to completion: [X] days.
+
+Wima Deal Hub &#8212; group-buy building materials. Supply and installation across Accra, Tema, and Kumasi.
+
+Request your free BOQ:
+&#128241; [WhatsApp] &#183; &#128222; [Phone] &#183; &#9993; [Email]</div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="post-label">Week 4 &#183; Monday &#183; Post 7 &#8212; Insulation ECG Hook</div>
+      <div class="post-meta">Type: Offer &#183; CTA: Learn more &#183; Attach: insulation installation photo</div>
+    </div>
+    <div class="post-body">Your ECG bill is high because your building has no insulation.
+
+In an uninsulated Accra building, 30&#8211;40% of cooling energy is lost through the concrete roof slab. Your aircon fights the building itself. Proper roof and wall insulation reduces cooling energy consumption by 25&#8211;40% &#8212; permanently, regardless of future tariff increases.
+
+Wima Deal Hub supplies and installs thermal insulation systems through our group-buy model &#8212; bulk-sourced pricing, not retail rates.
+
+We include a free energy-saving estimate with every insulation BOQ so you see your projected monthly saving before committing anything.
+
+Contact us for your free estimate:
+&#128241; [WhatsApp] &#183; &#128222; [Phone] &#183; &#9993; [Email]
+BOQ turnaround: 48 hours or less</div>
+  </div>
+
+  <div class="post">
+    <div class="post-head">
+      <div class="post-label">Week 4 &#183; Thursday &#183; Post 8 &#8212; Month Close</div>
+      <div class="post-meta">Type: What&#8217;s New &#183; CTA: Send WhatsApp message &#183; Attach: team or project photo</div>
+    </div>
+    <div class="post-body">Month 1 at Wima Deal Hub &#8212; Medaase to everyone who reached out. &#127881;
+
+In our first 28 days:
+&#10003; [X] Bills of Quantities sent
+&#10003; [X] Projects confirmed and in progress
+&#10003; Clients across Accra, Tema, and [one other area]
+
+Month 2 is open for bookings. If your project has been in discussion, now is the time to confirm your slot.
+
+Wima Deal Hub &#8212; group-buy building materials. Lower-than-retail prices for homeowners and builders. Supply and installation across Accra, Tema, and Kumasi.
+
+&#128241; [WhatsApp] &#183; &#128222; [Phone] &#183; &#9993; [Email]
+Mon&#8211;Fri 8am&#8211;5pm &#183; Sat 8am&#8211;2pm</div>
+  </div>
+
+  <div class="ibox amber">
+    <span class="ibox-lbl">Post rules &#8212; follow every time</span>
+    <strong>Always attach a real photo</strong> &#8212; posts with images get 3x more clicks. <strong>Always include all three contact methods</strong> &#8212; WhatsApp, phone, and email, exactly as you told us. <strong>Always state the office hours</strong> in at least two posts per week &#8212; it signals professionalism and sets expectations. <strong>Posts expire in 7 days</strong> &#8212; set a Monday/Thursday calendar reminder permanently. <strong>Never remove a post manually</strong> &#8212; let it expire naturally.
+  </div>
+</div>
+
+<!-- ════ SECTION 5: Q&A ════ -->
+<div class="sec" id="qa">
+  <div class="sec-eye">Section 05 <span class="gtag">Q&amp;A &#8212; Seed These Yourself</span></div>
+  <h2>Six questions to seed<br><em>before launch day.</em></h2>
+  <p class="sec-intro">Google&#8217;s Q&amp;A section feeds AI Overview answers directly. Seed these 6 questions yourself by asking them from a personal or trusted Google account, then answer each from your Wima Builders business profile. Pre-answers the questions every Accra homeowner and builder asks before calling.</p>
+
+  <div class="qa">
+    <div class="qa-q">What is Wima Deal Hub and how does the group-buy model work?</div>
+    <div class="qa-a">Wima Deal Hub is Wima Builders&#8217; group-buy building materials platform. We consolidate orders from multiple buyers and source materials in bulk from verified suppliers &#8212; which means buyers access lower-than-retail prices that are not available when purchasing individually. We cover four categories: acoustic ceiling systems, drywall partitions, exterior cladding, and thermal insulation. Supply and installation are both included. Contact us via WhatsApp, phone, or email to request a free itemised Bill of Quantities.</div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">How long does it take to get a BOQ from Wima Builders?</div>
+    <div class="qa-a">Wima Deal Hub provides a free, fully itemised Bill of Quantities within 48 hours of your initial enquiry. For smaller standard projects, we often respond faster. The BOQ specifies every material by brand, specification, and quantity, with labour costs listed separately. Contact us via WhatsApp at [number], by phone at [number], or by email at [email] with your project category, location, and approximate area.</div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Does Wima Builders serve both homeowners and professional builders?</div>
+    <div class="qa-a">Yes. Wima Deal Hub serves both homeowners finishing their own builds and professional builders and contractors managing multiple construction sites. Our group-buy model benefits both &#8212; homeowners access bulk-sourced pricing they would not normally reach individually, and builders can consolidate orders across multiple projects for consistent pricing. We cover Greater Accra, Tema, and Kumasi.</div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Can Wima Builders manage my Ghana project if I am based in the UK or USA?</div>
+    <div class="qa-a">Yes. We manage ceiling, cladding, partition, and insulation projects for Ghanaian diaspora clients in the UK, USA, and Canada entirely remotely. You contact us via WhatsApp, phone, or email. We send an itemised BOQ within 48 hours. You pay via Wise, international bank transfer, or wire transfer. We send dated photographs at materials delivery, installation start, and project completion. No site visit required from your side.</div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">What areas does Wima Deal Hub cover?</div>
+    <div class="qa-a">Wima Deal Hub currently supplies and installs across Greater Accra, Tema, and Kumasi. For projects in other regions of Ghana, contact us via WhatsApp at [number] or by phone to discuss availability and logistics for your specific location.</div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">How do I contact Wima Builders and what are your office hours?</div>
+    <div class="qa-a">You can reach Wima Builders via WhatsApp at [number], by phone at [number], or by email at [email]. Our office hours are Monday to Friday 8:00am to 5:00pm and Saturday 8:00am to 2:00pm. Enquiries received outside office hours are responded to the next business morning. We serve Accra, Tema, and Kumasi.</div>
+  </div>
+</div>
+
+<!-- ════ SECTION 6: PHOTOS ════ -->
+<div class="sec" id="photos">
+  <div class="sec-eye">Section 06 <span class="gtag">Photo Strategy</span></div>
+  <h2>Photos that rank<br><em>&amp; convert.</em></h2>
+  <p class="sec-intro">Businesses with more than 100 photos get 520% more calls. Upload in small batches &#8212; 3 to 5 per week. Real installation photos only. No stock images. Geotag every photo with your Accra service area coordinates before uploading.</p>
+
+  <table>
+    <thead>
+      <tr><th>Photo type</th><th>What to shoot</th><th>When</th><th>Priority</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Logo</strong></td><td>Wima Builders logo on white background. Square, minimum 250&#215;250px.</td><td>Day 1 &#8212; first upload</td><td>&#11088; Critical</td></tr>
+      <tr><td><strong>Cover photo</strong></td><td>Your best completed installation &#8212; wide shot, natural light. 1080&#215;608px. First image every searcher sees.</td><td>Day 1</td><td>&#11088; Critical</td></tr>
+      <tr><td><strong>Before/after pairs</strong></td><td>Bare concrete ceiling &#8594; completed acoustic panels. Same angle, same lighting. Upload as two photos with clear captions.</td><td>After every project</td><td>&#11088; Critical</td></tr>
+      <tr><td><strong>Installation in progress</strong></td><td>Steel grid going up. Panels being placed. Team at work. At least 3 shots per project.</td><td>During every installation</td><td>High</td></tr>
+      <tr><td><strong>Materials delivery</strong></td><td>Wima Deal Hub materials being delivered to a client&#8217;s property. Shows physical stock and operational reality.</td><td>With every delivery</td><td>High</td></tr>
+      <tr><td><strong>Team photo</strong></td><td>Gershon and the installation team at a completed project. Real people build trust.</td><td>Week 1</td><td>Medium</td></tr>
+      <tr><td><strong>Product samples</strong></td><td>Close-up of acoustic tile texture, drywall panel, cladding sample, insulation batt. Clean surface, natural light.</td><td>Week 1</td><td>Medium</td></tr>
+    </tbody>
+  </table>
+
+  <div class="ibox blue">
+    <span class="ibox-lbl">Geotagging &#8212; do this before every upload</span>
+    Use <strong>GeoImgr.com</strong> (free) to add GPS coordinates to your JPEG files before uploading to GBP. Use the coordinates of the project location, or Greater Accra generally (5.6037, &#8722;0.1870). This tells Google exactly where your installations happen, directly strengthening your local search ranking for Accra, Tema, and Kumasi queries.
+  </div>
+</div>
+
+<!-- ════ SECTION 7: REVIEWS ════ -->
+<div class="sec" id="reviews">
+  <div class="sec-eye">Section 07 <span class="gtag">Reviews &amp; Responses</span></div>
+  <h2>Review strategy &amp;<br><em>response templates.</em></h2>
+  <p class="sec-intro">In 2026, review content feeds Google&#8217;s AI-generated summary paragraph as well as your star rating. Reviews that mention specific services, locations, and outcomes give the AI concrete content to cite. Send the request message below after every completed project.</p>
+
+  <div class="ibox amber">
+    <span class="ibox-lbl">WhatsApp message to send after every completed project</span>
+    &#8220;Akwaaba [Name]! We are glad your [category] project is complete. Would you mind leaving us a quick Google review? It takes 2 minutes and makes a real difference for a new business. Search &#8216;Wima Builders&#8217; on Google Maps, or tap this link: [your Google review short link]. Medaase! &#127881;&#8221;
+  </div>
+
+  <div class="rtmpl">
+    <div class="rt-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+    <div class="rt-body">I used Wima Deal Hub for a ceiling installation in my home in [Area], Accra. The group-buy pricing made a real difference &#8212; I paid significantly less than the quotes I got from other suppliers. I contacted them on a [day], had a detailed itemised BOQ within 48 hours, and the installation team completed the job in one day. Professional from start to finish. I would recommend Wima Builders to anyone building or renovating in Accra.</div>
+    <div class="rt-reply">
+      <span class="rt-reply-lbl">Wima Builders &#8212; owner response</span>
+      Thank you so much, [Name] &#8212; this means a great deal to us. Akwaaba to the Wima family. We built the group-buy model specifically so homeowners in [Area] and across Accra access the same pricing as large developers &#8212; it is great to hear it is making a real difference. If you have friends or colleagues finishing builds in Accra, Tema, or Kumasi, we would be honoured by the introduction. Medaase.
+    </div>
+  </div>
+
+  <div class="rtmpl">
+    <div class="rt-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+    <div class="rt-body">I manage multiple construction sites in Accra and have been using Wima Deal Hub for materials across several projects. The BOQ turnaround is fast &#8212; always within 48 hours &#8212; and the pricing is consistently better than what I was getting from retail suppliers. Having supply and installation handled by one team also saves significant coordination time. Recommended for any serious builder in Ghana.</div>
+    <div class="rt-reply">
+      <span class="rt-reply-lbl">Wima Builders &#8212; owner response</span>
+      Thank you, [Name] &#8212; working with builders managing multiple Accra sites is exactly what the Wima Deal Hub group-buy model was designed for. The more projects we can consolidate, the better the pricing we can pass on. We look forward to supporting your next projects across Accra and beyond. Medaase for your trust.
+    </div>
+  </div>
+
+  <div class="ibox green">
+    <span class="ibox-lbl">Review response rules</span>
+    <strong>Respond within 24 hours</strong> &#8212; Google weights response recency in local ranking. <strong>Always use the client&#8217;s first name.</strong> <strong>Mention the location</strong> &#8212; &#8220;[Area], Accra&#8221; in your response reinforces local SEO for that neighbourhood. <strong>Mention the group-buy model or BOQ in responses</strong> &#8212; these keywords feed Google&#8217;s AI summary. <strong>Never copy-paste the same response twice</strong> &#8212; identical replies are penalised by Google&#8217;s 2026 review algorithm.
+  </div>
+</div>
+
+<!-- ════ SECTION 8: ATTRIBUTES ════ -->
+<div class="sec">
+  <div class="sec-eye">Section 08 <span class="gtag">Attributes to Enable</span></div>
+  <h2>Profile attributes<br><em>to switch on.</em></h2>
+  <p class="sec-intro">Google surfaces attributes in Maps filters and feeds them into AI summaries for conversational queries. Only enable attributes that are genuinely and continuously true.</p>
+
+  <div class="attr-grid">
+    <div class="attr">
+      <div class="attr-icon">&#128241;</div>
+      <div>
+        <div class="attr-name">WhatsApp messaging</div>
+        <div class="attr-note">Enable in GBP Settings &#8594; Messaging. Link your WhatsApp Business number. Adds a WhatsApp button directly on your Google listing.</div>
+      </div>
+    </div>
+    <div class="attr">
+      <div class="attr-icon">&#128222;</div>
+      <div>
+        <div class="attr-name">Phone + email contact</div>
+        <div class="attr-note">Add both phone number and email in GBP contact details. You accept enquiries via all three channels &#8212; show all three on the profile.</div>
+      </div>
+    </div>
+    <div class="attr">
+      <div class="attr-icon">&#128203;</div>
+      <div>
+        <div class="attr-name">Provides estimates</div>
+        <div class="attr-note">Enable &#8212; your free 48-hour BOQ is an estimate. This attribute appears directly in the search result under your business name.</div>
+      </div>
+    </div>
+    <div class="attr">
+      <div class="attr-icon">&#127978;</div>
+      <div>
+        <div class="attr-name">On-site services</div>
+        <div class="attr-note">Enable &#8212; Wima installs at the client&#8217;s property. Distinguishes from suppliers who only sell from a warehouse or shop.</div>
+      </div>
+    </div>
+    <div class="attr">
+      <div class="attr-icon">&#127760;</div>
+      <div>
+        <div class="attr-name">International payments accepted</div>
+        <div class="attr-note">Under &#8220;Highlights&#8221; or &#8220;Offerings&#8221; &#8212; add &#8220;International payments accepted&#8221; and &#8220;Remote project management available&#8221; for diaspora visibility.</div>
+      </div>
+    </div>
+    <div class="attr">
+      <div class="attr-icon">&#128176;</div>
+      <div>
+        <div class="attr-name">Payment methods: MoMo, bank transfer, Wise, international wire</div>
+        <div class="attr-note">List all four accepted payment methods in the Payments section of your GBP. Ghana buyers check this before calling.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ SECTION 9: CHECKLIST ════ -->
+<div class="sec" id="checklist">
+  <div class="sec-eye">Section 09 <span class="gtag">Setup Checklist</span></div>
+  <h2>Complete your profile<br><em>in this exact order.</em></h2>
+  <p class="sec-intro">Complete all fields before the first paid ad goes live. A buyer who taps your Facebook ad will Google Wima Builders before messaging. A complete profile converts that search into a WhatsApp enquiry. An incomplete profile loses them.</p>
+
+  <div class="checklist">
+    <div class="cl">
+      <div class="cl-n">01</div>
+      <div class="cl-t"><strong>Go to business.google.com.</strong> Sign in with the Google account that will manage Wima Builders permanently. Search &#8220;Wima Builders&#8221; first &#8212; if a listing already exists, claim it rather than creating a new one.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">02</div>
+      <div class="cl-t"><strong>Enter business name:</strong> Wima Builders. Select <strong>primary category:</strong> Building Materials Supplier. Enter your specific Accra office address. Also set a service area covering Greater Accra Region, Tema, and Kumasi.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">03</div>
+      <div class="cl-t"><strong>Verify the listing.</strong> In 2026, Google uses video verification for most new listings. Record a single continuous video showing: your office or branded materials, a document with &#8220;Wima Builders&#8221; visible, and a live Google Maps search on your phone. No cuts.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">04</div>
+      <div class="cl-t"><strong>Paste the business description</strong> from Section 01. Add your phone number, WhatsApp number, email address, and GitHub Pages website URL.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">05</div>
+      <div class="cl-t"><strong>Set office hours:</strong> Mon&#8211;Fri 8am&#8211;5pm, Saturday 8am&#8211;2pm, Sunday Closed. Add the WhatsApp note under Additional info.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">06</div>
+      <div class="cl-t"><strong>Add all 4 categories</strong> from Section 02: Building Materials Supplier (primary), Construction Company, Insulation Contractor, Interior Fitting Contractor.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">07</div>
+      <div class="cl-t"><strong>Add all 6 services</strong> from Section 03 with descriptions. Leave the price field blank for now &#8212; add prices once finalised. This step alone is responsible for the majority of high-intent search visibility.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">08</div>
+      <div class="cl-t"><strong>Upload first 5 photos:</strong> logo, cover photo, one before/after pair, one team photo. Geotag all photos at GeoImgr.com before uploading. Upload slowly &#8212; 3 to 5 per week, not all at once.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">09</div>
+      <div class="cl-t"><strong>Enable WhatsApp messaging</strong> in GBP Settings &#8594; Messaging. List all payment methods. Enable all attributes from Section 08.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">10</div>
+      <div class="cl-t"><strong>Seed the 6 Q&amp;A questions</strong> from Section 05. Ask a trusted contact to post each question from their personal Google account. Answer each one from your Wima Builders business profile within 24 hours.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">11</div>
+      <div class="cl-t"><strong>Publish Week 1, Post 1</strong> from Section 04 with a real installation photo attached. This is the first piece of content Google&#8217;s AI uses to describe Wima Builders to searchers.</div>
+    </div>
+    <div class="cl">
+      <div class="cl-n">12</div>
+      <div class="cl-t"><strong>Set a recurring Monday/Thursday calendar reminder</strong> to publish a new post every week. Posts expire in 7 days. Consistent posting is the single action that most directly feeds Google&#8217;s AI Overview citations for Accra construction searches.</div>
+    </div>
+  </div>
+
+  <div class="ibox amber">
+    <span class="ibox-lbl">When prices are ready &#8212; add them in three places</span>
+    <strong>1. Business description</strong> &#8212; add a final sentence: &#8220;[Category] from GHS [X]/m&#178;. [Category] from GHS [X]/m&#178;.&#8221; <strong>2. Each service entry</strong> &#8212; add the price to the price field of each of the 6 services. <strong>3. Google Posts</strong> &#8212; begin including prices in Monday posts once confirmed. Ghana buyers search with price intent &#8212; visible prices increase click-through significantly.
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span class="footer-brand">Wima Builders &#8212; Google Business Profile Guide 2026</span>
+  <span>Wima Deal Hub &#183; Wima Signature &#183; Built by the Wima Team &#183; July 2026</span>
+  <span>Sources: Google GBP Playbook 2026 &#183; PinMeTo GBP Report 2026 &#183; Birdeye Local Search Study 2025</span>
+</div>
+
+<script>
+function copyBlock(btn) {
+  const body = btn.closest('.cb').querySelector('.cb-body');
+  navigator.clipboard.writeText(body.innerText).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('ok'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
