@@ -30,14 +30,14 @@ html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--white); font-family: var(--sans); font-size: 15px; line-height: 1.65; }
 
 /* GLOBAL NAV */
-.wb-topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; height: 42px; background: #0C0A08; border-bottom: 1px solid rgba(196,122,10,.3); display: flex; align-items: center; padding: 0 20px; font-family: var(--mono); }
+.wb-topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; height: 42px; background: #181410; border-bottom: 2px solid rgba(196,122,10,.55); display: flex; align-items: center; padding: 0 20px; font-family: var(--mono); }
 .wb-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; flex-shrink: 0; margin-right: 6px; }
 .wb-logo { width: 24px; height: 24px; background: #C47A0A; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: white; border-radius: 3px; font-family: var(--space); }
-.wb-name { font-size: 10px; font-weight: 600; color: #C47A0A; text-transform: uppercase; letter-spacing: .14em; white-space: nowrap; }
+.wb-name { font-size: 10px; font-weight: 600; color: #E09020; text-transform: uppercase; letter-spacing: .14em; white-space: nowrap; }
 .wb-divider { width: 1px; height: 22px; background: rgba(255,255,255,.1); margin: 0 10px; flex-shrink: 0; }
 .wb-links { display: flex; gap: 1px; flex: 1; overflow-x: auto; scrollbar-width: none; }
 .wb-links::-webkit-scrollbar { display: none; }
-.wb-links a { font-size: 9px; text-transform: uppercase; letter-spacing: .09em; color: rgba(255,255,255,.32); padding: 4px 10px; text-decoration: none; white-space: nowrap; border-radius: 3px; transition: all .12s; border: 1px solid transparent; }
+.wb-links a { font-size: 9px; text-transform: uppercase; letter-spacing: .09em; color: rgba(255,255,255,.72); padding: 4px 10px; text-decoration: none; white-space: nowrap; border-radius: 3px; transition: all .12s; border: 1px solid transparent; }
 .wb-links a:hover { color: #C47A0A; background: rgba(196,122,10,.08); }
 .wb-links a.active { color: #C47A0A; border-color: rgba(196,122,10,.35); background: rgba(196,122,10,.1); }
 .wb-badge { font-size: 7px; background: #C47A0A; color: white; padding: 1px 5px; border-radius: 2px; margin-left: 4px; vertical-align: middle; font-weight: 600; }
@@ -184,6 +184,7 @@ body { background: var(--bg); color: var(--white); font-family: var(--sans); fon
     <a href="wima-full-campaign-brief.html">Full Campaign <span class="wb-badge">28-day</span></a>
     <a href="wima-content-library.html">Content Library <span class="wb-badge">6 channels</span></a>
     <a href="wima-flyers-launch.html">Flyers &amp; Launch <span class="wb-badge">This week</span></a>
+    <a href="wima-gbp.html">Google Profile <span class="wb-badge">New</span></a>
   </div>
 </div>
 <div class="push"></div>
@@ -353,10 +354,27 @@ body { background: var(--bg); color: var(--white); font-family: var(--sans); fon
       <div class="doc-arr">&#8594;</div>
     </a>
 
-    <div class="doc-card doc-disabled">
+    <a class="doc-card" href="wima-gbp.html">
+      <div class="doc-accent" style="background:#4285F4;"></div>
+      <div class="doc-inner">
+        <span class="doc-num">06 &#8212; Google Business Profile</span>
+        <div class="doc-title">GBP Setup &#183; Description &#183; Posts &#183; Q&amp;A &#183; Photos &#183; Reviews &#183; Launch Checklist</div>
+        <div class="doc-desc">Complete copy-paste Google Business Profile for Wima Builders. Business description (748/750 chars), 4 categories, 6 services with prices, 8 launch week posts, 6 seeded Q&amp;As, photo strategy, review templates, and a 12-step setup checklist.</div>
+        <div class="doc-tags">
+          <span class="dtag">GBP Description</span>
+          <span class="dtag">8 Posts</span>
+          <span class="dtag">6 Q&amp;As</span>
+          <span class="dtag">Setup Checklist</span>
+        </div>
+      </div>
+      <div class="doc-arr">&#8594;</div>
+      <div class="doc-bdg bdg-now">New</div>
+    </a>
+
+        <div class="doc-card doc-disabled">
       <div class="doc-accent" style="background:#44403C;"></div>
       <div class="doc-inner">
-        <span class="doc-num">06 &#8212; Hub Homepage</span>
+        <span class="doc-num">07 &#8212; Hub Homepage</span>
         <div class="doc-title">You are here &#8212; Wima Builders Strategy &amp; Campaign Hub</div>
         <div class="doc-desc">The central navigation homepage linking all six documents. Upload all six files plus .nojekyll to your GitHub Pages repository to make the complete hub live on the web.</div>
         <div class="doc-tags">
